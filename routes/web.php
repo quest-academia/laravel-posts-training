@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//トップページ表示
+Route::get('/', 'PostsController@index');
+
