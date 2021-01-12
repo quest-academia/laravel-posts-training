@@ -15,3 +15,7 @@
 //トップページ表示
 Route::get('/', 'PostsController@index');
 
+//認証機能
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
