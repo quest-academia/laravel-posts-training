@@ -11,7 +11,7 @@
               <a class="btn btn-primary" href="/posts/new">投稿する</a>
             </li>
             <li>
-              <a class="nav-link far fa-user fa-lg" href="#"></a>
+              <a class="nav-link far fa-user fa-lg" href="/users/{{ Auth::user()->id }}"></a>
             </li>
           </ul>
         </div>

@@ -45,3 +45,14 @@ footer {
     background-color: #fafafa;
   }
 }
+.profile-wrap {
+  margin: 40px 0px;
+}
+.profile-form-wrap {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+}
+.edit-profile-wrapper {
+  margin-top: 60px;
+}

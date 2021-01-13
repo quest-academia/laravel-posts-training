@@ -8,7 +8,7 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!--bootstrap-->
         <!--CSS -->
@@ -16,6 +16,9 @@
 
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ asset('/css/application.css') }}" rel="stylesheet">
@@ -29,10 +32,21 @@
     
       @yield('navbar')
     
-      @yield('content')
+      <div class="container">
+         @yield('content')
+      </div>
 
       @yield('footer')
 
+      <!-- JQuery -->
+      <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="js/tether.min.js"></script>
+
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      
       <!-- MDB core JavaScript -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
 
