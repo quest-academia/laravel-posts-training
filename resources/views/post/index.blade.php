@@ -28,12 +28,27 @@
           </h3>
           <div class="card-text">
             {!! nl2br(e( $post->body )) !!}
-          <div class="font-weight-lighter">
-              {{ $post->created_at->format('Y/m/d H:i') }}        
+          <div class="font-weight-lighter font">
+              <label>投稿日時: {{ $post->created_at}}</label>        
           </div>
-        </div>
-      </div>
-
+          </div>
+     
+        
+        <div id="comment-post-{{ $post->id }}">
+              @include('post.comment_list')
+            </div>
+            <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">コメント日時: {{ $post->created_at }}</a>
+            <hr>
+            <div class="row actions" id="comment-form-post-{{ $post->id }}">
+           	  <form class="w-100" id="new_comment" action="/posts/{{ $post->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+             	  {{csrf_field()}} 
+                <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
+                <input value="{{ $post->id }}" type="hidden" name="post_id" />
+                <input class="form-control comment-input border-0" placeholder="コメントする" autocomplete="off" type="text" name="comment" />
+              </form>
+            </div>
+            </div>
+    
       @if ($post->user->id == Auth::user()->id)
       <a class="ml-auto mx-0 my-auto" rel="nofollow" href="/postsdelete/{{ $post->id }}">
       <button class="btn btn-danger btn-sm">削除する</button>

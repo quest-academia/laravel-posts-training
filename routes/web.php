@@ -35,4 +35,12 @@ Route::get('/posts/new', 'PostsController@new')->name('new');
 //投稿処理
 Route::post('/posts','PostsController@store');
 
+//投稿削除
 Route::get('/postsdelete/{post_id}', 'PostsController@destroy');
+
+//コメント
+Route::post('/posts/{comment_id}/comments','CommentsController@store');
+
+//コメント削除
+Route::get('/comments/{comment_id}', 'CommentsController@destroy');
+
