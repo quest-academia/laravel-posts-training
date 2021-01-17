@@ -56,5 +56,28 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/');
     }
+
+    //記事編集・更新機能
+    public function edit($post_id)
+    {
+    $post = Post::findOrFail($post_id);
+
+        return view('post.edit', [
+            'post' => $post,
+    ]);
+    }
+
+    public function update($post_id, Request $request)
+    {
+    $params = $request->validate([
+        'title' => 'required|max:50',
+        'body' => 'required|max:250',
+    ]);
+
+    $post = Post::findOrFail($post_id);
+    $post->fill($params)->save();
+
+    return redirect('/');
+    }
 }
 

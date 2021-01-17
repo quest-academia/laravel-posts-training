@@ -35,10 +35,10 @@
      
         
         <div id="comment-post-{{ $post->id }}">
-              @include('post.comment_list')
-            </div>
-            <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">コメント日時: {{ $post->created_at }}</a>
-            <hr>
+          @include('post.comment_list')
+        </div>
+          <a class="light-color post-time no-text-decoration" href="/posts/{{ $post->id }}">コメント日時: {{ $post->created_at }}</a>
+          <hr>
             <div class="row actions" id="comment-form-post-{{ $post->id }}">
            	  <form class="w-100" id="new_comment" action="/posts/{{ $post->id }}/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
              	  {{csrf_field()}} 
@@ -46,18 +46,22 @@
                 <input value="{{ $post->id }}" type="hidden" name="post_id" />
                 <input class="form-control comment-input border-0" placeholder="コメントする" autocomplete="off" type="text" name="comment" />
               </form>
-            </div>
+              </div>
             </div>
     
       @if ($post->user->id == Auth::user()->id)
-      <a class="ml-auto mx-0 my-auto" rel="nofollow" href="/postsdelete/{{ $post->id }}">
-      <button class="btn btn-danger btn-sm">削除する</button>
-      </a>
-      @endif
+      <div class="post_edit text-right">
+        <a class="btn btn-primary btn-sm" href="{{ route('posts.edit', ['post' => $post]) }}"><i class="far fa-edit"></i>編集</a>
 
+        <a class="ml-auto mx-0 my-auto" rel="nofollow" href="/postsdelete/{{ $post->id }}">
+        <button class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i>削除</button>
+        </a>
+      </div>      
+      @endif
+      </div>
     </div>
   </div>
-</div>
+  
     @endforeach
 
 <!-- ページネーション !-->

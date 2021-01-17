@@ -17,7 +17,6 @@ Route::get('/', 'PostsController@index');
 
 //認証機能
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'PostsController@index');
 
 //プロフィール編集画面
@@ -43,4 +42,10 @@ Route::post('/posts/{comment_id}/comments','CommentsController@store');
 
 //コメント削除
 Route::get('/comments/{comment_id}', 'CommentsController@destroy');
+
+//記事編集
+Route::resource('/posts', 'PostsController', ['only' => ['create', 'store', 'edit', 'update']]);
+
+
+
 

@@ -11,8 +11,9 @@
         投稿の編集
       </div>
       <div class="card-body">
-        <form class="upload" id="new_post" enctype="multipart/form-data" action="{{ url('posts')}}" accept-charset="UTF-8" method="POST">
+        <form class="upload" id="new_post" enctype="multipart/form-data" action="{{ route('posts.update', ['post' => $post])}}" accept-charset="UTF-8" method="POST">
         {{csrf_field()}} 
+        @method('PUT')
 
         <div class="md-form">
           <input class="form-control" placeholder="タイトル" type="text" name="title" value="{{ old('list_name') }}"/>
@@ -22,11 +23,10 @@
           <textarea name="body" required class="form-control" rows="10" placeholder="本文">{{ old('body') }}</textarea>
         </div>
         </div>
-          <input type="submit" name="commit" value="投稿する" class="btn btn-primary w-25" data-disable-with="投稿する"/>
+          <input type="submit" name="commit" value="更新する" class="btn btn-primary w-25" data-disable-with="更新する"/>
         </form>      
       </div>
     </div>
   </div>
 </div>
 @endsection
-
