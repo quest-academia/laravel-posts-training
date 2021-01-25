@@ -48,4 +48,3 @@ Route::resource('/posts', 'PostsController', ['only' => ['create', 'store', 'edi
 
 
 
-
