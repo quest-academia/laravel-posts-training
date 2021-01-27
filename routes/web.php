@@ -46,5 +46,3 @@ Route::get('/comments/{comment_id}', 'CommentsController@destroy');
 //記事編集
 Route::resource('/posts', 'PostsController', ['only' => ['create', 'store', 'edit', 'update']]);
 
-
-
