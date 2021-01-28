@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Posts;
 use App\Post;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -15,7 +16,7 @@ class PostsController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Post';
+    protected $title = '投稿記事一覧';
 
     /**
      * Make a grid builder.

@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Users;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -15,7 +16,7 @@ class UsersController extends AdminController
      *
      * @var string
      */
-    protected $title = 'User';
+    protected $title = 'ユーザー一覧';
 
     /**
      * Make a grid builder.
