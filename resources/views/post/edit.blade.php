@@ -1,5 +1,11 @@
 @extends('layouts.app')
+
+@include('navbar')
+
+@include('footer')
+
 @section('content')
+
 <div class="panel-body">
 
 @include('common.errors')
@@ -16,11 +22,11 @@
         @method('PUT')
 
         <div class="md-form">
-          <input class="form-control" placeholder="タイトル" type="text" name="title" value="{{ old('list_name') }}"/>
+          <input class="form-control" placeholder="タイトル" type="text" name="title" required value="{{ $post->title ?? old('title') }}"/>
         </div>
 
         <div class="form-group">
-          <textarea name="body" required class="form-control" rows="10" placeholder="本文">{{ old('body') }}</textarea>
+          <textarea name="body" required class="form-control" rows="10" placeholder="本文">{{ $post->body ?? old('body') }}</textarea>
         </div>
         </div>
           <input type="submit" name="commit" value="更新する" class="btn btn-primary w-25" data-disable-with="更新する"/>
