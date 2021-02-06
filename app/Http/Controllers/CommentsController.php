@@ -23,11 +23,4 @@ class CommentsController extends Controller
         $comment->save();
         return redirect('/');
     }    
-
-    public function destroy(Request $request)
-    {
-        $comment = Comment::find($request->comment_id);
-        $comment->delete();
-        return redirect('/');
-    }
 }

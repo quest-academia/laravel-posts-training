@@ -4,36 +4,31 @@
 
 @section('content')
 
+
 <div class="top-page">
   <div class="card devise-card">
     <div class="form-wrap">
       <div class="form-group text-center">
         <h2 class="logo-img mx-auto">新規登録</h2>
+
+        @include('error_card_list')
+
       </div>
       <form method="POST" action="{{ route('register') }}">
-        {{ csrf_field() }}
+        @csrf
         <div class="form-group">
-          <input class="form-control" placeholder="メールアドレス" autocomplete="email" type="email" name="email" value="{{ old('email') }}" required>
-        </div>
-        @if ($errors->has('email'))
-            <span class="help-block">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-        @endif
-        <div class="form-group">
-          <input class="form-control" placeholder="ユーザー名" type="text" name="name" value="{{ old('name') }}" required autofocus>
+          <input class="form-control" placeholder="メールアドレス" autocomplete="email" type="email" name="email" required value="{{ old('email') }}">
         </div>
 
         <div class="form-group">
-          <input class="form-control" placeholder="パスワード" autocomplete="off" type="password" name="password" required>
+          <input class="form-control" placeholder="ユーザー名" type="text" name="name" value="{{ old('name') }}" autofocus>
         </div>
-        @if ($errors->has('password'))
-            <span class="help-block">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-        @endif
+
         <div class="form-group">
-          <input class="form-control" placeholder="パスワード再確認" autocomplete="off" type="password" name="password_confirmation" required>
+          <input class="form-control" placeholder="パスワード" autocomplete="off" type="password" name="password">
+        </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="パスワード再確認" autocomplete="off" type="password" name="password_confirmation">
         </div>
 
         <div class="actions">
