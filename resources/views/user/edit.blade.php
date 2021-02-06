@@ -25,7 +25,7 @@
 
           <div class="form-group">
             <label for="user_password">パスワード</label>
-            <input autofocus="autofocus" class="form-control" type="password" value="{{ old('user_password',$user->password) }}" name="user_password" />
+            <input autofocus="autofocus" class="form-control" type="password" name="user_password" />
           </div>
 
           <div class="form-group">

@@ -38,10 +38,9 @@ Route::post('/posts','PostsController@store');
 Route::get('/postsdelete/{post_id}', 'PostsController@destroy');
 
 //コメント
-Route::post('/posts/{comment_id}/comments','CommentsController@store');
+Route::resource('comments', 'CommentsController', ['only' => ['store']]);
 
-//コメント削除
-Route::get('/comments/{comment_id}', 'CommentsController@destroy');
+//Route::post('/posts/{comment_id}/comments','CommentsController@store');
 
 //記事編集
 Route::resource('/posts', 'PostsController', ['only' => ['create', 'store', 'edit', 'update']]);
