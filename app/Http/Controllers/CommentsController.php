@@ -16,11 +16,14 @@ class CommentsController extends Controller
 
     public function store(Request $request)
     {
-        $comment = new Comment;
-        $comment->comment = $request->comment;
-        $comment->post_id = $request->post_id;
-        $comment->user_id = Auth::user()->id;
-        $comment->save();
-        return redirect('/');
-    }    
+      $validatedData = $request->validate([
+        'post_id' => 'required|exists:posts,id',
+        'comment' => 'required|max:1000',
+    ]);
+
+    $post = Post::findOrFail($params['post_id']);
+    $post->comments()->create($params);
+
+    return redirect('/');
+    }
 }

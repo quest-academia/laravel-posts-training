@@ -6,7 +6,7 @@
 
 @section('content')
 
-@foreach ($posts as $post) 
+@foreach ($posts as $post)
 <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
       <div class="card mt-3">
@@ -27,11 +27,11 @@
                         <div class="post_edit text-right">
                           <a class="btn btn-primary btn-sm" href="{{ route('posts.edit', ['post' => $post]) }}"><i class="far fa-edit"></i>編集</a>
                           <a class="btn btn-danger btn-sm" rel="nofollow" href="/postsdelete/{{ $post->id }}"><i class="far fa-trash-alt"></i>削除</a>
-                        </div>      
+                        </div>
                         @endif
 
                         <h3 class="h5 title">
-                          {{ $post->title }} 
+                          {{ $post->title }}
                           </h3>
                             <div class="card-text">
                               {!! nl2br(e( $post->body )) !!}
@@ -40,6 +40,7 @@
                         <!-- コメント -->
                         <div id="comment-post-{{ $post->id }}">
                           @include('post.comment_list')
+
                           </div>
                           <hr>
            	                  <form class="w-100" action="{{ route('comments.store') }}" method="post">
@@ -47,18 +48,20 @@
                                <input name="utf8" type="hidden" value="{{ $post->id }}"/>
                                   <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
                                     <input value="{{ $post->id }}" type="hidden" name="post_id" />
-                                      <input class="form-control comment-input border border-light container col-md-11" autocomplete="off" type="text" name="comment"/>
-                                        
+                                      <input class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }} comment-input border border-light" placeholder="コメントを入力する">{{ old('comment') }}</input>
+                                      @if ($errors->has('comment'))
+                                        <div class="invalid-feedback">
+                                          {{ $errors->first('comment') }}
+                                        </div>
+                                      @endif
                                           <input type="submit" value="コメント送信" class="btn btn-default btn-sm"></input>
-                                            
+
                                           </form>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
-                           
-                          
+
+
                             @endforeach
                           @endsection
-
-
