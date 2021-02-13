@@ -49,11 +49,15 @@
                                   <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
                                     <input value="{{ $post->id }}" type="hidden" name="post_id" />
                                       <input class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }} comment-input border border-light" placeholder="コメントを入力する">{{ old('comment') }}</input>
-                                      @if ($errors->has('comment'))
-                                        <div class="invalid-feedback">
-                                          {{ $errors->first('comment') }}
-                                        </div>
+                                      @php
+                                        $commentErrorName = 'comment'. $post->id;
+                                      @endphp
+
+                                      @foreach ($errors->all() as $error)
+                                      @if ($error == $commentErrorName . 'は必ず指定してください。')
+                                      <li>{{ $error }}</li>
                                       @endif
+                                      @endforeach
                                           <input type="submit" value="コメント送信" class="btn btn-default btn-sm"></input>
 
                                           </form>

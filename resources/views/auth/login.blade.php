@@ -12,11 +12,11 @@
       <form class="new_user" id="new_user" action="{{ route('login') }}" accept-charset="UTF-8" method="post">
         {{ csrf_field() }}
         <div class="form-group">
-          <input id="email" type="email" class="form-control" name="email"  placeholder="メールアドレス" value="{{ old('email') }}" required autofocus>
+          <input id="email" type="email" class="form-control" name="email"  placeholder="メールアドレス" value="{{ old('email') }}">
         </div>
 
         <div class="form-group">
-          <input id="password" type="password" class="form-control" name="password" placeholder="パスワード" required>
+          <input id="password" type="password" class="form-control" name="password" placeholder="パスワード">
         </div>
 
         <div class="actions">

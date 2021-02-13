@@ -18,11 +18,11 @@ class CommentsController extends Controller
     {
       $validatedData = $request->validate([
         'post_id' => 'required|exists:posts,id',
-        'comment' => 'required|max:1000',
+        'comment'.$request->post_id => 'required|max:1000',
     ]);
 
-    $post = Post::findOrFail($params['post_id']);
-    $post->comments()->create($params);
+    //$post = Post::findOrFail($params['post_id']);
+    //$post->comments()->create($params);
 
     return redirect('/');
     }

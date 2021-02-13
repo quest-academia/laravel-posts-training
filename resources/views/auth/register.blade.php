@@ -17,11 +17,11 @@
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-group">
-          <input class="form-control" placeholder="メールアドレス" autocomplete="email" type="email" name="email" required value="{{ old('email') }}">
+          <input class="form-control" placeholder="メールアドレス" autocomplete="email" type="email" name="email" value="{{ old('email') }}">
         </div>
 
         <div class="form-group">
-          <input class="form-control" placeholder="ユーザー名" type="text" name="name" value="{{ old('name') }}" autofocus>
+          <input class="form-control" placeholder="ユーザー名" type="text" name="name" value="{{ old('name') }}">
         </div>
 
         <div class="form-group">
@@ -39,10 +39,9 @@
 
       <p class="devise-link">
         アカウントを既にお持ちの場合⇨
-        <a href="/users/sign_in">ログインする</a>
+        <a href="/users/login">ログインする</a>
       </p>
     </div>
   </div>
 </div>
 @endsection
-
