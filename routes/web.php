@@ -13,7 +13,7 @@
 
 
 //トップページ表示
-//Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index');
 
 //認証機能
 Auth::routes();

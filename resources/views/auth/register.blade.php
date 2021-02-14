@@ -17,18 +17,18 @@
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form-group">
-          <input class="form-control" placeholder="メールアドレス" autocomplete="email" type="email" name="email" value="{{ old('email') }}">
+          <input class="form-control" placeholder="メールアドレス" autocomplete="email" name="email" value="{{ old('email') }}">
         </div>
 
         <div class="form-group">
-          <input class="form-control" placeholder="ユーザー名" type="text" name="name" value="{{ old('name') }}">
+          <input class="form-control" placeholder="ユーザー名" name="name" value="{{ old('name') }}">
         </div>
 
         <div class="form-group">
-          <input class="form-control" placeholder="パスワード" autocomplete="off" type="password" name="password">
+          <input class="form-control" placeholder="パスワード" autocomplete="off" name="password">
         </div>
         <div class="form-group">
-          <input class="form-control" placeholder="パスワード再確認" autocomplete="off" type="password" name="password_confirmation">
+          <input class="form-control" placeholder="パスワード再確認" autocomplete="off" name="password_confirmation">
         </div>
 
         <div class="actions">

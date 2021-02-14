@@ -6,6 +6,7 @@ use App\Post;
 use Auth;
 use Validator;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 
 class CommentsController extends Controller
 {
@@ -14,16 +15,9 @@ class CommentsController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(Request $request)
-    {
-      $validatedData = $request->validate([
-        'post_id' => 'required|exists:posts,id',
-        'comment'.$request->post_id => 'required|max:1000',
-    ]);
+    public function store(CommentRequest $request)
+  {
+      return redirect('/');
+  }
 
-    //$post = Post::findOrFail($params['post_id']);
-    //$post->comments()->create($params);
-
-    return redirect('/');
-    }
 }

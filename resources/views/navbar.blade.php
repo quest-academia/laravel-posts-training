@@ -1,6 +1,6 @@
 @section('navbar')
     <nav class="navbar navbar-expand navbar-light bg-light">
-        <a class="navbar-brand" href="/">Laravel Post</a>
+        <a class="navbar-brand" href="/"><i class="fas fa-home fa-2x"></i></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-md-auto align-items-center">
             <li>

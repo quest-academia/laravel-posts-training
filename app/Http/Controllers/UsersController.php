@@ -33,9 +33,9 @@ class UsersController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all() , [
-            'user_name' => 'required|string|max:255',
-            'user_email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'user_password' => 'required|string|min:6|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
             ]);
 
     //バリデーションエラーになった場合の処理
@@ -45,9 +45,9 @@ class UsersController extends Controller
     }
 
     $user = User::find($request->id);
-    $user->name = $request->user_name;
-    $user->email = $request->user_email;
-    $user->password = bcrypt($request->user_password);
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->password = bcrypt($request->password);
     $user->save();
     return redirect('/users/'.$request->id);
 }
