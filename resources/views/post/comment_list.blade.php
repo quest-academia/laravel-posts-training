@@ -1,5 +1,6 @@
 
   @foreach ($post->comments as $comment)
+  <span class="help-block">{{$errors->first('comment')}}</span>
   <div class="container mt-4">
     <div class="border-top p-1">
       <span>
