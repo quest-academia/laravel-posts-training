@@ -33,9 +33,10 @@ class UsersController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all() , [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:20',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+
             ]);
 
     //バリデーションエラーになった場合の処理

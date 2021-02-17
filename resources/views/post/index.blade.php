@@ -53,7 +53,7 @@
         <input name="utf8" type="hidden" value="{{ $post->id }}"/>
           <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
             <input value="{{ $post->id }}" type="hidden" name="post_id" />
-              <input name="comment[{{ $post->id }}]" class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }} comment-input border border-light" placeholder="コメントを入力する">{{ old('comment') }}</input>
+            <input name="comment[{{ $post->id }}]" value="{{ old('comment.'. $post->id) }}" class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }} comment-input border border-light" placeholder="コメントを入力する"></input>
                 <div class="text-right">
                   <input type="submit" value="&#xf075;コメント送信" class="far fa-comment btn btn-default btn-sm"></input>
                     </div>

@@ -25,10 +25,10 @@
         </div>
 
         <div class="form-group">
-          <input class="form-control" placeholder="パスワード" autocomplete="off" name="password">
+          <input class="form-control" type="password" placeholder="パスワード" autocomplete="off" name="password">
         </div>
         <div class="form-group">
-          <input class="form-control" placeholder="パスワード再確認" autocomplete="off" name="password_confirmation">
+          <input class="form-control" type="password" placeholder="パスワード再確認" autocomplete="off" name="password_confirmation">
         </div>
 
         <div class="actions">
@@ -39,7 +39,7 @@
 
       <p class="devise-link">
         アカウントを既にお持ちの場合⇨
-        <a href="/users/login">ログインする</a>
+        <a href="/login">ログインする</a>
       </p>
     </div>
   </div>

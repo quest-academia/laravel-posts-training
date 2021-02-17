@@ -22,18 +22,19 @@ class CommentRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-        return [
-          'post_id' => 'required|exists:posts,id',
-          'comment.' . $this->post_id => 'required|max:1000',
-        ];
-    }
+  {
+    return [
+     'post_id' => 'required|exists:posts,id',
+     'comment.' . $this->post_id => 'required|max:40',
+    ];
+  }
+  
+  public function messages()
+  {
+    return [
+     'comment.*.required' => 'コメントは必須です',
+     'comment.*.max' => 'コメントは40文字以下で入力して下さい',
+    ];
+  }
 
-    public function messages()
-    {
-        return [
-          'comment.*.required' => 'コメントは必須です',
-          'comment.*.max:1000' => 'コメントは1000文字以下で入力して下さい',
-        ];
-    }
-}
+  }
