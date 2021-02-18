@@ -11,9 +11,12 @@
     </div>
      </div>
 
-@foreach ($posts as $post)
 <div class="col-md-8 col-md-2 mx-auto">
 @include('common.errors')
+</div>
+
+@foreach ($posts as $post)
+<div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
       <div class="card mt-3">
         <div class="card-header align-items-center d-flex">
@@ -47,12 +50,14 @@
 <!-- コメント -->
 <div id="comment-post-{{ $post->id }}">
 @include('post.comment_list')
+<div class="m-4">
     <form class="w-100" action="{{ route('comments.store') }}" method="post">
       {{ csrf_field() }}
         <input name="utf8" type="hidden" value="{{ $post->id }}"/>
           <input value="{{ Auth::user()->id }}" type="hidden" name="user_id" />
             <input value="{{ $post->id }}" type="hidden" name="post_id" />
-            <input name="comment[{{ $post->id }}]" value="{{ old('comment.'. $post->id) }}" class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }} comment-input border border-light" placeholder="コメントを入力する"></input>
+            <input name="comment[{{ $post->id }}]" value="{{ old('comment.'. $post->id) }}" class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する"></input>
+              </div>
 
                 <div class="text-right">
                   <input type="submit" value="&#xf075;コメント送信" class="far fa-comment btn btn-default btn-sm"></input>
