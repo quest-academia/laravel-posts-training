@@ -12,18 +12,19 @@ class CommentsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+
+    $this->middleware('auth');
+
     }
 
     public function store(CommentRequest $request)
-  {
-    $comment = new Comment;
-    $comment->comment = $request->input('comment.' . $request->post_id);
-    $comment->post_id = $request->post_id;
-    $comment->user_id = Auth::user()->id;
-    $comment->save();
-
-    return redirect('/');
-  }
+    {
+        $comment = new Comment;
+        $comment->comment = $request->input('comment.' . $request->post_id);
+        $comment->post_id = $request->post_id;
+        $comment->user_id = Auth::user()->id;
+        $comment->save();
+        return redirect('/');
+    }
 
 }
