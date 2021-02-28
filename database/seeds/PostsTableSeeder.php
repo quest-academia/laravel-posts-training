@@ -13,27 +13,27 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             'title' => 'sample1',
-            'text' => 'aaaaaa', 
+            'text' => 'aaa', 
         ]);
 
         DB::table('posts')->insert([
             'title' => 'sample2',
-            'text' => 'aaaaaa', 
+            'text' => 'bbb', 
         ]);
 
         DB::table('posts')->insert([
             'title' => 'sample3',
-            'text' => 'aaaaaa', 
+            'text' => 'ccc', 
         ]);
 
         DB::table('posts')->insert([
             'title' => 'sample4',
-            'text' => 'aaaaaa', 
+            'text' => 'ddd', 
         ]);
 
         DB::table('posts')->insert([
             'title' => 'sample5',
-            'text' => 'aaaaaa', 
+            'text' => 'eee', 
         ]);
     }
 }
