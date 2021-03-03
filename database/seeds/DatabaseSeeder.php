@@ -11,6 +11,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('posts')->insert([
+            'title' => 'sample1',
+            'body' => 'aaa', 
+        ]);
+
+        DB::table('posts')->insert([
+            'title' => 'sample2',
+            'body' => 'bbb', 
+        ]);
+
+        DB::table('posts')->insert([
+            'title' => 'sample3',
+            'body' => 'ccc', 
+        ]);
+
+        DB::table('posts')->insert([
+            'title' => 'sample4',
+            'body' => 'ddd', 
+        ]);
+
+        DB::table('posts')->insert([
+            'title' => 'sample5',
+            'body' => 'eee', 
+        ]);
     }
 }
