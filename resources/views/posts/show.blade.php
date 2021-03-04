@@ -14,20 +14,17 @@
   </div>
 
   <div class="container my-4">
-
-  <div class="card mb-4">
-    <div class="card-header">
-      <h2>LaravelQuest</h2>
-    </div>
-    <div class="card-body">
-      <p class="card-text">Laravel講座</p>
-        <a class="card-link" href="">詳細をみる</a>
-    </div>
-    <div class="card-footer">
-      <span>投稿日時:2020-05-21</span>
+    <div class="card mb-4">
+      <div class="card-header">
+        <h2>LaravelQuest</h2>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Laravel講座</p>
+      </div>
+      <div class="card-footer">
+        <span>投稿日時：2020-05-21</span>
+      </div>
     </div>
   </div>
-
-</div>
 
 @endsection

@@ -4,7 +4,8 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Post::class, function (Faker $faker) {
+$factory->define(App\Post::class, function (Faker $faker)
+{
     return [
         'title' => $faker->realText(16),
         'body' => $faker->realText(100),

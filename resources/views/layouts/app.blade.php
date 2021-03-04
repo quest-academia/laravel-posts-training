@@ -16,9 +16,7 @@ crossorigin="anonymous">
 
     @include('commons.header')
 
-      <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 
     @include('commons.footer')
 
