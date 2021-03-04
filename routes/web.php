@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostsController@index')->name('top');
+Route::get('posts.show', 'PostsController@show')->name('posts.show');
