@@ -12,7 +12,7 @@ class UsersController extends Controller
     public function __construct()
     {
 
-    $this->middleware('auth');
+        $this->middleware('auth');
 
     }
 
@@ -20,9 +20,8 @@ class UsersController extends Controller
     public function show($user_id)
     {
 
-    $user = User::where('id', $user_id)
-    ->firstOrFail();
-    return view('user/show', ['user' => $user]);
+        $user = User::where('id', $user_id)->firstOrFail();
+        return view('user/show', ['user' => $user]);
 
     }
 
@@ -30,8 +29,8 @@ class UsersController extends Controller
     public function edit()
     {
 
-    $user = Auth::user();
-    return view('user/edit', ['user' => $user]);
+        $user = Auth::user();
+        return view('user/edit', ['user' => $user]);
 
     }
 
@@ -39,10 +38,10 @@ class UsersController extends Controller
     public function update(Request $request)
     {
 
-    $validator = Validator::make($request->all() , [
-      'name' => 'required|string|max:20',
-      'email' => 'required|string|email|max:255|unique:users',
-      'password' => 'required|string|min:6|confirmed',
+        $validator = Validator::make($request->all() , [
+            'name' => 'required|string|max:20',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
 
     ]);
 
@@ -50,16 +49,16 @@ class UsersController extends Controller
     if ($validator->fails())
     {
 
-    return redirect()->back()->withErrors($validator->errors())->withInput();
+        return redirect()->back()->withErrors($validator->errors())->withInput();
 
     }
 
-    $user = User::find($request->id);
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->password = bcrypt($request->password);
-    $user->save();
-    return redirect('/users/'.$request->id);
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect('/users/'.$request->id);
 
     }
 

@@ -12,7 +12,7 @@ class PostsController extends Controller
     public function __construct()
     {
 
-    $this->middleware('auth');
+        $this->middleware('auth');
 
     }
 
@@ -20,8 +20,8 @@ class PostsController extends Controller
     public function index()
     {
 
-    $posts = Post::limit(5)->orderBy('created_at', 'desc')->paginate(10);
-    return view('post/index', ['posts' => $posts]);
+        $posts = Post::limit(5)->orderBy('created_at', 'desc')->paginate(10);
+        return view('post/index', ['posts' => $posts]);
 
     }
 
@@ -29,7 +29,7 @@ class PostsController extends Controller
     public function new()
     {
 
-    return view('post/new');
+        return view('post/new');
 
     }
 
@@ -37,24 +37,24 @@ class PostsController extends Controller
     public function store(Request $request)
     {
 
-    $validator = Validator::make($request->all() , ['title' => 'required|max:50', 'body' => 'required|max:255']);
+        $validator = Validator::make($request->all(), ['title' => 'required|max:50', 'body' => 'required|max:255']);
 
     //バリデーションの結果がエラーの場合
     if ($validator->fails())
 
     {
 
-    return redirect()->back()->withErrors($validator->errors())->withInput();
+        return redirect()->back()->withErrors($validator->errors())->withInput();
 
     }
 
-    // Postモデル
-    $post = new Post;
-    $post->title = $request->title;
-    $post->body = $request->body;
-    $post->user_id = Auth::user()->id;
-    $post->save();
-    return redirect('/');
+        // Postモデル
+        $post = new Post;
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = Auth::user()->id;
+        $post->save();
+        return redirect('/');
 
     }
 
@@ -62,9 +62,9 @@ class PostsController extends Controller
     public function destroy($post_id)
     {
 
-    $post = Post::find($post_id);
-    $post->delete();
-    return redirect('/');
+        $post = Post::find($post_id);
+        $post->delete();
+        return redirect('/');
 
     }
 
@@ -72,25 +72,25 @@ class PostsController extends Controller
     public function edit($post_id)
     {
 
-    $post = Post::findOrFail($post_id);
-    return view('post.edit', [
-    'post' => $post,
-    ]);
+        $post = Post::findOrFail($post_id);
+        return view('post.edit', [
+        'post' => $post,
+        ]);
 
     }
 
     public function update($post_id, Request $request)
     {
 
-    $params = $request->validate([
-    'title' => 'required|max:50',
-    'body' => 'required|max:250',
+        $params = $request->validate([
+        'title' => 'required|max:50',
+        'body' => 'required|max:250',
 
     ]);
 
-    $post = Post::findOrFail($post_id);
-    $post->fill($params)->save();
-    return redirect('/');
-    
+        $post = Post::findOrFail($post_id);
+        $post->fill($params)->save();
+        return redirect('/');
+
     }
 }
