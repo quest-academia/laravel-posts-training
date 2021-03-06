@@ -11,7 +11,6 @@
   <div class="container my-4">
 
     @foreach($posts as $post)
-
       <div class="card mb-4">
         <h2 class="card-header">
           {{ $post->title }}
@@ -28,7 +27,6 @@
           </span>
         </div>
       </div>
-
     @endforeach
 
     <div class="pagination justify-content-end">
