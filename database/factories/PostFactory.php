@@ -4,9 +4,11 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Post::class, function (Faker $faker) {
+$factory->define(App\Post::class, function (Faker $faker)
+{
     return [
-        'title' => '投稿のタイトル',
-        'body' => '本文です。あああああああ',
+        'title' => $faker->realText(16),
+        'body' => $faker->realText(100),
+        'created_at' => $faker->date('Y-m-d H:i:s', 'now'),
     ];
 });
