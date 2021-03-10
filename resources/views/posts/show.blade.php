@@ -6,7 +6,7 @@
 
     <div class="container mt-4">
       <div class="text-right">
-        <a class="btn btn-primary" href="posts.edit">編集する</a>
+        <a class="btn btn-primary" href="edit">編集する</a>
         <a class="btn btn-danger" href="">削除する</a>
       </div>
     </div>

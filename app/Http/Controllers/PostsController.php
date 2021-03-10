@@ -28,8 +28,11 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function edit()
+    public function edit($posts_id)
     {
-        return view('posts.edit');
+        $posts = Post::findOrFail($posts_id);
+        return view('posts.edit', [
+            'posts' => $posts
+        ]);
     }
 }

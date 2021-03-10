@@ -4,7 +4,7 @@
 
   <div class="container">
     <div class="container my-4">
-      <a class="btn btn-primary" href="posts.create">投稿の新規作成</a>
+      <a class="btn btn-primary" href="create">投稿の新規作成</a>
     </div>
   </div>
 
