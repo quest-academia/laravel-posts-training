@@ -12,24 +12,19 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'title' => 'VueQuest',
-            'text' => 'Vue.js講座',
-            'created_at' => '2020-05-20'
+            'name' => 'sample1',
+            'email' => 'sample1@sample.com',
+            'password' => bcrypt('sample1')
         ]);
         DB::table('users')->insert([
-            'title' => 'VueQuest',
-            'text' => 'Vue.js講座',
-            'created_at' => '2020-05-20'
+            'name' => 'sample2',
+            'email' => 'sample2@sample.com',
+            'password' => bcrypt('sample2')
         ]);
         DB::table('users')->insert([
-            'title' => 'VueQuest',
-            'text' => 'Vue.js講座',
-            'created_at' => '2020-05-20'
-        ]);
-        DB::table('users')->insert([
-            'title' => 'LaravelQuest',
-            'text' => 'Laravel講座',
-            'created_at' => '2020-05-20'
+            'name' => 'sample3',
+            'email' => 'sample3@sample.com',
+            'password' => bcrypt('sample3')
         ]);
     }
 }
