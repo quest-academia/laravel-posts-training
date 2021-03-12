@@ -22,4 +22,5 @@
     @endforeach
 
     {{  $posts->render('pagination::bootstrap-4')}}
+    
 @endsection
