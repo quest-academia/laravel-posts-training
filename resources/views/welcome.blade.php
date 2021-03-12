@@ -12,13 +12,14 @@
                 <h3>{{ $post->title }}</h3>
             </div>
             <div class="card-body">
-                <p>{{ $post->text }}</p>
+                <p>{{ $post->body }}</p>
                 <a href="/">詳細をみる</a>
             </div>
             <div class="card-footer">
-                投稿日時：{{ $post->created_at }}
+                投稿日時：{{ $post->created_at->format('Y-m-d') }}
             </div>
         </div>
     @endforeach
 
+    {{  $posts->render('pagination::bootstrap-4')}}
 @endsection

@@ -13,22 +13,22 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             'title' => 'VueQuest',
-            'text' => 'Vue.js講座',
+            'body' => 'Vue.js講座',
             'created_at' => '2020-05-20'
         ]);
         DB::table('posts')->insert([
             'title' => 'VueQuest',
-            'text' => 'Vue.js講座',
+            'body' => 'Vue.js講座',
             'created_at' => '2020-05-20'
         ]);
         DB::table('posts')->insert([
             'title' => 'VueQuest',
-            'text' => 'Vue.js講座',
+            'body' => 'Vue.js講座',
             'created_at' => '2020-05-20'
         ]);
         DB::table('posts')->insert([
             'title' => 'LaravelQuest',
-            'text' => 'Laravel講座',
+            'body' => 'Laravel講座',
             'created_at' => '2020-05-20'
         ]);
     }
