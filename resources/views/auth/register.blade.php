@@ -8,7 +8,9 @@
     <div class="card devise-card">
         <div class="form-wrap">
             <div class="form-group text-center">
-                <h2 class="logo-img mx-auto">新規登録</h2>
+                <h2 class="logo-img mx-auto">
+                新規登録
+                </h2>
                 @include('error_card_list')
             </div>
             <form method="POST" action="{{ route('register') }}">
@@ -36,7 +38,9 @@
             <br>
                 <p class="devise-link">
                 アカウントを既にお持ちの場合⇨
-                    <a href="/login">ログインする</a>
+                    <a href="/login">
+                    ログインする
+                    </a>
                 </p>
             </div>
         </div>

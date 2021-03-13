@@ -12,9 +12,7 @@ class CommentsController extends Controller
 {
     public function __construct()
     {
-
         $this->middleware('auth');
-
     }
 
     public function store(CommentRequest $request)
@@ -26,5 +24,4 @@ class CommentsController extends Controller
         $comment->save();
         return redirect('/');
     }
-
 }

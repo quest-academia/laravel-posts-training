@@ -7,8 +7,10 @@
     <div class="card devise-card">
         <div class="form-wrap">
             <div class="form-group text-center">
-                <h2 class="logo-img mx-auto">ログイン</h2>
-                 @include('error_card_list')
+                <h2 class="logo-img mx-auto">
+                ログイン
+                </h2>
+                @include('error_card_list')
             </div>
             <form class="new_user" id="new_user" action="{{ route('login') }}" accept-charset="UTF-8" method="post">
             {{ csrf_field() }}
@@ -29,9 +31,11 @@
 
             <p class="devise-link">
             アカウントをお持ちでないですか？
-                <a href="{{ route('register') }}">新規登録する</a>
-                    </p>
-                </div>
-            </div>
+                <a href="{{ route('register') }}">
+                新規登録する
+                </a>
+            </p>
         </div>
-    @endsection
+    </div>
+</div>
+@endsection

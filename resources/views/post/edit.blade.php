@@ -25,10 +25,10 @@
                             <textarea name="body" class="form-control" rows="10" placeholder="本文">{{ $post->body ?? old('body') }}
                             </textarea>
                         </div>
+                        <div class="text-center">
+                            <input type="submit" name="commit" value="更新する" class="btn btn-primary w-25" data-disable-with="更新する"/>
+                        </div>
                     </form>
-                </div>
-                <div class="text-center">
-                    <input type="submit" name="commit" value="更新する" class="btn btn-primary w-25" data-disable-with="更新する"/>
                 </div>
             </div>
         </div>
