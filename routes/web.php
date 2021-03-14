@@ -16,3 +16,6 @@
 // });
 
 Route::resource('/', 'PostsController', ['only' => ['index']]);
+// 詳細画面一覧
+Route::get('posts/{id}', 'PostsController@show')->name('show');
+

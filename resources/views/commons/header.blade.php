@@ -1,6 +1,5 @@
-<header class="bg-light">
+<header class="bg-light pt-3 pb-3">
     <div class="container">
-        <h1>Hacksレビュー</h1>
+        <a style="font-size: 1.2rem; color: black;" href="/">Hacksレビュー</a>
     </div>
-    
 </header>
