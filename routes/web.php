@@ -12,4 +12,6 @@
 */
 
 Route::get('/', 'PostsController@index')->name('top');
-Route::get('/show', 'PostsController@show')->name('posts.show');
+Route::get('/show/{posts_id}', 'PostsController@show')->name('posts.show');
+Route::get('/create', 'PostsController@create')->name('posts.create');
+Route::get('/edit/{posts_id}', 'PostsController@edit')->name('posts.edit');

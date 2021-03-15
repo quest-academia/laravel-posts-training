@@ -4,7 +4,7 @@
 
   <div class="container">
     <div class="container my-4">
-      <a class="btn btn-primary" href="">投稿の新規作成</a>
+      <a class="btn btn-primary" href="create">投稿の新規作成</a>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
           <p class="card-text">
             {{ $post->body }}
           </p>
-          <a class="card-link" href="posts.show">詳細をみる</a>
+          <a class="card-link" href="{{ route('posts.show', ['post_id' => $post->id]) }}">詳細をみる</a>
         </div>
         <div class="card-footer">
           <span>
