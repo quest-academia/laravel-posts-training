@@ -29,7 +29,7 @@ class PostsController extends Controller
     }
     public function store(Request $request)
     {
-        $params = $request->validate( [
+        $params = $request->validate([
             'title' => 'required|max:20',
             'body' => 'required',
         ]);
@@ -45,11 +45,11 @@ class PostsController extends Controller
         ]);
     }
 
-    public function destroy($posts_id)
-    {
-        $posts = Post::findOrFail($posts_id);
-        return view('posts.show', [
-            'posts' => $posts
-        ]);
-    }
+    //public function destroy($posts_id)
+    //{
+    //    $posts = Post::findOrFail($posts_id);
+    //    return view('posts.show', [
+    //        'posts' => $posts
+    //    ]);
+    //}
 }
