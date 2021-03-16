@@ -27,6 +27,15 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
+    public function store(Request $request)
+    {
+        $params = $request->validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
+        Post::create($params);
+        return redirect()->route('top');
+    }
 
     public function edit($posts_id)
     {
@@ -35,4 +44,12 @@ class PostsController extends Controller
             'posts' => $posts
         ]);
     }
+
+    //public function destroy($posts_id)
+    //{
+    //    $posts = Post::findOrFail($posts_id);
+    //    return view('posts.show', [
+    //        'posts' => $posts
+    //    ]);
+    //}
 }
