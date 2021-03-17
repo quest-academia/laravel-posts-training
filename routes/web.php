@@ -15,4 +15,6 @@
 //     return view('welcome');
 // });
 
-Route::resource('/', 'PostsController', ['only' => ['index']]);
+Route::get('/', 'PostsController@index')->name('top');
+// 詳細画面一覧
+Route::get('posts/{id}', 'PostsController@show')->name('show');

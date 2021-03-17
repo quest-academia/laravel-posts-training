@@ -13,13 +13,12 @@
             </div>
             <div class="card-body">
                 <p>{{ $post->body }}</p>
-                <a href="/">詳細をみる</a>
+                <a href="{{ action('PostsController@show', $post->id) }}">詳細をみる</a>
             </div>
             <div class="card-footer">
-                投稿日時：{{ $post->created_at->format('Y-m-d') }}
+                投稿日時：{{ $post->created_at->format('Y/m/d') }}
             </div>
         </div>
     @endforeach
-    {{  $posts->render('pagination::bootstrap-4')}}
-    
+    {{ $posts->links('pagination::bootstrap-4') }}
 @endsection
