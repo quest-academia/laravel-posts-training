@@ -16,5 +16,11 @@
 // });
 
 Route::get('/', 'PostsController@index')->name('top');
+
+// 新規投稿
+Route::get('posts/create', 'PostsController@create')->name('create');
+Route::post('posts', 'PostsController@store')->name('store');
+
+
 // 詳細画面一覧
 Route::get('posts/{id}', 'PostsController@show')->name('show');
