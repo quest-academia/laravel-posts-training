@@ -15,5 +15,20 @@ class PostsTableSeeder extends Seeder
         'title'=>'Laravel',
         'body'=>'Laravel-Quest',
         ]);
+
+        DB::table('posts')->insert([
+        'title'=>'Laravel02',
+        'body'=>'Laravel-Quest02',
+        ]);
+
+        DB::table('posts')->insert([
+        'title'=>'Laravel03',
+        'body'=>'Laravel-Quest03',
+        ]);
+
+        DB::table('posts')->insert([
+        'title'=>'Laravel04',
+        'body'=>'Laravel-Quest04',
+        ]);
     }
 }
