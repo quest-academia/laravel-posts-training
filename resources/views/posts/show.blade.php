@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container text-right mt-3 mb-2">
-    <button type="button" class="btn btn-primary p-1">編集する</button>
+    <a href="{{ route('edit', ['id' => $post]) }}" class="btn btn-primary p-1">編集する</a>
     <button type="button" class="btn btn-danger p-1">削除する</button>
 </div>
 
