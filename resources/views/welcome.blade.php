@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container pt-4 pb-4">
-        <a href="{{ action('PostsController@create') }}" class="btn btn-primary p-2">投稿の新規作成</a>
+        <button type="button" class="btn btn-primary p-2">投稿の新規作成</button>
     </div>
 
     @foreach($posts as $post)
