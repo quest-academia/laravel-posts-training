@@ -5,6 +5,7 @@ use App\User;
 use Auth;
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -28,16 +29,16 @@ class UsersController extends Controller
     //バリデーション
     public function update(Request $request)
     {
+        $user = User::find($request->id);
         $validator = Validator::make($request->all() , [
             'name' => 'required|string|max:20',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'password' => 'required|string|min:6|confirmed',
     ]);
         //バリデーションエラーになった場合の処理
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors())->withInput();
         }
-            $user = User::find($request->id);
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);

@@ -4,9 +4,9 @@
 
 @section('content')
 
-<div class="top-page">
-    <div class="card devise-card">
-        <div class="form-wrap">
+<div class="container mt-5">
+    <div class="card">
+        <div class="form-wrap col-xs-6 col-lg-4">
             <div class="form-group text-center">
                 <h2 class="logo-img mx-auto">
                 新規登録
@@ -31,8 +31,8 @@
                     <input class="form-control" type="password" placeholder="パスワード再確認" autocomplete="off" name="password_confirmation">
                 </div>
 
-                <div class="actions">
-                    <input type="submit" name="commit" value="新規登録" class="btn btn-info w-100">
+                <div class="actions text-center">
+                    <input type="submit" name="commit" value="新規登録" class="btn btn-info w-auto">
                 </div>
             </form>
             <br>
