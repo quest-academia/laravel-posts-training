@@ -12,16 +12,20 @@
         @foreach($posts as $post)
         <div class="card mb-4">
             <div class="card-header">
-                <h2>Post title</h2>
+                <h2>{{$post->title}}</h2>
             </div>
+
             <div class="card-body">
-                <p class="card-text">Post body</p>
+                <p class="card-text">{{$post->body}}</p>
                 <a class="card-link" href="">詳細をみる</a>
             </div>
+
             <div class="card-footer">
-                <span>投稿日時:2020-1-1</span>
+                <span>
+                    投稿日時:{{ $post->created_at->format('Y.m.d') }}
+                </span>
             </div>
-            
+
         @endforeach
 
     </div>
