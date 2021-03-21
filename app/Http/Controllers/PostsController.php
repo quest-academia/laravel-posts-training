@@ -45,16 +45,12 @@ class PostsController extends Controller
             'title' => 'required|max:20',
             'body' => 'required|max:140',
         ]);
-
         $posts = new Post;
-
         $posts->title = $request->title;
         $posts->body = $request->body;
-
         $posts->save();
-    
 
-        return redirect()->action('PostsController@index');
+        return redirect()->route('top');
     }
 
     /**
