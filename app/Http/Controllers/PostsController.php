@@ -90,12 +90,12 @@ class PostsController extends Controller
             'title' => 'required|max:20',
             'body' => 'required|max:140',
         ]);
-        $savedata = [
+        $saveData = [
             'title' => $request->title,
             'body' => $request->body,
         ];
         $post = Post::findOrFail($id);
-        $post->fill($savedata)->save();
+        $post->fill($saveData)->save();
 
         return redirect()->route('show', ['post'=> $post,]);
     }
