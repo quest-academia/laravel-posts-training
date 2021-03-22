@@ -30,5 +30,6 @@ class PostsTableSeeder extends Seeder
         'title'=>'Laravel04',
         'body'=>'Laravel-Quest04',
         ]);
+
     }
 }
