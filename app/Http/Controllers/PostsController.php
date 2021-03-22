@@ -86,7 +86,18 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required|max:20',
+            'body' => 'required|max:140',
+        ]);
+        $saveData = [
+            'title' => $request->title,
+            'body' => $request->body,
+        ];
+        $post = Post::findOrFail($id);
+        $post->fill($saveData)->save();
+
+        return redirect()->route('show', ['post'=> $post,]);
     }
 
     /**

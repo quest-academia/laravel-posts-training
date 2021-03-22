@@ -26,3 +26,4 @@ Route::get('posts/{id}', 'PostsController@show')->name('show');
 
 // 編集画面
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
+Route::put('posts/{id}', 'PostsController@update')->name('update');
