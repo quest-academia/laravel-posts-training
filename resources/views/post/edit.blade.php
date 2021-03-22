@@ -19,10 +19,10 @@
                     {{csrf_field()}}
                     @method('PUT')
                         <div class="md-form">
-                            <input class="form-control" placeholder="タイトル" type="text" name="title" value="{{ $post->title ?? old('title') }}"/>
+                            <input class="form-control" placeholder="タイトル" type="text" name="title" value="{{ old('title', $post->title) }}"/>
                         </div>
                         <div class="form-group">
-                            <textarea name="body" class="form-control" rows="10" placeholder="本文">{{ $post->body ?? old('body') }}
+                            <textarea name="body" class="form-control" rows="10" placeholder="本文">{{ old('body', $post->body) }}
                             </textarea>
                         </div>
                         <div class="text-center">
