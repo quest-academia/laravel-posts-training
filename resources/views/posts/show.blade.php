@@ -6,9 +6,8 @@
 
     <div class="container mt-4">
       <div class="text-right">
-        <a class="btn btn-primary" href="{{ route('posts.edit', ['posts_id' => $posts->id]) }}">編集する</a>
-
-        {!! Form::open([ 'method' => 'delete', 'route' => ['posts.delete', $posts->id]]) !!}
+        {!! Form::open([ 'route' => ['posts.edit', $posts->id], 'method' => 'get' ]) !!}
+          {!! Form::submit('編集する', ['class' => 'btn btn-primary']) !!}
           {!! Form::submit('削除する', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
       </div>

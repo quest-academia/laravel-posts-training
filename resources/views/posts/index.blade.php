@@ -32,5 +32,5 @@
     <div class="pagination justify-content-end">
       {{ $posts->links('pagination::bootstrap-4') }}
     </div>
-
+  </div>
 @endsection

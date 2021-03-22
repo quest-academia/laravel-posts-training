@@ -45,6 +45,19 @@ class PostsController extends Controller
         ]);
     }
 
+    public function update($posts_id, Request $request)
+    {
+        $params = $request->validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
+        $posts = Post::findOrFail($posts_id);
+        $posts->fill($request->all())->save();
+        return redirect()->route('top',[
+            'posts' => $posts
+        ]);
+    }
+
     //public function destroy($posts_id)
     //{
     //    $posts = Post::findOrFail($posts_id);
