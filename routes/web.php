@@ -12,3 +12,5 @@
 */
 
 Route::get('/','PostsController@index')->name('top');
+
+Route::get('/show/{posts_id}','PostsController@show')->name('posts.show');
