@@ -6,7 +6,7 @@
         <div class="container mt-4">
             <a class="btn btn-primary" href="">投稿の新規作成</a>
         </div>
-    </div>
+</div>
     <div class="container my-4">
 
         @foreach($posts as $post)
@@ -25,6 +25,7 @@
                     投稿日時:{{ $post->created_at->format('Y.m.d') }}
                 </span>
             </div>
+        </div>
 
         @endforeach
 
