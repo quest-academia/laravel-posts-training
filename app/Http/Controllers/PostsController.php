@@ -34,7 +34,7 @@ class PostsController extends Controller
             'body' => 'required',
         ]);
         Post::create($params);
-        return redirect()->route('top');
+        return redirect()->route('top')->with('flash_message', '・投稿が完了しました');
     }
 
     public function edit($posts_id)
@@ -43,6 +43,19 @@ class PostsController extends Controller
         return view('posts.edit', [
             'posts' => $posts
         ]);
+    }
+
+    public function update($posts_id, Request $request)
+    {
+        $params = $request->validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
+        $post = Post::findOrFail($posts_id);
+        $post->fill($request->all())->save();
+        return redirect()->route('top',[
+            'post' => $post
+        ])->with('flash_message', '・編集が完了しました');
     }
 
     //public function destroy($posts_id)
