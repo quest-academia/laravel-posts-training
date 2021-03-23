@@ -16,6 +16,14 @@ crossorigin="anonymous">
 
     @include('commons.header')
 
+    @if(session('flash_message'))
+      <div class="bg-success text-white my-4 pl-5">
+        <p class="flash_message">
+          {{ session('flash_message') }}
+        </p>
+      </div>
+    @endif
+
     @yield('content')
 
     @include('commons.footer')

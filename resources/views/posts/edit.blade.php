@@ -17,7 +17,7 @@
                     {!!Form::textarea('body', old('body', $posts->body), ['class'=>'form-control'])!!}
                 </div>
                 <div class="mt-4">
-                    <a class="btn btn-secondary" href="/">キャンセル</a>
+                    <a class="btn btn-secondary"href="{{ route('posts.show', ['posts_id' => $posts->id]) }}">キャンセル</a>
                     {!!Form::submit('更新する',['class'=>'btn btn-primary'])!!}
                 </div>
             {!!Form::close()!!}

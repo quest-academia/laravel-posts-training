@@ -16,7 +16,7 @@
           {!!Form::textarea('body',old('body'),['class'=>'form-control'])!!}
         </div>
         <div class="mt-4">
-          <a class="btn btn-secondary"href="/">キャンセル</a>
+          <a class="btn btn-secondary"href="{{ route('top') }}">キャンセル</a>
           {!!Form::submit('投稿する', ['class'=>'btn btn-primary'])!!}
         </div>
       {!!Form::close()!!}
