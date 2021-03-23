@@ -2,9 +2,11 @@
 
 @section('content')
 
-<div class="container text-right mt-3 mb-2">
-    <a href="{{ route('edit', ['id' => $post]) }}" class="btn btn-primary p-1">編集する</a>
-    <button type="button" class="btn btn-danger p-1">削除する</button>
+<div class="container text-right mt-3 mb-2" style="display: flex; justify-content: flex-end;">
+    <a href="{{ route('edit', ['id' => $post]) }}" class="btn btn-primary">編集する</a>
+    {!! Form::open(['route' => ['delete', $post->id], 'method' => 'delete']) !!}
+        {!! Form::submit('削除する', ['class' => 'btn btn-danger ml-1']) !!}
+    {!! Form::close() !!}
 </div>
 
 <div class="card">
