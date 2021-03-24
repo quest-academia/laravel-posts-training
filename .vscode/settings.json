@@ -1,0 +1,15 @@
+{
+    "launch": {
+
+        "configurations": [],
+        "compounds": [],
+        "phpsab.standard": "PSR2",
+        "editor.formatOnSave": true,
+        "phpcs.enable": true,
+        "phpcs.standard": "PSR-2",
+        "phpcbf.enable": true,
+        "phpcbf.onsave": true,
+        "[php]": {
+          "editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+    }
+}

@@ -30,22 +30,17 @@ class PostsController extends Controller
     //バリデーション
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all() , ['title' => 'required|max:50', 'body' => 'required|max:255']);
-
+        $validator = Validator::make($request->all(), ['title' => 'required|max:50', 'body' => 'required|max:255']);
         //バリデーションの結果がエラーの場合
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors())->withInput();
         }
-
         // Postモデル
         $post = new Post;
         $post->title = $request->title;
         $post->body = $request->body;
         $post->user_id = Auth::user()->id;
-
         $post->save();
-        
         return redirect('/');
     }
 
@@ -60,24 +55,20 @@ class PostsController extends Controller
     //記事編集・更新機能
     public function edit($post_id)
     {
-    $post = Post::findOrFail($post_id);
-
+        $post = Post::findOrFail($post_id);
         return view('post.edit', [
-            'post' => $post,
-    ]);
+        'post' => $post,
+        ]);
     }
 
     public function update($post_id, Request $request)
     {
-    $params = $request->validate([
+        $params = $request->validate([
         'title' => 'required|max:50',
         'body' => 'required|max:250',
     ]);
-
-    $post = Post::findOrFail($post_id);
-    $post->fill($params)->save();
-
-    return redirect('/');
+        $post = Post::findOrFail($post_id);
+        $post->fill($params)->save();
+        return redirect('/');
     }
 }
-
