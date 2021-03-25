@@ -18,4 +18,4 @@ Route::get('/create', 'PostsController@create')->name('posts.create');
 Route::post('/store', 'PostsController@store')->name('posts.store');
 Route::get('/edit/{posts_id}', 'PostsController@edit')->name('posts.edit');
 Route::put('/update/{posts_id}', 'PostsController@update')->name('posts.update');
-//Route::delete('/show/{posts_id}', 'PostsController@destroy')->name('posts.delete');
+Route::delete('/delete/{posts_id}', 'PostsController@destroy')->name('posts.delete');
