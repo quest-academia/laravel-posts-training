@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(4);
@@ -66,4 +67,5 @@ class PostsController extends Controller
             'post' => $post
         ])->with('flash_message', '・投稿を削除しました');
     }
+
 }
