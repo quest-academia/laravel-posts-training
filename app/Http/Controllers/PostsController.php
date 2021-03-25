@@ -58,11 +58,12 @@ class PostsController extends Controller
         ])->with('flash_message', '・編集が完了しました');
     }
 
-    //public function destroy($posts_id)
-    //{
-    //    $posts = Post::findOrFail($posts_id);
-    //    return view('posts.show', [
-    //        'posts' => $posts
-    //    ]);
-    //}
+    public function destroy($posts_id)
+    {
+        $post = Post::findOrFail($posts_id);
+        $post->delete();
+        return redirect()->route('top', [
+            'post' => $post
+        ])->with('flash_message', '・投稿を削除しました');
+    }
 }
