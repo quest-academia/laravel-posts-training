@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+    <div class="container">
         <div class="container mt-4">
             <div class="text-right">
                 <a class="btn btn-primary" href="">編集する</a>
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container my-4">
         <div class="card mb-4">
             <div class="card-header">
@@ -26,5 +26,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection
