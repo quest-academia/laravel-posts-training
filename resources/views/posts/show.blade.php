@@ -10,9 +10,8 @@
             </div>
         </div>
     </div>
+    
     <div class="container my-4">
-
-    @foreach($posts as $post)
         <div class="card mb-4">
             <div class="card-header">
                 <h2>{{$post->title}}</h2>
@@ -26,6 +25,6 @@
                 </span>
             </div>
         </div>
-    @endforeach
+    </div>
 </div>
 @endsection
