@@ -1,0 +1,9 @@
+.form-wrap{
+    max-width: 400px;
+    width: 100%;
+    margin: 50px auto;
+}
+.alert_text{
+    text-align: left;
+    font-size: 14px;
+}
