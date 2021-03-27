@@ -17,7 +17,7 @@
 
             <div class="card-body">
                 <p class="card-text">{{$post->body}}</p>
-                <a class="card-link" href="{{ route('posts.show','post->id') }}">詳細をみる</a>
+                <a class="card-link" href="{{ route('posts.show', ['post_id' => $post->id]) }}">詳細をみる</a>
             </div>
 
             <div class="card-footer">
