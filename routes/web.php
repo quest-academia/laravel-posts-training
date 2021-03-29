@@ -11,3 +11,10 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// 新規登録画面
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
