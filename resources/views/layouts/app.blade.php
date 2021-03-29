@@ -22,7 +22,13 @@
 </head>
 
 <body>
-    
+
+    {{-- @if (Auth::check())
+        @include('commons.header')
+    @endif --}}
+
+    @include('commons.header')
+
     <div class="container">
 
         @yield('content')
