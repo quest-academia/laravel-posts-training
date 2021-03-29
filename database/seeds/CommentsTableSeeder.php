@@ -12,6 +12,10 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Comment::class, 3)->create();
+        DB:: table('comments')->insert([
+            'comment' => 'コメント１',
+            'user_id' => 1,
+            'post_id' => 1,
+        ]);
     }
 }
