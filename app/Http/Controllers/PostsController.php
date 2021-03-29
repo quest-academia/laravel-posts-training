@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
   public function index()
   {
-    $posts=Post::orderBy('created_at','desc')->paginate(4);
-    return view('posts.index',['posts'=>$posts]);
+
+    $posts = Post::orderBy('created_at','desc') -> paginate(4);
+    return view('posts.index',['posts' => $posts]);
+ 
   }
 
 }
