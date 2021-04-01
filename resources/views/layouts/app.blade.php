@@ -23,11 +23,9 @@
 
 <body>
 
-    {{-- @if (Auth::check())
+    @if (Auth::check())
         @include('commons.header')
-    @endif --}}
-
-    @include('commons.header')
+    @endif
 
     <div class="container">
 
