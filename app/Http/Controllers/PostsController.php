@@ -13,9 +13,7 @@ class PostsController extends Controller
         return view('welcome', ['posts' => $posts]);
     }
     public function destroy($id){
-        $post = Post::findOrFail($id);
-
-        $post->delete();
+        $post = Post::findOrFail($id)->delete();
         return redirect('/');
     }
 }
