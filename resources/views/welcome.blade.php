@@ -44,7 +44,7 @@
                         <section>
                             <!-- コメント -->
                             <div id="comment-post-1">
-                                @include('comments.comments')
+                                <!--@include('comments.comments')-->
                                 <div class="m-4">
                                     <form class="w-100" action="" method="post">
                                         {{ csrf_field() }}
@@ -55,7 +55,7 @@
                                             class="form-control comment-input border border-light mx-auto"
                                             placeholder="コメントを入力する">
                                         <div class="text-right">
-                                        {!! Form::open([ 'route'=> ['comment.store', $post->id ], 'method' => 'store']) !!}
+                                        {!! Form::open([ 'route'=> ['comment.store', $post->id ], 'method' => 'POST']) !!}
                                         {!! Form::button('<i class="far fa-comment" style="margin-left: 2px;"></i>コメント送信', ['class' => 'btn btn-default btn-sm', 'type' => 'submit']) !!}
                                         {!! Form::close() !!}
 

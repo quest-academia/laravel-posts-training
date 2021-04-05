@@ -31,7 +31,7 @@ class CommentsController extends Controller
                 'user_id' => $request->user_id,
                 'post_id' => $request->post_id,
                 'comment' => $request->comment,
-            ]
+            ];
 
 
         //Comment::create($params);
@@ -39,7 +39,7 @@ class CommentsController extends Controller
         $comment = new Comment;
         $comment->fill($params)->save();
 
-        return redirect()->route('/', [$params['user_id'], [ 'post_id']])->with('comenntstatus', 'コメントを投稿しました');
+        return redirect()->route('/', [$params['user_id'], [ 'post_id']]);
     }
     //    public function index()
     //{

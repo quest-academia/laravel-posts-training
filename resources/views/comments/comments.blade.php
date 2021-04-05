@@ -2,22 +2,22 @@
 @include('commons.error_card_list')
 </span>
     <div class="container mt-4">
-        <div class="border-top p-1">
+
             <span>
                 <strong>
                     <a class="no-text-decoration black-color" href="">
-                    {{ $comment->user->name }}
+                    @forelse($post->comments as $comment)
+                      <div class="border-top p-1">
+                      @empty
+            <p>コメントはまだありません。</p>
+                    @endforelse
                     </a>
                 </strong>
             </span>
             <div class="comments mt-1">
                 <span>
-                    {{ $comment->comment }}
-                    <!--@if (session('commentstatus'))
-                          <div class="alert alert-success mt-4 mb-4">
-                          {{ session('commentstatus') }}
-                          </div>
-                      @endif-->
+                    <!--{{ $comment->comment }}-->
+
                 </span>
             </div>
         </div>
