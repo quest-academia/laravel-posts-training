@@ -23,6 +23,10 @@
 
 <body>
 
+    @if (Auth::check())
+        @include('commons.header')
+    @endif
+
     <div class="container">
 
         @yield('content')
