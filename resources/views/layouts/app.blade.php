@@ -23,9 +23,9 @@
 
 <body>
 
-@if (Auth::check())
+    @if (Auth::check())
         @include('commons.header')
-@endif
+    @endif
 
     <div class="container">
         @yield('content')

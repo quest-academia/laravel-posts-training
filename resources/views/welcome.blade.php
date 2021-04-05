@@ -2,9 +2,9 @@
 
 @section('content')
 
-  <div class="jumbotron">
+<div class="jumbotron">
     <h1 class="display-4 text-center">Laravel Post <i class="fas fa-mail-bulk"></i></h1>
-  </div>
+</div>
 
   <div class="col-md-8 col-md-2 mx-auto">
   @include('commons.error_card_list')
