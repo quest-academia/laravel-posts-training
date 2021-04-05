@@ -26,4 +26,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'UsersController@index')->name('top');
+    Route::get('/', 'PostsController@index')->name('post.top');
+    Route::delete('/{id}', 'PossController@destroy')->name('delete');
 });
