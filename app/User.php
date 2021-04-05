@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post;
 
 class User extends Authenticatable
 {
@@ -47,4 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function getData()
+    {
+        return $this->id .':';
+    }
 }
