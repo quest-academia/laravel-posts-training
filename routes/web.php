@@ -23,7 +23,8 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function()
+{
     Route::get('/', 'PostsController@index')->name('top');
     Route::delete('/{id}', 'PossController@destroy')->name('delete');
 });
