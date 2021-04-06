@@ -6,10 +6,10 @@
             <span>
                 <strong>
                     <a class="no-text-decoration black-color" href="">
-                        @forelse($posts->comments as $comment)
-                        {!! $user->name !!}
+                        @forelse($post->comments as $comment)
+                        {!! $comment->user->name !!}
                     <div class="border-top p-1">
-                    {{ $comment->comment }}
+                    {{ $comments }}
                     {!! nl2br(e($comment->message)) !!}
                     @empty
                         <p>コメントはまだありません</p>

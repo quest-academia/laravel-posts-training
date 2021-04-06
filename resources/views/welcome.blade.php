@@ -12,7 +12,7 @@
 
   <div class="col-md-8 col-md-2 mx-auto">
 
-    @foreach ($posts->all() as $post)
+    @foreach ($posts as $post)
       <div class="card-wrap">
         <div class="card mt-3">
           <div class="card-header align-items-center d-flex">
@@ -23,6 +23,7 @@
               <strong>
                 {{ $post->user->name }}
               </strong>
+
             </a>
           </div>
           <div class="card-body">
@@ -44,6 +45,7 @@
               <!-- コメント -->
               <div id="comment-post-1">
                 <!-- コメントをここに挿入 -->
+                @include('comments.comments')
                   <div class="m-4">
                     <form class="w-100" action="" method="post">
                       {{ csrf_field() }}

@@ -31,12 +31,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'UsersController@index')->name('top');
     Route::get('/', 'PostsController@index')->name('post.top');
     Route::delete('/{id}', 'PostsController@destroy')->name('delete');
+    //Route::get('/', 'PostsController@show')->name('post.show');
 });
 
 //コメント表示
-//Route::post('/store', 'CommentsController@store')->name('comment.store');
-Route::post('/test', 'CommentsController@store')->name('comment.store');
-Route::get('/test/{post_id}', 'CommentsController@show')->name('comment.show');
+Route::post('/comments', 'CommentsController@store')->name('comment.store');
+//Route::post('/', 'CommentsController@store')->name('comment.store');
+//Route::get('/{post_id}', 'CommentsController@show')->name('comment.show');
 //Route::get('/comments{id}', 'CommentsController@index')->name('comment.index');
 
 Route::get('users/{id}', 'UsersController@show');

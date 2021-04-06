@@ -12,10 +12,15 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('test', ['posts' => $posts]);
+        $posts = Post::with(['comments'])->orderBy('created_at', 'desc')->get();
+        return view('welcome', ['posts' => $posts]);
     }
 
+    //public function show()
+    //{
+    //    $post = Post::findOrFail($post_id);
+    //    return view('post.show')
+    //}
     public function destroy($id)
     {
         $post = Post::findOrFail($id)->delete();
