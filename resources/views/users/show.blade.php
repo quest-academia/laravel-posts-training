@@ -15,7 +15,6 @@
                     {{$user->email}}
                     </p>
                 </div>
-
                 <div class="col-12 mt-3">
                     <a class="btn btn-outline-dark common-btn btn-sm edit-profile-btn" href="/users/edit"><i class="fas fa-user-edit"></i>プロフィール編集
                     </a>
