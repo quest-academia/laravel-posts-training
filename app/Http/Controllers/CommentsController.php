@@ -8,42 +8,37 @@ use App\User;
 use App\Post;
 use App\Comment;
 
-
 class CommentsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index']);
-    }
-
-    public function store(CommentRequest $request)
-    {
-        //$params = $request->validate([
-        //    'user_id' => 'required|exists:post,id',
-        //    'post_id' => 'required|exists:post_id',
-        //    'comment' => 'max:40',
-        //]);
-
-        //$user = User::findOrFail($params['user_id']);
-        //$post = Post::findOrFail($params['post_id']);
-        //$post->comment()->create($params);
-            $params =[
-                'user_id' => $request->user_id,
-                'post_id' => $request->post_id,
-                'comment' => $request->comment,
-            ];
-
-
-        //Comment::create($params);
-        //return redirect()->route('/', ['user' => $user], ['post' => $post]);
-        $comment = new Comment;
-        $comment->fill($params)->save();
-
-        return redirect()->route('/', [$params['user_id'], [ 'post_id']]);
-    }
-    //    public function index()
+    //public function __construct()
     //{
-    //    $comment = Comment::All();
-    //    return view('welcome', ['comment' => $comment]);
+    //    $this->middleware('auth')->except(['index']);
     //}
+
+    public function store(Request $request)
+    {
+        $params = $request->validate([
+            'comment' => 'max:40',
+        ]);
+
+        Comment::create($params =[
+            'user_id' => $request->user()->id,
+            'post_id' => $request->post_id,
+            'comment' => $request->comment,
+        ]);
+
+    //        $comment = new Comment;
+    //        $comment->fill($params)->save();
+
+            $post->comment()->save($comment);
+            return redirect()->route('/', [$params['user_id'], [ 'post_id']]);
+    }
+
+    public function show($user_id, $post_id)
+    {
+        $post = Post::findOrFail($post_id);
+        $user = User::where('id', $post->user_id)->first();
+
+        return view('test', compact('user', 'post'));
+    }
 }

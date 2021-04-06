@@ -1,0 +1,9 @@
+{
+  "phpcs.standard": "PSR2",
+  "css.lint.emptyRules": "ignore",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "cSpell.words": [
+    "endforelse",
+    "forelse"
+  ],
+}
