@@ -14,11 +14,13 @@ class PostsController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('welcome', ['posts' => $posts]);
     }
-    public function edit($id){
+    public function edit($id)
+    {
         $post = Post::findOrFail($id);
         return view('create.edit', ['post' => $post]);
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $data = [
             'title' => $request->title,
             'body' => $request->body,
