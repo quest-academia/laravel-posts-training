@@ -29,3 +29,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'PostsController@index')->name('post.top');
     Route::delete('/{id}', 'PostsController@destroy')->name('delete');
 });
+
+// 投稿編集画面
+Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
+Route::post('posts/{id}', 'PostsController@update')->name('update');

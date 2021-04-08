@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body">
                     <div class="post_edit text-right" style="display: flex; justify-content: flex-end;">
-                        <a class="btn btn-primary btn-sm" href=""><i class="far fa-edit"></i>編集
+                        <a class="btn btn-primary btn-sm" href="{{ route('edit', $post->id) }}"><i class="far fa-edit"></i>編集
                         </a>
                         {{-- @if (Auth::id() == $post->user_id) --}}
                         {!! Form::open(['route' => ['delete', $post->id], 'method' => 'delete']) !!}
