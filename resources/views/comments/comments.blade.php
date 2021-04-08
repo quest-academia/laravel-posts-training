@@ -2,20 +2,19 @@
     @include('commons.error_card_list')
 </span>
 
-<div class="container mt-4">
-    <div class="card-body">
-        <span>
-            <strong>
-                <a class="no-text-decoration black-color" href="">
-                    @forelse($post->comments as $comment)
-                        {!! $comment->user->name !!}
-                </a>
-            </strong>
-        </span>
+    <div class="container mt-4">
         <div class="border-top p-1">
+            <span>
+                <strong>
+                    <a class="no-text-decoration black-color" href="">
+                        @forelse($post->comments as $comment)
+                            {!! $comment->user->name !!}
+                    </a>
+                </strong>
+            </span>
             <div class="comments mt-1">
                 <span>
-                    {{ $comment->comment}}
+                    {!! nl2br(e($comment->comment)) !!}
                     @empty
                         <p>コメントはまだありません</p>
                     @endforelse
@@ -23,4 +22,3 @@
             </div>
         </div>
     </div>
-</div>
