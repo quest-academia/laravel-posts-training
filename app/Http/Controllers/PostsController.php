@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Post;
+use App\Comment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -15,28 +16,16 @@ class PostsController extends Controller
         $posts = Post::with(['comments'])->orderBy('created_at', 'desc')->get();
         return view('welcome', ['posts' => $posts]);
     }
-    //public function comment(Request $request, $post_id)
-    //{
-    //    $comment = $request->validate([
-    //        //'user_id' => 'required',
-    //        'post_id' => 'required',
-    //        'comment' => 'max|40',
-    //    ]);
-    //    //    $comment = new Comment(['comment' =>$request->comment]);
-    //    //$post = Post::findOrFail($request->post_id);
-    //    //$user = User::findOrFail($request->user_id);
-    //    //$post->comment()->save($comment);
-    //    $comments = $post->comments->sortByDesc('created_at');
-    //    //$user = DB::table('users')->findOrFail('id', $user_id)->first();
 
-    //    return redirect()->route('post.index', ['post' => $post]);
-    //}
+    public function comment(Request $request, $post_id)
+    {
+        $comment = new Comment(['comment' => $request->comment]);
+        $post = Post::findOrFail('$post_id');
+        $post->comments()->save($comment);
 
-    //public function show()
-    //{
-    //    $post = Post::findOrFail($post_id);
-    //    return view('post.show')
-    //}
+        return \App\Comment::with($user_id)->get();
+    }
+
     public function destroy($id)
     {
         $post = Post::findOrFail($id)->delete();
