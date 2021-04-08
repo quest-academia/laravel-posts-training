@@ -16,20 +16,24 @@ class CommentsController extends Controller
     //    $this->middleware('auth')->except(['index']);
     //{
 
-    public function store(Request $request, $post_id, $user_id)
+    public function store(Request $request, $post_id)
     {
         $params = $request->validate([
-            'user_id' => 'required',
+            //'user_id' => 'required',
             'post_id' => 'required',
             'comment' => 'max:40',
         ]);
 
-        $comment = new Comment(['comment' =>$request->comment]);
-        $post = Post::findOrFail($request->post_id);
-        $user = User::findOrFail($request->user_id);
-        $post->comment()->save($comment);
-        $comments = $post->comments->sortByDesc('created_at');
-        //$user = DB::table('users')->findOrFail('id', $user_id)->first();
+        $post = Post::findOrFail($params['post_id']);
+        $comment = Comment::findOrFail($params);
+
+        $post->comments()->create($params);
+        //$comment = new Comment(['comment' =>$request->comment]);
+        //$post = Post::findOrFail($request->post_id);
+        //$user = User::findOrFail($request->user_id);
+        //$post->comment()->save($comment);
+        //$comments = $post->comments->sortByDesc('created_at');
+        ////$user = DB::table('users')->findOrFail('id', $user_id)->first();
 
         return redirect()->route('post.index', ['post' => $post]);
     }

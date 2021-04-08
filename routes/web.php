@@ -30,12 +30,13 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'UsersController@index')->name('top');
     Route::get('/', 'PostsController@index')->name('post.top');
+    Route::get('/', 'PostsController@comment')->name('post.comment');
     Route::delete('/{id}', 'PostsController@destroy')->name('delete');
     //Route::get('/', 'PostsController@show')->name('post.show');
 });
 
 //コメント表示
-Route::post('/comments', 'CommentsController@store')->name('comment.store');
+//Route::post('/comments', 'CommentsController@store')->name('comment.store');
 //Route::post('/', 'CommentsController@store')->name('comment.store');
 //Route::get('/{post_id}', 'CommentsController@show')->name('comment.show');
 //Route::get('/comments{id}', 'CommentsController@index')->name('comment.index');
