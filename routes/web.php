@@ -30,5 +30,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'UsersController@index')->name('top');
     Route::get('/', 'PostsController@index')->name('post.top');
-    Route::delete('/{id}', 'PossController@destroy')->name('delete');
+    Route::delete('/{id}', 'PostsController@destroy')->name('delete');
 });
+
+// 投稿編集画面
+Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
+Route::post('posts/{id}', 'PostsController@update')->name('update');
