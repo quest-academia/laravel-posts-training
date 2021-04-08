@@ -22,14 +22,17 @@
 </head>
 
 <body>
+
+    @if (Auth::check())
         @include('commons.header')
+    @endif
+
     <div class="container">
-
         @yield('content')
-
     </div>
 
-        @include('commons.footer')
+@include('commons.footer')
+
 
     <!-- JQuery -->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
