@@ -24,6 +24,9 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 // ログイン画面
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
+
+//ユーザー詳細画面
+Route::get('users/{id}', 'UsersController@show');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //投稿一覧画面
@@ -34,9 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //コメント表示
-//Route::post('/store', 'CommentsController@store')->name('comment.store');
-Route::post('/test', 'CommentsController@store')->name('comment.store');
-Route::get('/test/{post_id}', 'CommentsController@show')->name('comment.show');
-//Route::get('/comments{id}', 'CommentsController@index')->name('comment.index');
+Route::get('/comment', 'PostsController@Comment')->name('comment');
 
-Route::get('users/{id}', 'UsersController@show');
+// 投稿編集画面
+Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
+Route::post('posts/{id}', 'PostsController@update')->name('update');
