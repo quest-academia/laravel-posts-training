@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('login', function () {
+    return view('auth.login');
 });
 
 // 新規登録画面
@@ -25,3 +25,10 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 
 //ユーザー詳細画面
 Route::get('users/{id}','UsersController@show');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', 'UsersController@index')->name('top');
+    Route::get('/', 'PostsController@index')->name('post.top');
+    Route::delete('/{id}', 'PossController@destroy')->name('delete');
+});
