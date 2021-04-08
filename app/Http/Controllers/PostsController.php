@@ -11,8 +11,8 @@ class PostsController extends Controller
 
     public function index()
     {
-<<<<<<< HEAD
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('welcome', ['posts' => $posts]);
     }
 
     public function create()
@@ -23,9 +23,6 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         return back();
-=======
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('welcome', ['posts' => $posts]);
     }
 
     public function edit($id)
@@ -49,6 +46,5 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id)->delete();
         return redirect('/');
->>>>>>> develop_3rd
     }
 }
