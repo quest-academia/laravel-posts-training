@@ -14,11 +14,13 @@ class PostsController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('welcome', ['posts' => $posts]);
     }
+
     public function edit($id)
     {
         $post = Post::findOrFail($id);
         return view('create.edit', ['post' => $post]);
     }
+
     public function update(Request $request, $id)
     {
         $data = [
@@ -29,6 +31,7 @@ class PostsController extends Controller
         $post->fill($data)->save();
         return redirect('/');
     }
+    
     public function destroy($id)
     {
         $post = Post::findOrFail($id)->delete();
