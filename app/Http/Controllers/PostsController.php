@@ -34,15 +34,6 @@ class PostsController extends Controller
         return redirect('/');
     }
 
-    public function comment(Request $request, $post_id)
-    {
-        $comment = new Comment(['comment' => $request->comment]);
-        $post = Post::findOrFail('$post_id');
-        $post->comments()->save($comment);
-
-        return \App\Comment::with($user_id)->get();
-    }
-
     public function destroy($id)
     {
         $post = Post::findOrFail($id)->delete();

@@ -15,9 +15,9 @@
             <div class="comments mt-1">
                 <span>
                     {!! nl2br(e($comment->comment)) !!}
-                    @empty
+                        @empty
                         <p>コメントはまだありません</p>
-                    @endforelse
+                        @endforelse
                 </span>
             </div>
         </div>

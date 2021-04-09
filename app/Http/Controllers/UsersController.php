@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\User;
 
 use Illuminate\Http\Request;
@@ -44,22 +45,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
+
     public function show($id)
     {
-<<<<<<< HEAD
-        //
-=======
         $user = User::findOrFail($id);
-        return view('/', [
-=======
-    public function show($id){
-        $user = User::findOrFail($id);
-        return view('users.show',[
->>>>>>> 55f063ee2493524ce13f4fc506bddafbcb8f9254
-            'user'=>$user,
-        ]);
->>>>>>> develop_3rd
+        return view('users.show', [ 'user'=>$user,]);
     }
 
     /**

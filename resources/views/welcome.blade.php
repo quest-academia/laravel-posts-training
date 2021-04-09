@@ -56,10 +56,10 @@
                   </form>
                 </div>
             </div>
-      </section>
+          </section>
         </div>
       </div>
     </div>
-    @endforeach
+  @endforeach
 </div>
 @endsection
