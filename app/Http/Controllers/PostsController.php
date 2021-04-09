@@ -22,7 +22,19 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        return back();
+        // dd(\Auth::id());
+        $request->validate([
+            'title' => 'required|max:50',
+            'body' => 'required',
+            // 'user_id' => 'required|max:20',
+        ]);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = \Auth::id();
+        $post->save();
+        // return back();
+        return redirect('/');
     }
 
     public function edit($id)

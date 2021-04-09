@@ -23,10 +23,6 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 
-//新規投稿作成画面  
-Route::get('create', 'PostsController@create')->name('create');
-Route::post('store', 'PostsController@store')->name('store.post');
-
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -34,6 +30,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'UsersController@index')->name('top');
     Route::get('/', 'PostsController@index')->name('post.top');
     Route::delete('/{id}', 'PostsController@destroy')->name('delete');
+    //新規投稿作成画面  
+    Route::get('posts/create', 'PostsController@create')->name('create');
+    Route::post('posts', 'PostsController@store')->name('store');
 });
 
 // 投稿編集画面
