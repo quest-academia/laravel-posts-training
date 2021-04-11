@@ -15,6 +15,28 @@ class PostsController extends Controller
         return view('welcome', ['posts' => $posts]);
     }
 
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        // dd(\Auth::id());
+        $request->validate([
+            'title' => 'required|max:50',
+            'body' => 'required',
+            // 'user_id' => 'required|max:20',
+        ]);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = \Auth::id();
+        $post->save();
+        // return back();
+        return redirect('/');
+    }
+
     public function edit($id)
     {
         $post = Post::findOrFail($id);
