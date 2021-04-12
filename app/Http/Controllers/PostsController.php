@@ -18,4 +18,23 @@ class PostsController extends Controller
         $post = Post::findOrFail($posts_id);
         return view('posts.show', ['post' => $post]);
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+        return redirect()->route('top');
+    }
+
 }
