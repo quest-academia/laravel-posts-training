@@ -26,16 +26,15 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        $params = $request->validate( [
+        $request->validate([
             'title' => 'required|max:20',
             'body' => 'required',
         ]);
-        Post::create($params);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
         return redirect()->route('top');
     }
 
-    public function edit($posts_id)
-    {
-        ''
-    }
 }
