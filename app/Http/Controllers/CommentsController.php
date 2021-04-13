@@ -13,7 +13,8 @@ class CommentsController extends Controller
     public function comment(CommentRequest $request, $post_id)
     {
         $comment = new Comment(['comment' => $request->comment]);
-        $post = Post::findOrFail('$post_id');
+        $comment = Post::findOrFail('$post_id');
+        $comment->user_id = Auth::user()->id;
         $post->comments()->save($comment);
 
         return \App\Comment::with($user_id)->get();
