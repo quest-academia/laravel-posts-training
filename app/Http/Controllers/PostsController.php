@@ -37,4 +37,9 @@ class PostsController extends Controller
         return redirect()->route('top');
     }
 
+    public function edit()
+    {
+        return view('posts.edit');
+    }
+
 }
