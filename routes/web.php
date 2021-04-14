@@ -19,4 +19,6 @@ Route::get('/create','PostsController@create')->name('posts.create');
 
 Route::post('/store','PostsController@store')->name('posts.store');
 
-Route::get('/edit','PostsController@edit')->name('posts.edit');
+Route::get('/edit/{posts_id}','PostsController@edit')->name('posts.edit');
+
+Route::post('/update/{posts_id}','PostsController@update')->name('posts.update');
