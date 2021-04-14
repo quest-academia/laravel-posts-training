@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Post;
+use App\Comment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -53,7 +55,7 @@ class PostsController extends Controller
         $post->fill($data)->save();
         return redirect('/');
     }
-    
+
     public function destroy($id)
     {
         $post = Post::findOrFail($id)->delete();
