@@ -17,13 +17,13 @@
                 {!! nl2br(e($comment->comment)) !!}
                     @empty
                         <p>コメントはまだありません</p>
+                    @endforelse
             </span>
         </div>
-                    @endforelse
         </div>
         <div id="comment-post-1">
             <div class="m-4">
-                {{ Form::open(['route' => 'comment']) }}
+                {{ Form::open(['route' => 'comment.store']) }}
                 {{ csrf_field() }}
                 {{ Form::hidden('utf8') }}
                 {{ Form::hidden('user_id') }}

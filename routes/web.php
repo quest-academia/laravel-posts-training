@@ -38,8 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //コメント表示
-Route::get('/comment', 'CommentsController@Comment')->name('comment');
-Route::post('/comment', 'CommentsController@comment')->name('comment');
+Route::get('/comment', 'CommentsController@comment')->name('comment');
+Route::post('/comment', 'CommentsController@store')->name('comment.store');
 
 // 投稿編集画面
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');

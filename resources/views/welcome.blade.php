@@ -39,13 +39,13 @@
                     <div class="mb-5">
                         {{ $post->body }}
                     </div>
+                </div>
             <section>
             <!-- コメント -->
             @include('comments.comments')
             </section>
-                </div>
             </div>
         </div>
-@endforeach
+    @endforeach
 </div>
 @endsection
