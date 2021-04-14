@@ -29,17 +29,32 @@ class CommentsController extends Controller
         ]);
     }
 
-    public function update(CommentRequest $request, $post_id)
+    public function update(Request $request, $post_id)
     {
-        $params = $request->validate([
+        $data = $request->validate([
             'post_id' => 'required'|'exits:post,id',
             'comment' => 'required|max;40',
-        ]);
-        //$comment = Comment::findOrFail($params['post_id']);
-        $comment = Comment::findOrFail(['comment' => $request->comment]);
-        $comment->fill($request->all())->save();
-        return redirect()->route('/', [
-            'post' => $post
-        ]);
+            ]);
+        $comment = Comment::findOrFail($comment_id);
+        $comment->fill($data)->save();
+        return redirect('/', ['comment' => $comment]);
+
+        //$comment = Comment::findOrFail($request->comment_id);
+        //$form = $request->all();
+        ////unset($form['_token']);
+        //$comment->fill($form)->save();
+        //return redirect('/');
+
+
+        //$params = $request->validate([
+        //    'post_id' => 'required'|'exits:post,id',
+        //    'comment' => 'required|max;40',
+        //    ]);
+        ////$comment = Comment::findOrFail($params['post_id']);
+        //$comment = Comment::findOrFail(['comment' => $request->comment]);
+        //$comment->fill($params)->save();
+        //return redirect()->route('/', [
+        //    $comment->id
+        //]);
     }
 }

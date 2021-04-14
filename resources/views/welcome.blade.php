@@ -38,7 +38,7 @@
           </h3>
           <div class="mb-5">
             {{ $post->body }}
-          </div>
+        </div>
           <section>
           <!-- コメント -->
             <div id="comment-post-1">
@@ -50,8 +50,19 @@
                       <input value="" type="hidden" name="user_id" />
                       <input value="" type="hidden" name="post_id" />
                       <input name="" value=""class="form-control comment-input border border-light mx-auto"placeholder="コメントを入力する">
-                      <div class="text-right">
+
+                    <div class="text-right">
+                        <div class="comment_edit" style="display: flex; justify-content: flex-end;">
+
                         <input type="submit" value="&#xf075;コメント送信"class="far fa-comment btn btn-default btn-sm">
+                    <a class="btn btn-primary btn-sm" href="{{ route('comment.edit', $comment->comment) }}"><i class="far fa-edit"></i>編集
+                    </a>
+                    {{-- @if (Auth::id() == $post->user_id) --}}
+                        {!! Form::open(['route' => ['delete', $post->id], 'method' => 'delete']) !!}
+                            {!! Form::button('<i class="far fa-trash-alt" style="margin-left: 2px;"></i>削除', ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) !!}
+                        {!! Form::close() !!}
+                    {{-- @endif --}}
+                </div>
                       </div>
                   </form>
                 </div>
