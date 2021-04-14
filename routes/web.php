@@ -10,12 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('test');
+Route::get('login', function () {
+    return view('auth.login');
 });
-//Route::get('login', function () {
-//    return view('auth.login');
-//});
 
 // 新規登録画面
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
@@ -38,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //コメント表示
 Route::get('/comment', 'CommentsController@Comment')->name('comment');
+Route::post('/comment', 'CommentsController@comment')->name('comment');
 
 // 投稿編集画面
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
