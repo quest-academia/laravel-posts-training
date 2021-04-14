@@ -41,10 +41,9 @@
                     </div>
                 </div>
             <section>
-            <!-- コメント -->
             @include('comments.comments')
             </section>
-            </div>
+            <!--</div>-->
         </div>
     @endforeach
 </div>
