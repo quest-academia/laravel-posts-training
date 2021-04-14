@@ -34,6 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'UsersController@index')->name('top');
     Route::get('/', 'PostsController@index')->name('post.top');
     Route::delete('/{id}', 'PostsController@destroy')->name('delete');
+
+    //新規投稿作成画面 
+    Route::get('posts/create', 'PostsController@create')->name('create');
+    Route::post('posts', 'PostsController@store')->name('store');
 });
 
 //コメント表示

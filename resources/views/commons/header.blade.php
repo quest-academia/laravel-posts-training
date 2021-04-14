@@ -5,7 +5,7 @@
         <ul class="navbar-nav ml-md-auto align-items-center">
             <li>{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
             <li>
-                <a class="btn btn-info" href="/posts/new"><i class="fas fa-pencil-alt"></i>
+                <a class="btn btn-info" href="{{ route('create') }}"><i class="fas fa-pencil-alt"></i>
                 投稿する
                 </a>
             </li>
