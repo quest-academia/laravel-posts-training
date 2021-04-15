@@ -49,6 +49,10 @@ class PostsController extends Controller
             'title' => $request->title,
             'body' => $request->body,
         ];
+        $request->validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
         $post = Post::findOrFail($posts_id);
         $post->fill($data)->save();
         return redirect('/');
