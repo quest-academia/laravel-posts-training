@@ -2,9 +2,11 @@
 
 @section('content')
 
+
     <div class="container my-4">
         <div class="border p-4">
             <h5 class="mb-4">投稿の編集</h5>
+@include('commons.error_clear_last')
             {!!Form::open(['route'=>'posts.store'])!!}
                 <div class="form-group">
                 {!!Form::label('title','タイトル')!!}

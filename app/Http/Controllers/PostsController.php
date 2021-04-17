@@ -45,14 +45,14 @@ class PostsController extends Controller
 
     public function update($posts_id,Request $request)
     {
-        $data = [
-            'title' => $request->title,
-            'body' => $request->body,
-        ];
         $request->validate([
             'title' => 'required|max:20',
             'body' => 'required',
         ]);
+        $data = [
+            'title' => $request->title,
+            'body' => $request->body,
+        ];
         $post = Post::findOrFail($posts_id);
         $post->fill($data)->save();
         return redirect('/');
