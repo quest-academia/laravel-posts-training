@@ -14,6 +14,28 @@ class CommentsController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function comment(Request $request)
+    {
+        $request->validate([
+            'comment' => 'required|max:40'
+        ]);
+
+        $array = array($request->comment);
+        $comments = implode(",", $array);
+
+        $data = [
+            'post_id' => $request->post_id,
+            'user_id' => $request->user()->id,
+            'comment' => $request->input($comments),
+        ];
+
+        $comment = new Comment;
+        $comment->fill($data)->save();
+
+        return redirect('/');
+    }
+
     public function store(Request $request)
     {
         $comment = new Comment;

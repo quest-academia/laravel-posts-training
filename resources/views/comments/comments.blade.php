@@ -9,30 +9,30 @@
                 <a class="no-text-decoration black-color" href="">
                     @forelse($post->comments as $comment)
                         {{ $comment->user->name }}
-                </a>
-            </strong>
-        </span>
-        <div class="comments mt-1">
-            <span>
-                {!! nl2br(e($comment->comment)) !!}
-                    @empty
-                        <p>コメントはまだありません</p>
-                    @endforelse
+                    </a>
+                </strong>
+            </span>
+            <div class="comments mt-1">
+                <span>
+                    {!! nl2br(e($comment->comment)) !!}
+                @empty
+                    <p>コメントはまだありません</p>
+                @endforelse
             </span>
         </div>
     </div>
     <div id="comment-post-1">
         <div class="m-4">
-            {{ Form::open(['route' => 'comment.store']) }}
+            {{ Form::open(['route' => 'comment']) }}
             {{ csrf_field() }}
             {{ Form::hidden('utf8') }}
             {{ Form::hidden('user_id') }}
             {{ Form::hidden('post_id', $post->id) }}
-            {{ Form::text('comment', null, ['class' => 'form-control comment-input border border-light mx-auto', 'placeholder' => 'コメントを入力する']) }}
+            <input type="text" name="comment[{{ $post->id }}]" class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
             <div class="text-right">
                 {{ Form::submit('&#xf075;コメント送信', ['class' => 'far fa-comment btn btn-default btn-sm']) }}
             </div>
-                {{ Form::close() }}
+            {{ Form::close() }}
         </div>
     </div>
 </div>
