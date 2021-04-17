@@ -57,9 +57,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $user = User::findOrFail($id);
+        return view('users.edit',[
+            'user'=>$user,
+        ]);
     }
 
     /**
@@ -71,7 +73,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        $user = User::findOrFail($id);
+        $user->fill($data)->save();
+        return redirect('/');
     }
 
     /**
