@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('login', function () {
     return view('auth.login');
 });
@@ -32,12 +31,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'UsersController@index')->name('top');
     Route::get('/', 'PostsController@index')->name('post.top');
     Route::delete('/{id}', 'PostsController@destroy')->name('delete');
+
+    //新規投稿作成画面
+    Route::get('posts/create', 'PostsController@create')->name('create');
+    Route::post('posts', 'PostsController@store')->name('store');
 });
 
 //コメント表示
 Route::get('/comment', 'CommentsController@Comment')->name('comment');
-Route::get('/edit/{comment_id}', 'CommentsController@edit')->name('comment.edit');
-Route::put('/edit/{comment_id)', 'CommentsController@update')->name('comment.update');
+Route::post('/comment', 'CommentsController@store')->name('comment.store');
+Route::get('/comment/{comment_id}', 'CommentsController@edit')->name('comment.edit');
+Route::put('/comment_edit/{comment_id)', 'CommentsController@update')->name('comment.update');
 
 // 投稿編集画面
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
