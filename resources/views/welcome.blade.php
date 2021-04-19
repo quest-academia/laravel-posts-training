@@ -1,24 +1,23 @@
 @extends('layouts.app')
 
-@section('content')
+@section('main_content')
 
     <div class="jumbotron">
         <h1 class="display-4 text-center">Laravel Post<i class="fas fa-mail-bulk"></i></h1>
     </div>
 
     <div class="col-md-8 col-md-2 mx-auto">
-        @include('commons.error_card_list')
-    </div>
-
-    <div class="col-md-8 col-md-2 mx-auto">
+        <span class="help-block">
+            @include('comments.comment_error_card')
+        </span>
         @foreach ($posts as $post)
             <div class="card-wrap">
                 <div class="card mt-3">
                     <div class="card-header align-items-center d-flex">
-                        <a class="no-text-decoration" href="">
+                        <a class="no-text-decoration" href="{{ route('show', $post->user->id) }}">
                             <i class="fas fa-user-circle fa-2x mr-1"></i>
                         </a>
-                        <a class="black-color" title="" href="">
+                        <a class="black_color" title="" href="{{ route('show', $post->user->id) }}">
                             <strong>
                                 {{ $post->user->name }}
                             </strong>

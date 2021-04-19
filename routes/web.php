@@ -23,7 +23,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 
 //ユーザー詳細画面
-Route::get('users/{id}', 'UsersController@show');
+Route::get('users/{id}', 'UsersController@show')->name('show');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //投稿一覧画面
@@ -38,7 +38,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //コメント表示
-Route::post('/', 'CommentsController@comment')->name('comment');
 Route::post('/comment', 'CommentsController@store')->name('comment.store');
 
 // 投稿編集画面

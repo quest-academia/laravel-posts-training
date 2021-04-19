@@ -25,14 +25,14 @@ class CommentRequest extends FormRequest
     {
         return [
             'post_id' => 'required|exists:posts,id',
-            'comment' => 'required|max:40',
+            'comment.*'=> 'required|max:40',
         ];
     }
-    public function comments()
+    public function messages()
     {
         return[
-        'comment.max' => 'コメントは40文字以内で入力してください',
-        'comment.required' => 'コメントを入力して下さい',
+        'comment.*.max' => 'コメントは40文字以内で入力してください',
+        'comment.*.required' => 'コメントは必須です',
         ];
     }
 }
