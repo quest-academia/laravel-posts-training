@@ -7,14 +7,15 @@
     @include('commons.error_card_list')
       <div class="card mt-5">
         <div class="card-header">
-        <h5 class="mb-2">コメントの編集</h5>
+        <!--<h5 class="mb-2">コメントの編集</h5>-->
+              {!!Form::label('comment','コメントの編集')!!}
         </div>
         <div class="card-body">
           <div class="md-form">
-            {!! Form::open(['route' => ['comment.update',$comment->id], "accept-charset" => "UTF-8", 'method' => 'put']) !!}
+            {!! Form::open(['route' => ['comment.update', $comment->id], "accept-charset" => "UTF-8", 'method' => 'put']) !!}
             {{csrf_field()}}
               <div class="form-group">
-                {!! Form::textarea('text', old('text', $comment->comment), ['class' => 'form-control']) !!}
+              {!! Form::textarea('comment',old('comment') ? old('comment') : $comment->comment ,['class'=>'form-control']) !!}
               </div>
               <div class="text-center">
                 <a class="btn btn-secondary" href="/">キャンセル</a>
