@@ -37,4 +37,25 @@ class PostsController extends Controller
         return redirect()->route('top');
     }
 
+    public function edit($post_id)
+    {
+        $post = Post::findOrFail($post_id);
+        return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update($posts_id,Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
+        $data = [
+            'title' => $request->title,
+            'body' => $request->body,
+        ];
+        $post = Post::findOrFail($posts_id);
+        $post->fill($data)->save();
+        return redirect('/');
+    }
+
 }
