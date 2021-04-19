@@ -15,25 +15,24 @@
             </div>
         </div>
     @empty
-    <div class="comments mt-1">
-        <span>
-            <p>コメントはまだありません</p>
-        </span>
-    </div>
+        <div class="comments mt-1">
+            <span>
+                <p>コメントはまだありません</p>
+            </span>
+        </div>
     @endforelse
     <div id="comment-post-1">
         <div class="m-4">
-            {{ Form::open(['route' => 'comment.store']) }}
-            {{ csrf_field() }}
-            {{ Form::hidden('utf8') }}
-            {{ Form::hidden('user_id') }}
-            {{ Form::hidden('post_id', $post->id) }}
-            <input type="text" name="comment[{{ $post->id }}]" value="{{ old('comment.'.$post->id) }}"
-                class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
-            <div class="text-right">
-                {{ Form::submit('&#xf075;コメント送信', ['class' => 'far fa-comment btn btn-default btn-sm']) }}
-            </div>
-            {{ Form::close() }}
+            <form method="POST" action="{{ route('comment.store') }}" accept-charset="UTF-8">
+                {{ csrf_field() }}
+                <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
+                <input type="hidden" name='post_id' value="{{ $post->id }}">
+                <input type="text" name="comment[{{ $post->id }}]" value="{{ old('comment.' . $post->id) }}"
+                    class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
+                <div class="text-right">
+                    <input class="far fa-comment btn btn-default btn-sm" type="submit" value="&#xf075;コメント送信">
+                </div>
+            </form>
         </div>
     </div>
 </div>
