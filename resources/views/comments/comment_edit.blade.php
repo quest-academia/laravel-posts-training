@@ -7,8 +7,7 @@
     @include('commons.error_card_list')
       <div class="card mt-5">
         <div class="card-header">
-        <!--<h5 class="mb-2">コメントの編集</h5>-->
-              {!!Form::label('comment','コメントの編集')!!}
+          <h5 class="mb-2">コメントの編集</h5>
         </div>
         <div class="card-body">
           <div class="md-form">
