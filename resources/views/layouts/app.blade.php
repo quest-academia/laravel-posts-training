@@ -27,11 +27,9 @@
         @include('commons.header')
     @endif
 
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 
-@include('commons.footer')
+    @include('commons.footer')
 
 
     <!-- JQuery -->

@@ -4,14 +4,21 @@
 
 <div class="container mt-4">
     <div class="border-top p-1">
-        <span>
-            <strong>
-                <a class="no-text-decoration black-color" href="">
-                    @forelse($post->comments as $comment)
-                        {{ $comment->user->name }}
-                </a>
-            </strong>
-        </span>
+        <div class="comment_display" style="display:flex; justify-content:space-between; flex-wrap: wrap;">
+            <span>
+                <strong>
+                    <a class="no-text-decoration black-color" href="">
+                        @forelse($post->comments as $comment)
+                            <i class="fas fa-user-circle fa-2x mr-1"></i>
+                                {{ $comment->user->name }}
+                    </a>
+                </strong>
+            </span>
+                <div class="comment_edit">
+                    <a class="btn btn-info btn-sm py-1"  href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメントを編集
+                    </a>
+                </div>
+        </div>
         <div class="comments mt-1">
             <span>
                 {!! nl2br(e($comment->comment)) !!}
@@ -32,7 +39,9 @@
             <div class="text-right">
                 {{ Form::submit('&#xf075;コメント送信', ['class' => 'far fa-comment btn btn-default btn-sm']) }}
             </div>
+
                 {{ Form::close() }}
+
         </div>
     </div>
 </div>

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Post;
 use App\Comment;
-
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -14,12 +13,33 @@ class CommentsController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function store(Request $request)
     {
         $comment = new Comment;
         $comment->comment = $request->input('comment', $request->post_id);
         $comment->user_id = Auth::user()->id;
         $comment->save();
+
+        return redirect('/');
+    }
+
+    public function edit($comment_id)
+    {
+        $comment = Comment::findOrFail($comment_id)->first();
+
+        return view('comments.comment_edit', ['comment' => $comment]);
+    }
+
+    public function update($comment_id, Request $request)
+    {
+
+        $params = $request->validate([
+        'comment' => 'required|max:40',
+        ]);
+
+        $comment = Comment::findOrFail($comment_id);
+        $comment->fill($params)->save();
 
         return redirect('/');
     }
