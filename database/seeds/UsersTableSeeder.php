@@ -12,29 +12,39 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'sample1',
-            'email' => 'sample1@sample.com',
-            'password' => bcrypt('sample1')
+            'name' => "テスト１",
+            'email' => "test1@example.com",
+            'password' => bcrypt('secret'),
+            'name' => new DateTime(),
+            'updated_at' => new DateTime(),
         ]);
         DB::table('users')->insert([
-            'name' => 'sample2',
-            'email' => 'sample2@sample.com',
-            'password' => bcrypt('sample2')
+            'name' => "テスト2",
+            'email' => "test2@example.com",
+            'password' => bcrypt('secret'),
+            'name' => new DateTime(),
+            'updated_at' => new DateTime(),
         ]);
         DB::table('users')->insert([
-            'name' => 'sample3',
-            'email' => 'sample3@sample.com',
-            'password' => bcrypt('sample3')
+            'name' => "テスト3",
+            'email' => "test3@example.com",
+            'password' => bcrypt('secret'),
+            'name' => new DateTime(),
+            'updated_at' => new DateTime(),
         ]);
         DB::table('users')->insert([
-            'name' => 'sample4',
-            'email' => 'sample4@sample.com',
-            'password' => bcrypt('sample4')
+            'name' => "テスト4",
+            'email' => "test4@example.com",
+            'password' => bcrypt('secret'),
+            'name' => new DateTime(),
+            'updated_at' => new DateTime(),
         ]);
         DB::table('users')->insert([
-            'name' => 'sample5',
-            'email' => 'sample5@sample.com',
-            'password' => bcrypt('sample5')
+            'name' => "テスト5",
+            'email' => "test5@example.com",
+            'password' => bcrypt('secret'),
+            'name' => new DateTime(),
+            'updated_at' => new DateTime(),
         ]);
     }
 }
