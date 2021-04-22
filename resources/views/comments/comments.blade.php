@@ -1,47 +1,42 @@
-<span class="help-block">
-    @include('commons.error_card_list')
-</span>
-
 <div class="container mt-4">
-    <div class="border-top p-1">
-        <div class="comment_display" style="display:flex; justify-content:space-between; flex-wrap: wrap;">
+    @forelse($post->comments as $comment)
+        <div class="border-top p-1">
             <span>
                 <strong>
-                    <a class="no-text-decoration black-color" href="">
-                        @forelse($post->comments as $comment)
-                            <i class="fas fa-user-circle fa-2x mr-1"></i>
-                                {{ $comment->user->name }}
+                    <a class="no-text-decoration black-color" href="{{ route('show', $comment->user->id) }}">
+                        {{ $comment->user->name }}
                     </a>
                 </strong>
             </span>
-                <div class="comment_edit">
-                    <a class="btn btn-info btn-sm py-1"  href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメントを編集
-                    </a>
-                </div>
+            <div class="comment_edit">
+                <a class="btn btn-info btn-sm py-1"  href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメントを編集
+                </a>
+            </div>
+            <div class="comments mt-1">
+                <span>
+                    {!! nl2br(e($comment->comment)) !!}
+                </span>
+            </div>
         </div>
+    @empty
         <div class="comments mt-1">
             <span>
-                {!! nl2br(e($comment->comment)) !!}
-                    @empty
-                        <p>コメントはまだありません</p>
-                    @endforelse
+                <p>コメントはまだありません</p>
             </span>
         </div>
-    </div>
+    @endforelse
     <div id="comment-post-1">
         <div class="m-4">
-            {{ Form::open(['route' => 'comment.store']) }}
-            {{ csrf_field() }}
-            {{ Form::hidden('utf8') }}
-            {{ Form::hidden('user_id') }}
-            {{ Form::hidden('post_id', $post->id) }}
-            {{ Form::text('comment', null, ['class' => 'form-control comment-input border border-light mx-auto', 'placeholder' => 'コメントを入力する']) }}
-            <div class="text-right">
-                {{ Form::submit('&#xf075;コメント送信', ['class' => 'far fa-comment btn btn-default btn-sm']) }}
-            </div>
-
-                {{ Form::close() }}
-
+            <form method="POST" action="{{ route('comment.store') }}" accept-charset="UTF-8">
+                {{ csrf_field() }}
+                <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
+                <input type="hidden" name='post_id' value="{{ $post->id }}">
+                <input type="text" name="comment[{{ $post->id }}]" value="{{ old('comment.' . $post->id) }}"
+                    class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
+                <div class="text-right">
+                    <input class="far fa-comment btn btn-default btn-sm" type="submit" value="&#xf075;コメント送信">
+                </div>
+            </form>
         </div>
     </div>
 </div>
