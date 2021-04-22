@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <div class="container mt-5">
     <div class="card">
         <div class="form-wrap col-xs-6 col-lg-4">
@@ -6,35 +10,39 @@
                 新規登録
                 </h2>
             </div>
-            <form method="POST" action="{{ route(['route' => 'signup.post']) }}">
+            {!! Form::open(['signup.post']) !!}
             @csrf
                 <div class="form-group">
-                    <input class="form-control" placeholder="メールアドレス" autocomplete="email" name="email" value="">
+                    {!! Form::label('name', '名前') !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" placeholder="ユーザー名" name="name" value="">
+                    {!! Form::label('email', 'メールアドレス') !!}
+                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" type="password" placeholder="パスワード" autocomplete="off" name="password">
+                    {!! Form::label('password', 'パスワード') !!}
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" type="password" placeholder="パスワード再確認" autocomplete="off" name="password_confirmation">
+                    {!! Form::label('password_confirmation', 'パスワード確認') !!}
+                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
-                <div class="actions text-center">
-                    <input type="submit" name="commit" value="新規登録" class="btn btn-info w-auto">
-                </div>
-            </form>
+                {!! Form::submit('新規登録', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::close() !!}
             <br>
                 <p class="devise-link">
                 アカウントを既にお持ちの場合⇨
-                    <a href="/login">
+                    <a href="">
                     ログインする
                     </a>
                 </p>
             </div>
         </div>
     </div>
+@endsection
+
