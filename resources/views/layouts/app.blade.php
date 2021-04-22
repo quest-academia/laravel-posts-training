@@ -33,7 +33,7 @@
     
     @yield('main_content')
 
-@include('commons.footer')
+    @include('commons.footer')
 
 
     <!-- JQuery -->

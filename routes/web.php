@@ -39,7 +39,15 @@ Route::group(['middleware' => 'auth'], function () {
 
 //コメント表示
 Route::post('/comment', 'CommentsController@store')->name('comment.store');
+Route::get('/comment/{comment_id}', 'CommentsController@edit')->name('comment.edit');
+Route::put('/comment_edit/{comment_id}', 'CommentsController@update')->name('comment.update');
 
 // 投稿編集画面
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
 Route::post('posts/{id}', 'PostsController@update')->name('update');
+
+//ユーザ更新画面
+Route::group(['middleware' => 'auth'], function(){
+        Route::get('user/{id}/edit','UsersController@edit')->name('users.edit');
+        Route::post('user/{id}','UsersController@update')->name('users.update');
+});

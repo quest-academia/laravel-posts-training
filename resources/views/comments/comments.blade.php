@@ -3,11 +3,15 @@
         <div class="border-top p-1">
             <span>
                 <strong>
-                    <a class="no-text-decoration black-color" href="http://192.168.33.11/users/{{ $comment->user->id }}">
+                    <a class="no-text-decoration black-color" href="{{ route('show', $comment->user->id) }}">
                         {{ $comment->user->name }}
                     </a>
                 </strong>
             </span>
+            <div class="comment_edit">
+                <a class="btn btn-info btn-sm py-1"  href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメントを編集
+                </a>
+            </div>
             <div class="comments mt-1">
                 <span>
                     {!! nl2br(e($comment->comment)) !!}
