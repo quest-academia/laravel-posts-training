@@ -50,8 +50,7 @@ class CommentsController extends Controller
 
     public function destroy($comment_id)
     {
-        $comment = Comment::findOrFail($comment_id);
-        $comment->delete();
+        $comment = Comment::findOrFail($comment_id)->delete();
 
         return redirect('/');
     }
