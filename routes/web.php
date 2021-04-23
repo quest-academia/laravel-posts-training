@@ -16,6 +16,10 @@
 //});
 
 //投稿一覧画面
-
+//Route::group(['middleware' => 'auth'],function(){
     Route::get('/','PostsController@index')->name('top');
-    
+//});
+
+//ユーザ新規登録画面
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');

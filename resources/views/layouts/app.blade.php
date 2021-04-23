@@ -19,9 +19,15 @@
                     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         </head>
         <body>
-            
-            @include('commons.header')
-            @yield('content')
+
+            @if (Auth::check())
+                @include('commons.header')
+            @endif
+
+            <div class="container">
+                @yield('content')
+            </div>
+
             @include('commons.footer')
 
             <!-- JQuery -->
@@ -34,4 +40,3 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
         </body>
     </html>
-</html>

@@ -14,10 +14,10 @@
             <div class="card-wrap">
                 <div class="card mt-3">
                     <div class="card-header align-items-center d-flex">
-                        <a class="no-text-decoration" href="{{ route('show',$post->id) }}">
+                        <a class="no-text-decoration" href="">
                             <i class="fas fa-user-circle fa-2x mr-1"></i>
                         </a>
-                        <a class="black-color" title="" href="{{ route('show',$post->id) }}">
+                        <a class="black-color" title="" href="">
                             <strong>
                                 {{$post->name}}
                             </strong>
@@ -25,9 +25,9 @@
                     </div>
                     <div class="card-body">
                         <div class="post_edit text-right">
-                            <a class="btn btn-primary btn-sm" href="{{route('edit',$posts->id)}}"><i class="far fa-edit"></i>編集
+                            <a class="btn btn-primary btn-sm" href=""><i class="far fa-edit"></i>編集
                             </a>
-                            <a class="btn btn-danger btn-sm" rel="nofollow" href="{{route('delete',$posts->id)}}"><i class="far fa-trash-alt"></i>削除
+                            <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
                             </a>
                         </div>
                         {{-- @endif --}}
