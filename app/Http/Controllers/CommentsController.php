@@ -30,7 +30,7 @@ class CommentsController extends Controller
 
     public function edit($comment_id)
     {
-        $comment = Comment::findOrFail($comment_id)->first();
+        $comment = Comment::findOrFail($comment_id);
 
         return view('comments.comment_edit', ['comment' => $comment]);
     }
@@ -44,6 +44,14 @@ class CommentsController extends Controller
 
         $comment = Comment::findOrFail($comment_id);
         $comment->fill($params)->save();
+
+        return redirect('/');
+    }
+
+    public function destroy($comment_id)
+    {
+        $comment = Comment::findOrFail($comment_id);
+        $comment->delete();
 
         return redirect('/');
     }
