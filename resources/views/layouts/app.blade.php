@@ -30,7 +30,7 @@
     <div class="container">
         @yield('content')
     </div>
-    
+
     @yield('main_content')
 
     @include('commons.footer')
