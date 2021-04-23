@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
+
+//投稿一覧画面
+
+    Route::get('/','PostsController@index')->name('top');
+    
