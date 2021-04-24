@@ -13,4 +13,22 @@ class PostsController extends Controller
         $posts = Post::orderBy('created_at','desc')->get();
         return view('index',['posts' => $posts]);
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+        return redirect('/');
+    }
 }
