@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-md-auto align-items-center">
             <li>
-                <a class="btn btn-info" href=""><i class="fas fa-pencil-alt"></i>
+                <a class="btn btn-info" href="{{ route('create') }}"><i class="fas fa-pencil-alt"></i>
                 投稿する
                 </a>
             </li>
