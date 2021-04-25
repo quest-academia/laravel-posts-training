@@ -11,13 +11,13 @@
                     投稿の新規作成
                     </div>
                     <div class="card-body">
-                        <form class="upload" id="new_post" enctype="multipart/form-data" action="{{route('store')}}" accept-charset="UTF-8" method="POST">
+                        <form class="upload" id="new_post" enctype="multipart/form-data" action="{{ route('store') }}" accept-charset="UTF-8" method="POST">
                         {{csrf_field()}}
                             <div class="md-form">
                                 <input class="form-control" placeholder="タイトル" name="title" value="{{ old('title') }}"/>
                             </div>
                             <div class="form-group">
-                                <textarea name="body" class="form-control" rows="10" placeholder="本文">{{old('body')}}</textarea>
+                                <textarea name="body" class="form-control" rows="10" placeholder="本文">{{ old('body') }}</textarea>
                             </div>
                             <div class="text-center">
                                 <input type="submit" name="commit" value="投稿する" class="btn btn-primary w-25" data-disable-with="投稿する"/>
