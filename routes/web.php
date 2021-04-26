@@ -42,6 +42,9 @@ Route::post('/comment', 'CommentsController@store')->name('comment.store');
 Route::get('/comment/{comment_id}', 'CommentsController@edit')->name('comment.edit');
 Route::put('/comment_edit/{comment_id}', 'CommentsController@update')->name('comment.update');
 
+// コメント削除
+Route::delete('/comment/{comment_id}', 'CommentsController@destroy')->name('comment.delete');
+
 // 投稿編集画面
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('edit');
 Route::post('posts/{id}', 'PostsController@update')->name('update');

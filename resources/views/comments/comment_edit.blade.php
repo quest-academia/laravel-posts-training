@@ -10,6 +10,9 @@
           <h5 class="mb-2">コメントの編集</h5>
         </div>
         <div class="card-body">
+          {!! Form::open(['route' => ['comment.delete', $comment->id], 'method' => 'delete']) !!}
+          {!! Form::submit('削除する', ['class' => 'btn btn-danger w-25']) !!}
+          {!! Form::close() !!}
           <div class="md-form">
             {!! Form::open(['route' => ['comment.update', $comment->id], "accept-charset" => "UTF-8", 'method' => 'put']) !!}
             {{csrf_field()}}
