@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Post;
-use App\Comment;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -24,18 +21,15 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        // dd(\Auth::id());
         $request->validate([
             'title' => 'required|max:50',
             'body' => 'required',
-            // 'user_id' => 'required|max:20',
         ]);
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
         $post->user_id = \Auth::id();
         $post->save();
-        // return back();
         return redirect('/');
     }
 
@@ -47,6 +41,10 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required|max:50',
+            'body' => 'required',
+        ]);
         $data = [
             'title' => $request->title,
             'body' => $request->body,

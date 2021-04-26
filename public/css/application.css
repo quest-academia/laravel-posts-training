@@ -7,3 +7,8 @@
     text-align: left;
     font-size: 14px;
 }
+
+/* comments.blade.php */
+.black-color{
+    color: #262626;
+}
