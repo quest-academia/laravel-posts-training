@@ -8,10 +8,13 @@
                     </a>
                 </strong>
             </span>
-            <div class="comment_edit">
-                <a class="btn btn-info btn-sm py-1"  href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメントを編集
-                </a>
-            </div>
+            @if (Auth::id() == $comment->user_id)
+                <span>
+                    <a class="btn btn-info btn-sm py-1" href="{{ route('comment.edit', ['comment' => $comment]) }}"><i
+                            class="far fa-edit" method="get"></i>コメントを編集
+                    </a>
+                </span>
+            @endif
             <div class="comments mt-1">
                 <span>
                     {!! nl2br(e($comment->comment)) !!}
