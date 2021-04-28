@@ -34,3 +34,9 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+//投稿編集画面
+//Route::group(['middleware' => 'auth'],function(){
+  Route::get('posts/{id}/edit','PostsController@edit')->name('edit');
+  Route::post('posts/{id}','PostsController@update')->name('update');
+//})
