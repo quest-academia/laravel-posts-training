@@ -40,7 +40,7 @@ class PostsController extends Controller
         return view('create.edit',['post' => $post]);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
