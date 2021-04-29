@@ -8,8 +8,9 @@ use App\User;
 
 class UsersController extends Controller
 {
-    public function show()
+    public function show($id)
     {
-        return view('users.show');
+        $user = User::findOrFail($id);
+        return view('users.show', ['user' => $user,]);
     }
 }
