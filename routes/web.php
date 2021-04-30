@@ -52,6 +52,5 @@ Route::group(['middleware' => 'auth'], function () {
     //ユーザ更新画面
     Route::get('user/{id}/edit', 'UsersController@edit')->name('users.edit');
     Route::post('user/{id}', 'UsersController@update')->name('users.update');
-});
-
+    });
 
