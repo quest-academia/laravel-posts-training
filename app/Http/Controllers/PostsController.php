@@ -30,6 +30,7 @@ class PostsController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->id = \Auth::id();
         $post->save();
         return redirect('/');
     }
@@ -50,6 +51,13 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
+        return redirect('/');
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id)->delete();
+
         return redirect('/');
     }
 }
