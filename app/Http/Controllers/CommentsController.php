@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Post;
 use App\Comment;
 use App\Http\Requests\CommentRequest;
 use Auth;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -20,7 +17,7 @@ class CommentsController extends Controller
     public function store(CommentRequest $request)
     {
         $comment = new Comment;
-        $comment->comment = $request->input('comment.'. $request->post_id);
+        $comment->comment = $request->input('comment.' . $request->post_id);
         $comment->post_id = $request->post_id;
         $comment->user_id = Auth::user()->id;
         $comment->save();
@@ -39,7 +36,7 @@ class CommentsController extends Controller
     {
 
         $params = $request->validate([
-        'comment' => 'required|max:40',
+            'comment' => 'required|max:40',
         ]);
 
         $comment = Comment::findOrFail($comment_id);

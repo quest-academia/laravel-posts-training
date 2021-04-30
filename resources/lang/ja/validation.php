@@ -148,7 +148,8 @@ return [
         'name' => 'ユーザー名',
         'password' => 'パスワード',
         'title' => 'タイトル',
-        'body' => '本文'
+        'body' => '本文',
+        'comment' => 'コメント',
     ],
 
 ];

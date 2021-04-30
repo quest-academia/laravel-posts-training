@@ -2,17 +2,17 @@
     @forelse($post->comments as $comment)
         <div class="border-top p-1">
             <div class="comment_display" style="display:flex; justify-content:space-between; flex-wrap: wrap;">
-            <span>
-                <strong>
-                    <a class="no-text-decoration black-color" href="{{ route('show', $comment->user->id) }}">
-                        {{ $comment->user->name }}
-                    </a>
-                </strong>
-            </span>
-            <div class="comment_edit">
-                <a class="btn btn-info btn-sm py-1"  href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメントを編集
-                </a>
-            </div>
+                <span>
+                    <strong>
+                        <a class="no-text-decoration black-color" href="{{ route('show', $comment->user->id) }}">
+                            {{ $comment->user->name }}
+                        </a>
+                    </strong>
+                </span>
+                    <div class="comment_edit">
+                        <a class="btn btn-link btn-sm py-1" href="{{ route('comment.edit', ['comment' => $comment]) }}"><i class="far fa-edit" method="get"></i>コメント編集
+                        </a>
+                    </div>
             </div>
             <div class="comments mt-1">
                 <span>
