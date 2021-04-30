@@ -23,12 +23,12 @@
                             </strong>
                         </a>
                     </div>
-                    @if (Auth::id() == $post->id)
                     <div class="card-body">
+                    @if (Auth::id() == $post->id)
                         <div class="post_edit text-right">
                             <a class="btn btn-primary btn-sm" href="{{ route('edit',$post->id) }}"><i class="far fa-edit"></i>編集
                             </a>
-                            <a class="btn btn-danger btn-sm" rel="nofollow" href="{{ action('PostsController@destroy',$post->id) }}"><i class="far fa-trash-alt"></i>削除
+                            <a class="btn btn-danger btn-sm" rel="nofollow" href="{{ route('delete',$post->id) }}"><i class="far fa-trash-alt"></i>削除
                             </a>
                         </div>
                     @endif
