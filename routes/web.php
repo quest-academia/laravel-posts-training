@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('login', function () {
-    return view('auth.login');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 // 新規登録画面

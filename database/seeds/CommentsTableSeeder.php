@@ -15,5 +15,10 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         factory(App\Comment::class, 15)->create();
+        //DB::table('comments')->insert([
+        //    'user_id' => 'User::',
+        //    'title' => 'sample1',
+        //    'body' => 'sample1'
+        //])
     }
 }
