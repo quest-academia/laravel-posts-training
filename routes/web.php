@@ -29,8 +29,11 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/','PostsController@index')->name('top');
 
 //投稿新規作成
-
     Route::get('posts/create','PostsController@create')->name('create');
     Route::post('posts','PostsController@store')->name('store');
     Route::get('users/{id}', 'UsersController@show')->name('show');
+
+//投稿編集画面
+    Route::get('posts/{id}/edit','PostsController@edit')->name('edit');
+    Route::post('posts/{id}','PostsController@update')->name('update');
 });
