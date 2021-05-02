@@ -30,7 +30,7 @@ class PostsController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
-        $post->id = \Auth::id();
+        $post->user_id = \Auth::id();
         $post->save();
         return redirect('/');
     }
@@ -47,10 +47,12 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
-        $post = new Post();
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->save();
+        $data = [
+            'title' => $request->title,
+            'body' => $request->body,
+        ];
+        $post = Post::findOrFail($id);
+        $post->fill($data)->save();
         return redirect('/');
     }
 
