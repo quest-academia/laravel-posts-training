@@ -47,7 +47,7 @@ class UsersController extends Controller
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
         ];
         $user = User::findOrFail($id);
         $user->fill($data)->save();
