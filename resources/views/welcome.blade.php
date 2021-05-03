@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel(相原)
+                    Laravel(aihara)
                 </div>
 
                 <div class="links">
