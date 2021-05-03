@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel共同開発
+                    Laravel(相原)
                 </div>
 
                 <div class="links">
