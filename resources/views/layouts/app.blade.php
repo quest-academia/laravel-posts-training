@@ -17,6 +17,7 @@
                     <link href="{{ asset('/css/application.css') }}" rel="stylesheet">
                     <!-- Fontawsome -->
                     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+                    <link href="{{ asset('/css/edit.css') }}" rel="stylesheet">
         </head>
         <body>
 
