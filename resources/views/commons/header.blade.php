@@ -9,7 +9,12 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link far fa-user fa-lg" href="/users/{{ Auth::user()->id }}">
+                <a class="nav-link far fa-user fa-lg">
+                    @if(Auth::check())
+                        {{ Auth::user()->name }} さん
+                    @else
+                        ゲスト さん
+                    @endif
                 </a>
             </li>
         </ul>

@@ -8,7 +8,7 @@ use App\Comment;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['user_id', 'title', 'body'];
 
     public function user()
     {

@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
+Route::get('login', function () {
+    return view('auth.login');
 });
 
 // 新規登録画面
@@ -21,7 +21,8 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 // ログイン画面
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
-
+//ゲストログイン
+Route::get('login/guest', 'Auth\LoginController@guestLogin')->name('guest.login');
 
 Route::group(['middleware' => 'auth'], function () {
     //ユーザー詳細画面
@@ -52,5 +53,5 @@ Route::group(['middleware' => 'auth'], function () {
     //ユーザ更新画面
     Route::get('user/{id}/edit', 'UsersController@edit')->name('users.edit');
     Route::post('user/{id}', 'UsersController@update')->name('users.update');
-    });
 
+    });

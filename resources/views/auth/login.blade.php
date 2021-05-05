@@ -27,10 +27,16 @@
                 <br>
 
                 <p class="devise-link">
-                    アカウントをお持ちでないですか？
+                    新規登録をしてログインする
                     <a href="{{ route('signup') }}">
                         新規登録する
                     </a>
+                </p>
+                <p class="guest-link">
+                ゲストとしてログインする
+                <a href="{{ route('guest.login') }}">
+                ゲストログイン
+                </a>
                 </p>
             </div>
         </div>

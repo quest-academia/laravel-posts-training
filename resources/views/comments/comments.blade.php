@@ -31,7 +31,6 @@
         <div class="m-4">
             <form method="POST" action="{{ route('comment.store') }}" accept-charset="UTF-8">
                 {{ csrf_field() }}
-                <input type="hidden" name='user_id' value="{{ Auth::user()->id }}">
                 <input type="hidden" name='post_id' value="{{ $post->id }}">
                 <input type="text" name="comment[{{ $post->id }}]" value="{{ old('comment.' . $post->id) }}"
                     class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">

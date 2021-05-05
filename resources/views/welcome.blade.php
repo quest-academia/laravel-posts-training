@@ -4,7 +4,8 @@
 
     <div class="jumbotron">
         <h1 class="display-4 text-center">Laravel Post <i class="fas fa-mail-bulk"></i></h1>
-    </div>
+</div>
+
 
     <div class="col-md-8 col-md-2 mx-auto">
         <span class="help-block">
@@ -24,6 +25,7 @@
                         </a>
                     </div>
                     <div class="card-body">
+                        @if (Auth::id() == $post->user_id)
                             <div class="post_edit text-right" style="display: flex; justify-content: flex-end;">
                                 <a class="btn btn-primary btn-sm" href="{{ route('edit', $post->id) }}"><i
                                         class="far fa-edit"></i>編集</a>
@@ -31,9 +33,11 @@
                                 {!! Form::button('<i class="far fa-trash-alt" style="margin-left: 2px;"></i>削除', ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) !!}
                                 {!! Form::close() !!}
                             </div>
+                        @endif
                         <h3 class="h5 title">
                             {{ $post->title }}
                         </h3>
+                        <br>
                         <div class="mb-5">
                             {{ $post->body }}
                         </div>
