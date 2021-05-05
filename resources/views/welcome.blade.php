@@ -9,7 +9,16 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <!-- <bootstrap> -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+
+        <!-- <Fontawsome> -->
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
         <!-- Styles -->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -64,6 +73,8 @@
         </style>
     </head>
     <body>
+        @include('common.header') 
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -95,5 +106,8 @@
                 </div>
             </div>
         </div>
+
+        @include('common.footer') 
+
     </body>
 </html>
