@@ -35,7 +35,7 @@
                 <br>
                 <p class="devise-link py-3 small text-center">
                 アカウントを既にお持ちの場合⇨
-                    <a href="/login">
+                    <a href="{{ route('login') }}">
                     ログインする
                     </a>
                 </p>
