@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link far fa-user fa-lg" href="">
+                <a class="nav-link far fa-user fa-lg" href="{{ route('users.show',['id' => Auth::id()]) }}">
                 </a>
             </li>
         </ul>
