@@ -10,11 +10,11 @@ class UsersController extends Controller
     /**
      * ユーザー詳細画面
      *
-     * @param int $id
+     * @param App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        return view('users.show', ['user' => User::find($id)]);
+        return view('users.show', ['user' => $user]);
     }
 }
