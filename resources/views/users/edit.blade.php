@@ -4,7 +4,7 @@
     <div class="col-md-offset-2 mb-1 edit-profile-wrapper">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                @include('layouts.error_card_list')
+                @include('layouts.user_update_error_card_list')
                 <div class="profile-form-wrap">
                     <form class="edit_user" enctype="multipart/form-data" action="{{ route('users.update') }}" accept-charset="UTF-8" method="post">
                         <input name="utf8" type="hidden" value="&#x2713;" />
