@@ -19,7 +19,9 @@
                 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     </head>
     <body>
-        @include('common.header')
+        @unless(Request::is(['login','signup']))
+            @include('common.header')
+        @endunless
 
         @yield('content')
 
