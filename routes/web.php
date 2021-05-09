@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('post.index');
-});
+// Route::get('/', function () {
+//     return view('post.index');
+// });
+
+
+Route::get('/', 'UsersController@index'); 
