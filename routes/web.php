@@ -22,5 +22,7 @@ Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('sign
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 Route::prefix('users')->group(function () {
+    Route::get('/edit', 'UsersController@edit')->name('users.edit');
     Route::get('/{user}', 'UsersController@show')->name('users.show');
+    Route::put('/', 'UsersController@update')->name('users.update');
 });
