@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PostsController@index');
+
+Route::get('create','PostsController@create')->name('create');
+Route::get('edit','PostsController@edit')->name('posts.edit');
+
+Route::put('/update','PostsController@update')->name('posts.update');
+Route::delete('/destroy/{post_id}','PostsController@destroy')->name('posts.destroy');
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::resource('posts','PostsController',['only'=>['create','store','destroy']]);
 });
