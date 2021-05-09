@@ -12,15 +12,18 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         DB::table('posts')->insert([
-            'title' => 'sample',
+            'user_id' => '1',
+            'title' => 'sample1',
             'body' => 'Hello world' 
         ]);
         DB::table('posts')->insert([
-            'title' => 'sample',
+            'user_id' => '1',
+            'title' => 'sample2',
             'body' => 'Hello world' 
         ]);
         DB::table('posts')->insert([
-            'title' => 'sample',
+            'user_id' => '1',
+            'title' => 'sample3',
             'body' => 'Hello world' 
         ]);
     }
