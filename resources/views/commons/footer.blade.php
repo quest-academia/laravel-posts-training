@@ -4,4 +4,4 @@
 				<p>©2021 QuestAcademia, All rights reserved.</p>
 			</div>
 		</div>
-	</footer>
+</footer>
