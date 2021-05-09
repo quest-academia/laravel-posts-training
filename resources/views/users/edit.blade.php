@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-md-offset-2 mb-1 edit-profile-wrapper my-5 ">
+    <div class="col-md-offset-2 mb-1 edit-profile-wrapper">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 @include('layouts.error_card_list')

@@ -1,0 +1,15 @@
+body {
+    background-color: #fafafa;
+    font-size: 14px;
+    color: #262626;
+}
+
+.edit-profile-wrapper {
+    margin-top: 60px;
+}
+
+.profile-form-wrap {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+}
