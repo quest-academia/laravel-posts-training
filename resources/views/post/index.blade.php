@@ -10,12 +10,11 @@
     <!-- エラー表示箇所 -->
 </div>
 
-@foreach($users as $key => $user)
 
 
 <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
-        @foreach($users as $key => $user)
+        @foreach($posts as $key => $post)
 
         <div class="card mt-3">
             <div class="card-header align-items-center d-flex">
@@ -25,21 +24,28 @@
                 <a class="black-color" title="" href="">
                     <strong>
                         <!-- ユーザ名 -->
+                        @foreach($users as $key => $user)
+
+                        @if($post->user_id == $user->id)
                         {{$user->name}}
+                        @endif
+
+                        @endforeach
+                        
                     </strong>
                 </a>
             </div>
             <div class="card-body">
                 <h3 class="h5 title">
                     <!-- タイトル -->
-                    
+                    {{$post->title}}
                 </h3>
                 <div class="mb-5">
                     <!-- 本文 -->
-                    {{$user->message}}
                 </div>
                 <section>
                     <!-- コメント -->
+                    {{$post->message}}
                     <div id="comment-post-1">
                         <!-- コメントをここに挿入 -->
                         <div class="m-4">

@@ -21,18 +21,4 @@ class UsersController extends Controller
        
         return view('post.index', $date);
     }
-    // public function index()
-    // {
-    //     $posts=Post::select('user_id')->get();
-
-    //     $users=User::find($posts); 
-
-    //    $date=[
-    //      'posts' => $posts,
-    //      'users' => $users,
-    //    ];
-
-       
-    //     return view('post.index', $date);
-    // }
 }
