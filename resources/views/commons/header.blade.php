@@ -5,7 +5,7 @@
 				</a>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav ml-md-auto align-items-center">
-						<li><a href="" class="btn btn-info">
+						<li><a href="/create" class="btn btn-info">
 							<i class="fas fa-pencil-alt"></i>
 							投稿する
 						</a></li>
