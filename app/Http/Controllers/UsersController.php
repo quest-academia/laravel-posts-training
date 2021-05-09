@@ -39,13 +39,14 @@ class UsersController extends Controller
     {
         $user = User::find($request->id);
 
-        if ($request->email == $user->email) {
-            // メールアドレスの変更なし
-            $user->fill($request->except('email'))->save();
-        } else {
-            // メールアドレスの変更あり
-            $user->fill($request->all())->save();
+        $user['name'] = $request->name;
+
+        // 更新メールアドレスが異なる場合
+        if ($request->email != $user->email) {
+            $user['email'] = $request->email;
         }
+
+        $user->save();
 
         return redirect()->route('users.show', ['user' => $user]);
     }
