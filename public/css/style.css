@@ -1,0 +1,21 @@
+/* header */
+.navbar-light {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    background-color: #e0e0e0!important;
+}
+
+.btn-info {
+    color: #fff !important;
+    background-color: #33b5e5 !important;
+}
+
+.btn-info:hover {
+    color: #fff !important;
+    background-color: #33b5e5 !important;
+}
+
+.btn-lg {
+    font-size: 0.81rem !important;
+    padding: .84rem 2.14rem !important; 
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
