@@ -30,7 +30,7 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         if ($user->id != Auth::id()) {
-            abort(404);
+            return redirect('/');
         }
         return view('users.edit', ['user' => $user]);
     }
