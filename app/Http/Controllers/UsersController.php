@@ -43,7 +43,6 @@ class UsersController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-
         $user->name = $request->name;
         $user->password = Hash::make($request->password);
 
