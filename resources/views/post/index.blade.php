@@ -10,8 +10,6 @@
     <!-- エラー表示箇所 -->
 </div>
 
-
-
 <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
         @foreach($posts as $key => $post)
@@ -24,14 +22,7 @@
                 <a class="black-color" title="" href="">
                     <strong>
                         <!-- ユーザ名 -->
-                        @foreach($users as $key => $user)
-
-                        @if($post->user_id == $user->id)
-                        {{$user->name}}
-                        @endif
-
-                        @endforeach
-
+                        {{$post->user->name}}
                     </strong>
                 </a>
             </div>

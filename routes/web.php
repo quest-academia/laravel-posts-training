@@ -12,7 +12,7 @@
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', 'UsersController@index');
+    Route::get('/', 'PostsController@index');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
