@@ -6,19 +6,19 @@
             <div class="col-md-8 mx-auto">
                 @include('layouts.user_update_error_card_list')
                 <div class="profile-form-wrap">
-                    <form class="edit_user" enctype="multipart/form-data" action="{{ route('users.update') }}" accept-charset="UTF-8" method="post">
+                    <form class="edit_user" enctype="multipart/form-data" action="{{ route('users.update', ['user' => $user]) }}" accept-charset="UTF-8" method="post">
                         <input name="utf8" type="hidden" value="&#x2713;" />
                         <input type="hidden" name="id" value="{{ Auth::id() }}" />
                         {{ csrf_field() }}
                         @method('put')
                         <div class="form-group">
                             <label for="name">ユーザー名</label>
-                            <input autofocus="autofocus" class="form-control" value="{{ old('name') ?? Auth::user()->name }}" name="name" />
+                            <input autofocus="autofocus" class="form-control" value="{{ old('name') ?? $user->name }}" name="name" />
                         </div>
 
                         <div class="form-group">
                             <label for="email">メールアドレス</label>
-                            <input autofocus="autofocus" class="form-control" value="{{ old('email') ?? Auth::user()->email }}" name="email" />
+                            <input autofocus="autofocus" class="form-control" value="{{ old('email') ?? $user->email }}" name="email" />
                         </div>
 
                         <div class="form-group">

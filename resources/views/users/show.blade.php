@@ -14,7 +14,7 @@
 
                     @if( Auth::id() == $user->id )
                         <div class="col-12 mt-3">
-                            <a class="btn btn-outline-dark common-btn btn-sm edit-profile-btn" href="{{ route('users.edit') }}"><i class="fas fa-user-edit"></i>プロフィール編集
+                            <a class="btn btn-outline-dark common-btn btn-sm edit-profile-btn" href="{{ route('users.edit', ['user' => $user]) }}"><i class="fas fa-user-edit"></i>プロフィール編集
                             </a>
                             <a class="btn btn-outline-dark common-btn btn-sm edit-profile-btn" rel="nofollow" data-method="POST" href="{{ route('logout') }}"><i class="fas fa-cog"></i>ログアウト
                             </a>

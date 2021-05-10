@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -22,11 +24,15 @@ class UsersController extends Controller
     /**
      * ユーザー更新画面
      *
+     * @param App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(User $user)
     {
-        return view('users.edit');
+        if ($user->id != Auth::id()) {
+            abort(404);
+        }
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -37,13 +43,13 @@ class UsersController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        $user = User::find($request->id);
 
-        $user['name'] = $request->name;
+        $user->name = $request->name;
+        $user->password = Hash::make($request->password);
 
         // 更新メールアドレスが異なる場合
         if ($request->email != $user->email) {
-            $user['email'] = $request->email;
+            $user->email = $request->email;
         }
 
         $user->save();
