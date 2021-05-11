@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand navbar-light ">
-    <a class="navbar-brand" href=""><i class="fas fa-home fa-2x"></i>
+    <a class="navbar-brand" href="/"><i class="fas fa-home fa-2x"></i>
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-md-auto align-items-center">
             <li>
-                <a class="btn btn-info btn-lg " href=""><i class="fas fa-pencil-alt"></i>
-                投稿する
+                <a class="btn btn-info btn-lg " href="{{route('posts.create')}}"><i class="fas fa-pencil-alt"></i>
+                    投稿する
                 </a>
             </li>
             <li>
