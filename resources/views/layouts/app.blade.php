@@ -23,7 +23,6 @@
             
             <div class="container">
             
-            @include('commons.error_card_list')
             
             @yield('content')
             
@@ -41,4 +40,6 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
         </body>
     </html>
+
+
 

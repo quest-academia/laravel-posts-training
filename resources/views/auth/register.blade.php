@@ -4,7 +4,7 @@
 
 
 <div class="container mt-5">
-    <div class="card">
+    <div class="card row py-5 flex-center">
         <div class="form-wrap col-xs-6 col-lg-4">
             <div class="form-group text-center">
                 <h2 class="logo-img mx-auto">
