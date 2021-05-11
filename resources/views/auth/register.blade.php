@@ -4,7 +4,11 @@
 
 
 <div class="container mt-5">
+<<<<<<< HEAD
     <div class="card row py-5 flex-center">
+=======
+    <div class="card  row py-5 flex-center">
+>>>>>>> 2ab077f24f721dad183e943dc8c31a0312703654
         <div class="form-wrap col-xs-6 col-lg-4">
             <div class="form-group text-center">
                 <h2 class="logo-img mx-auto">
@@ -14,7 +18,7 @@
             </div>
             <form method="POST" action="{{ route('signup.post') }}">
             @csrf
-                <div class="form-group">
+                <div class="form-group text-center">
                     <input class="form-control" placeholder="メールアドレス" autocomplete="email" name="email" value="">
                 </div>
 
@@ -44,5 +48,7 @@
             </div>
         </div>
     </div>
+
+
     
 @endsection
