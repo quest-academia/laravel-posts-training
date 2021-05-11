@@ -23,7 +23,9 @@
 </head>
 
 <body>
-    @include('common.header')
+    @unless(Request::is(['login','signup']))
+        @include('common.header')
+    @endunless
 
     @yield('content')
 
