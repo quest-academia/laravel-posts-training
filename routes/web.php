@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+
+Route::get('/create','PostsController@create')->name('create');
+Route::post('/store','PostsController@store')->name('posts.store');
