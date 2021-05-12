@@ -39,12 +39,17 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post;
-        $post->user_id = auth()->user()->id;
-        $post->title=$request->title;
-        $post->message=$request->message;
-        $post->save();
-        
+
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'message' => 'required|max:140',
+        ]);
+
+        $request->user()->posts()->create([
+            'title' => $request->title,
+            'message' => $request->message,
+        ]);
+
         return redirect('/');
     }
 }
