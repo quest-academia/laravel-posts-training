@@ -18,7 +18,7 @@
 			<div class="card-body">
 				<div class="post_edit text-right">
 					{!! Form::open(['route'=>['posts.destroy',$post->id],'method'=>'delete']) !!}
-					<a href="{{route('posts.edit')}}" class="btn btn-primary btn-sm">編集する</a>
+					<a href="{{route('posts.edit',['post_id'=>$post->id])}}" class="btn btn-primary btn-sm">編集する</a>
 					{!! Form::submit('削除する',['class'=>'btn btn-danger btn-sm'])!!}
 					{!! Form::close() !!}
 				</div>
