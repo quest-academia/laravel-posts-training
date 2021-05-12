@@ -12,6 +12,20 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class,10)->create();
+        DB::table('posts')->insert([
+            'user_id' => '1',
+            'title' => 'sample1',
+            'body' => 'Hello world' 
+        ]);
+        DB::table('posts')->insert([
+            'user_id' => '1',
+            'title' => 'sample2',
+            'body' => 'Hello world' 
+        ]);
+        DB::table('posts')->insert([
+            'user_id' => '1',
+            'title' => 'sample3',
+            'body' => 'Hello world' 
+        ]);
     }
 }
