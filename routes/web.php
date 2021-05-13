@@ -13,6 +13,8 @@
 
 Route::middleware('auth')->group(function () {
     Route::get('/', 'PostsController@index');
+    Route::get('posts/new', 'PostsController@create')->name('posts.create');
+    Route::post('posts', 'PostsController@store')->name('posts.store');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
