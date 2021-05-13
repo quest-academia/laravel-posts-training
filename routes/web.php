@@ -26,3 +26,7 @@ Route::prefix('users')->group(function () {
     Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
     Route::put('/{user}', 'UsersController@update')->name('users.update');
 });
+
+Route::prefix('comments')->group(function () {
+    Route::post('/store', 'CommentsController@store')->name('comments.store');
+});
