@@ -47,4 +47,37 @@ class PostsController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * 投稿編集
+     *
+     * @return $post
+     */
+    public function edit($id)
+    {
+        $post = Post::find($id);
+
+        return view('post.edit', ['post' => $post]);
+    }
+
+    /**
+     * 投稿更新
+     *
+     */
+    public function update(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'message' => 'required|max:140',
+        ]);
+
+        $post->update([
+            'title' => $request->title,
+            'message' => $request->message,
+        ]);
+
+        return redirect('/');
+    }
 }
