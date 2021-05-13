@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class PostsController extends Controller
 {
     /**
-     * ユーザー一覧画面
+     * 投稿一覧画面
      *
      * @return $posts
      */
@@ -21,25 +21,20 @@ class PostsController extends Controller
     }
 
     /**
-     * ユーザー新規登録
+     * 投稿新規登録
      *
-     * @return $user
      */
     public function create()
     {
-        $user = Auth::user();
-
-        return view('post.create', ['user' => $user]);
+        return view('post.create');
     }
 
     /**
-     * ユーザー登録保存
+     * 投稿登録保存
      *
-     * @return $post　登録内容
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'title' => 'required|max:50',
             'message' => 'required|max:140',
