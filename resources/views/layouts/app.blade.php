@@ -27,6 +27,8 @@
         @include('common.header')
     @endunless
 
+    @include('layouts.error_card_list')
+
     @yield('content')
 
     @include('common.footer')
