@@ -39,6 +39,7 @@
                     {{$post->message}}
                     <div id="comment-post-1">
                         <!-- コメントをここに挿入 -->
+                        @include('post.comment')
                         <div class="m-4">
                             <form class="w-100" action="" method="post">
                                 {{ csrf_field() }}
