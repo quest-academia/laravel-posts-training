@@ -15,10 +15,18 @@ class CommentsController extends Controller
      */
     public function store(CommentStoreRequest $request, Comment $comment)
     {
+        // コメントのキーとpost_idの整合性チェック
+        $key = array_keys($request->comment);
+        if ($key[0] == $request->post_id) {
+            redirect('/');
+        }
+
+        // コメント保存
         $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
         $comment->comment = $request->comment[$request->post_id];
         $comment->save();
+
         return redirect('/');
     }
 }
