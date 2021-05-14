@@ -8,6 +8,11 @@
 
 <div class="col-md-8 col-md-2 mx-auto">
     <!-- エラー表示箇所 -->
+    @if (session('error'))
+    <div class="alert alert-danger error">
+        {{ session('error') }}
+    </div>
+    @endif
 </div>
 
 <div class="col-md-8 col-md-2 mx-auto">

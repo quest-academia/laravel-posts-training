@@ -55,8 +55,12 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
+        if (auth()->user()->id != $post->user_id) {
+            return redirect('/')->with('error', '許可されていない操作です');
+        }
+        
         return view('post.edit', ['post' => $post]);
     }
 
@@ -66,13 +70,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
-
         $this->validate($request, [
             'title' => 'required|max:50',
             'message' => 'required|max:140',
         ]);
 
+        $post = Post::findOrFail($id);
         $post->update([
             'title' => $request->title,
             'message' => $request->message,
