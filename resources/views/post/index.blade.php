@@ -39,7 +39,7 @@
                     <!-- コメント -->
                     {{$post->message}}
                     <div id="comment-post-1">
-                        @include('comments.storeform')
+                        @include('post.comment_form')
                     </div>
                 </section>
             </div>

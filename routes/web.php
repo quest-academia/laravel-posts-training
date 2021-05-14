@@ -15,6 +15,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/', 'PostsController@index');
     Route::get('posts/new', 'PostsController@create')->name('posts.create');
     Route::post('posts', 'PostsController@store')->name('posts.store');
+
+    Route::prefix('comments')->group(function () {
+        Route::post('/store', 'CommentsController@store')->name('comments.store');
+    });
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -27,8 +31,4 @@ Route::prefix('users')->group(function () {
     Route::get('/{user}', 'UsersController@show')->name('users.show');
     Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
     Route::put('/{user}', 'UsersController@update')->name('users.update');
-});
-
-Route::prefix('comments')->group(function () {
-    Route::post('/store', 'CommentsController@store')->name('comments.store');
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Http\Requests\CommentStoreRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
@@ -14,7 +15,7 @@ class CommentsController extends Controller
      */
     public function store(CommentStoreRequest $request, Comment $comment)
     {
-        $comment->user_id = $request->user_id;
+        $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
         $comment->comment = $request->comment[$request->post_id];
         $comment->save();
