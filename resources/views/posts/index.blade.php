@@ -12,21 +12,19 @@
 					<i class="fas fa-user-circle fa-2x mr-1"></i>
 				</a>
 				<a href="users" class="black-color">
-					<strong>{{$post->user->name}}</strong>
+					<strong>USER</strong>
 				</a>
 			</div>
 			<div class="card-body">
 				<div class="post_edit text-right">
-					{!! Form::open(['route'=>['posts.destroy',$post->id],'method'=>'delete']) !!}
-					<a href="{{route('posts.edit',['post_id'=>$post->id])}}" class="btn btn-primary btn-sm">編集する</a>
-					{!! Form::submit('削除する',['class'=>'btn btn-danger btn-sm'])!!}
-					{!! Form::close() !!}
+					<a href="#" class="btn btn-primary btn-sm">編集する</a>
+					<a href="#" class="btn btn-danger btn-sm">削除する</a>
 				</div>
 				<h3 class="h5 title">
-					{{$post->title}}
+					Title
 				</h3>
 				<div class="mb-5">
-					{{$post->body}}
+					Text
 				</div>
 				<section>
 					<div>
@@ -54,4 +52,4 @@
 
 @endforeach
 
-@endsection 
+@endsection
