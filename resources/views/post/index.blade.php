@@ -7,7 +7,13 @@
 </div>
 
 <div class="col-md-8 col-md-2 mx-auto">
+    <!-- エラー表示箇所 -->
     @include('layouts.comment_error_card_list')
+    @if (session('error'))
+    <div class="alert alert-danger error">
+        {{ session('error') }}
+    </div>
+    @endif
 </div>
 
 <div class="col-md-8 col-md-2 mx-auto">
@@ -27,6 +33,14 @@
                 </a>
             </div>
             <div class="card-body">
+                @if(Auth::id() == $post->user_id)
+                <div class="post_edit text-right">
+                    <a class="btn btn-primary btn-sm" href="{{route('post.edit',$post->id)}}"><i class="far fa-edit"></i>編集
+                    </a>
+                    <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
+                    </a>
+                </div>
+                @endif
                 <h3 class="h5 title">
                     <!-- タイトル -->
                     {{$post->title}}
@@ -37,7 +51,6 @@
                 </div>
                 <section>
                     <!-- コメント -->
-                    {{$post->message}}
                     <div id="comment-post-1">
                         @include('post.comment_form')
                     </div>

@@ -47,4 +47,40 @@ class PostsController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * 投稿編集
+     *
+     * @return $post
+     */
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
+
+        if (auth()->user()->id != $post->user_id) {
+            return redirect('/')->with('error', '許可されていない操作です');
+        }
+        
+        return view('post.edit', ['post' => $post]);
+    }
+
+    /**
+     * 投稿更新
+     *
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'message' => 'required|max:140',
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->update([
+            'title' => $request->title,
+            'message' => $request->message,
+        ]);
+
+        return redirect('/');
+    }
 }
