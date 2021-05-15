@@ -60,7 +60,7 @@ class PostsController extends Controller
         if (auth()->user()->id != $post->user_id) {
             return redirect('/')->with('error', '許可されていない操作です');
         }
-        
+
         return view('post.edit', ['post' => $post]);
     }
 
@@ -80,6 +80,18 @@ class PostsController extends Controller
             'title' => $request->title,
             'message' => $request->message,
         ]);
+
+        return redirect('/');
+    }
+
+    /**
+     * 投稿更新
+     *
+     */
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
 
         return redirect('/');
     }

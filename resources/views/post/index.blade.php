@@ -36,7 +36,7 @@
                 <div class="post_edit text-right">
                     <a class="btn btn-primary btn-sm" href="{{route('post.edit',$post->id)}}"><i class="far fa-edit"></i>編集
                     </a>
-                    <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
+                    <a class="btn btn-danger btn-sm btn-dell" rel="nofollow" href="{{route('post.destroy',$post->id)}}" onclick="return confirm('本当に削除しますか？')"><i class="far fa-trash-alt"></i>削除
                     </a>
                 </div>
                 @endif

@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('posts', 'PostsController@store')->name('posts.store');
     Route::get('post/{id}/edit', 'PostsController@edit')->name('post.edit');
     Route::post('post/{id}', 'PostsController@update')->name('post.update');
+    Route::get('post/{id}', 'PostsController@destroy')->name('post.destroy');
 
 });
 
