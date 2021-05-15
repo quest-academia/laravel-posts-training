@@ -36,8 +36,8 @@ class CommentStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'comment.*.max' => ':attributeは40文字以内で入力してください。',
-            'comment.*.required' => ':attributeは必須です。',
+            'comment.*.max' => 'コメントは40文字以内で入力してください。',
+            'comment.*.required' => 'コメントは必須です。',
         ];
     }
 }
