@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CommentKeyCheck;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CommentStoreRequest extends FormRequest
@@ -24,8 +25,8 @@ class CommentStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'post_id' => ['required' ,'exists:posts,id'],
-            'comment.*' => ['required','max:40']
+            'post_id' => ['required', 'exists:posts,id'],
+            'comment.'.$this->post_id => ['required', 'max:40', new CommentKeyCheck($this->post_id)]
         ];
     }
 
