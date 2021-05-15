@@ -17,7 +17,7 @@
 			</div>
 			<div class="card-body">
 				<div class="post_edit text-right">
-					<a href="#" class="btn btn-primary btn-sm">編集する</a>
+					<a href="#" class="btn btn-primary btn-sm">編集する </a>
 					<a href="#" class="btn btn-danger btn-sm">削除する</a>
 				</div>
 				<h3 class="h5 title">
