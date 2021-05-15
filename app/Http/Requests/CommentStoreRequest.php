@@ -26,7 +26,7 @@ class CommentStoreRequest extends FormRequest
     {
         return [
             'post_id' => ['required', 'exists:posts,id'],
-            'comment.'.$this->post_id => ['required', 'max:40', new CommentKeyCheck($this->post_id)]
+            'comment.*' => ['required', 'max:40', new CommentKeyCheck($this->post_id)]
         ];
     }
 
@@ -36,8 +36,9 @@ class CommentStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'comment.*.max' => 'コメントは40文字以内で入力してください。',
-            'comment.*.required' => 'コメントは必須です。',
+
+            'comment.*.max' => ':attributeは40文字以内で入力してください。',
+            'comment.*.required' => ':attributeは必須です。',
         ];
     }
 }
