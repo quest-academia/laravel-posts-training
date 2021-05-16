@@ -34,10 +34,16 @@
             <div class="card-body">
                 @if(Auth::id() == $post->user_id)
                 <div class="post_edit text-right">
-                    <a class="btn btn-primary btn-sm" href="{{route('post.edit',$post->id)}}"><i class="far fa-edit"></i>編集
-                    </a>
-                    <a class="btn btn-danger btn-sm btn-dell" rel="nofollow" href="{{route('post.destroy',$post->id)}}" onclick="return confirm('本当に削除しますか？')"><i class="far fa-trash-alt"></i>削除
-                    </a>
+                    <div class="btn-group">
+                        <a class="btn btn-primary btn-sm" href="{{route('post.edit',$post->id)}}"><i class="far fa-edit"></i>編集
+                        </a>
+                        <form action="{{route('post.destroy', $post->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <!-- アイコン<i class="far fa-edit"></i> -->
+                            <input type="submit" value="削除" class="btn btn-danger btn-sm btn-dell" onclick='return confirm("削除しますか？");'>
+                        </form>
+                    </div>
                 </div>
                 @endif
                 <h3 class="h5 title">
