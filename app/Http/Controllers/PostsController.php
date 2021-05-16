@@ -9,26 +9,28 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::orderBy('created_at','desc') -> get();
 
-        return view('posts.index',['posts'=>$posts]);
+        return view('posts.index',['posts' => $posts]);
     }
 
     public function create()
     {
+        
         return view('posts.create');
     }
     
     public function store(Request $request)
     {
-        $params = $request->validate([
+        $params = $request -> validate([
+            'user_id' => 'required',
             'title' => 'required|max:20',
-            'body'=>'required',
+            'body' => 'required',
         ]);
         
         Post::create($params);
         
-        return redirect()->route('/');
+        return redirect() -> route('/');
     }
-
 }
+
