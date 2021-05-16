@@ -56,10 +56,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-
-        if (auth()->user()->id != $post->user_id) {
-            return redirect('/')->with('error', '許可されていない操作です');
-        }
         
         return view('post.edit', ['post' => $post]);
     }
