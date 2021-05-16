@@ -16,21 +16,22 @@ class PostsController extends Controller
 
     public function create()
     {
-        
         return view('posts.create');
     }
     
     public function store(Request $request)
     {
-        $params = $request -> validate([
-            'user_id' => 'required',
+        $request -> validate([
             'title' => 'required|max:20',
             'body' => 'required',
         ]);
         
-        Post::create($params);
-        
-        return redirect() -> route('/');
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = \Auth::id();
+        $post->save();
+        return redirect('/');
     }
 }
 
