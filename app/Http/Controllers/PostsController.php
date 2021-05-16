@@ -31,7 +31,7 @@ class PostsController extends Controller
         $post->body = $request->body;
         $post->user_id = \Auth::id();
         $post->save();
-        return redirect('/');
+        return redirect('/index');
     }
 }
 
