@@ -22,8 +22,11 @@ class CommentKeyCheck implements Rule
      */
     public function passes($attribute, $value)
     {
-        $keys = explode('.', $attribute);
-        return $keys[1] == $this->post_id;
+        // commentの配列の添字がpost_idと一致するか検証
+        // $attributeは、文字列の"comment.添字"であるため、
+        // 添字のみ取得してpost_idと検証。
+        $commentKeys = explode('.', $attribute);
+        return $commentKeys[1] == $this->post_id;
     }
 
     /**
