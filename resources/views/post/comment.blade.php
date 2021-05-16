@@ -1,8 +1,8 @@
 <span class="help-block">
     <!-- エラー表示位置 -->
 </span>
-@foreach($comments as $key => $comment)
-@if($post->id== $comment->post_id)
+@foreach($post->comments()->orderBy('created_at', 'asc')->get() as $key => $comment)
+@if($post->id　＝== $comment->post_id)
 <div class="container mt-4">
     <div class="border-top p-1">
         <span>
