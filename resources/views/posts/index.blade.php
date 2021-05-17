@@ -12,7 +12,7 @@
 					<i class="fas fa-user-circle fa-2x mr-1"></i>
 				</a>
 				<a href="users" class="black-color">
-					<strong>USER</strong>
+					<strong>{{$post->user->name}}</strong>
 				</a>
 			</div>
 			<div class="card-body">
@@ -21,10 +21,10 @@
 					<a href="#" class="btn btn-danger btn-sm">削除する</a>
 				</div>
 				<h3 class="h5 title">
-					Title
+				{{$post->title}}
 				</h3>
 				<div class="mb-5">
-					Text
+				{{$post->body}}
 				</div>
 				<section>
 					<div>
@@ -53,3 +53,4 @@
 @endforeach
 
 @endsection
+
