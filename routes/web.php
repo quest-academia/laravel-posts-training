@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('comments')->group(function () {
         Route::post('/store', 'CommentsController@store')->name('comments.store');
+        Route::get('/{id}/edit', 'CommentsController@edit')->name('comment.edit');
+        Route::post('/{id}', 'CommentsController@update')->name('comment.update');
     });
 });
 

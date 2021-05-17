@@ -23,4 +23,34 @@ class CommentsController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * コメント投稿編集
+     *
+     */
+    public function edit($id)
+    {
+        $comment = Comment::findOrFail($id);
+
+        return view('post.edit', ['comment' => $comment]);
+    }
+
+    /**
+     * コメント投稿更新
+     *
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'comment' => 'required|max:140',
+        ]);
+
+        $comment = Comment::findOrFail($id);
+        $comment->user_id = Auth::id();
+        $comment->post_id = $request->post_id;
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        return redirect('/');
+    }
 }
