@@ -55,6 +55,7 @@
                 <section>
                     <!-- コメント -->
                     <div id="comment-post-1">
+                        @include('post.comment')
                         @include('post.comment_form')
                     </div>
                 </section>
