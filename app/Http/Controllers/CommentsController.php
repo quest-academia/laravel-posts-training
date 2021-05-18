@@ -32,7 +32,7 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        return view('post.edit', ['comment' => $comment]);
+        return view('post.commentEdit', ['comment' => $comment]);
     }
 
     /**
