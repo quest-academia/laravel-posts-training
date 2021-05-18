@@ -23,4 +23,17 @@ class CommentsController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * コメント削除処理
+     */
+    public function destroy(Comment $comment)
+    {
+        if ($comment->user->id != Auth::id()) {
+            return redirect('/')->with('error', 'コメントの削除に失敗しました。');
+        }
+
+        $comment->delete();
+        return redirect('/')->with('message', 'コメントを削除しました。');
+    }
 }
