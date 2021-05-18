@@ -26,3 +26,7 @@ Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 
 Route::get('user/{id}', 'UsersController@show')->name('user.show');
+Route::get('index','PostsController@index')->name('posts.index');
+Route::get('/create','PostsController@create')->name('create');
+Route::post('/store','PostsController@store')->name('posts.store');
+
