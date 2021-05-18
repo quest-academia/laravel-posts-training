@@ -14,7 +14,27 @@ class PostsController extends Controller
         return view('posts.index',['posts'=>$posts]);
     }
 
-		public function edit($post_id)
+    public function create()
+    {
+        return view('posts.create');
+    }
+    
+    public function store(Request $request)
+    {
+        $request -> validate([
+            'title' => 'required|max:20',
+            'body' => 'required',
+        ]);
+        
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = \Auth::id();
+        $post->save();
+        return redirect('/index');
+    }
+
+	public function edit($post_id)
     {
         $post = Post::findOrFail($post_id);
         
@@ -23,17 +43,17 @@ class PostsController extends Controller
     
     public function update($post_id, Request $request)
     {
-        $params = $request->validate([
+        $request -> validate([
             'title' => 'required|max:20',
-            'body'=>'required',
+            'body' => 'required',
         ]);
         
         $post = Post::findOrFail($post_id);
-        $post->fill($params)->save();
-        
-        Post::create($params);
-        
-        return redirect()->route('/');
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = \Auth::id();
+        $post->save();
+        return redirect('/index');
     }
-
 }
+

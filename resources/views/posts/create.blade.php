@@ -6,24 +6,24 @@
 	<div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
 		<div class="card">
 			<div class="card-header">
-				投稿の編集
+				投稿の新規作成
 			</div>
 			<div class="card-body">
-				{!! Form::open(['route'=>['posts.update',$post->id],'class'=>'upload','method'=>'put']) !!}
+				{!! Form::open(['route'=>'posts.store','class'=>'upload']) !!}
 					<div class="md-form">
-						{!! Form::text('title',old('title') ? old('title') : $post->title,['class'=>'form-control']) !!}
+						{!! Form::text('title',old('title'),['class'=>'form-control']) !!}
 					</div>
 					<div class="form-group">
 						{!! Form::label('body','本文') !!}
-						{!! Form::textarea('body',old('body') ? old('body') : $post->body,['class'=>'form-control','row'=>'10'])!!}
+						{!! Form::textarea('body',old('body'),['class'=>'form-control','row'=>'10'])!!}
 					</div>
 					<div class="text-center">
-						{!! Form::submit('更新する',['class'=>'btn btn-primary w-25']) !!}
+						{!! Form::submit('投稿する',['class'=>'btn btn-primary']) !!}
 					</div>
 				{!! Form::close() !!}
 			</div>
 		</div>
 	</div>
 </div>
-
+	
 @endsection
