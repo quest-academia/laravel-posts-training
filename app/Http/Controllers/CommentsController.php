@@ -46,8 +46,6 @@ class CommentsController extends Controller
         ]);
 
         $comment = Comment::findOrFail($id);
-        $comment->user_id = Auth::id();
-        $comment->post_id = $request->post_id;
         $comment->comment = $request->comment;
         $comment->save();
 
