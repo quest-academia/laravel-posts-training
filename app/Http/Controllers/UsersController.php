@@ -10,8 +10,11 @@ class UsersController extends Controller
      
     public function show($id)
     {
+        //if (\Auth::id() != $id ){
+            //return back();
+        //}
         
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         
         return view('users.show', ['user' => $user] );
     }
