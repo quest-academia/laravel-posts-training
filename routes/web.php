@@ -20,9 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('post/{id}', 'PostsController@destroy')->name('post.destroy');
 
     Route::prefix('comments')->group(function () {
-        Route::post('/store', 'CommentsController@store')->name('comments.store');
         Route::get('/{id}/edit', 'CommentsController@edit')->name('comment.edit');
+        Route::post('/store', 'CommentsController@store')->name('comments.store');
         Route::post('/{id}', 'CommentsController@update')->name('comment.update');
+        Route::delete('/{comment}', 'CommentsController@destroy')->name('comments.destroy');
     });
 });
 

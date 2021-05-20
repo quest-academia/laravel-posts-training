@@ -14,6 +14,11 @@
         {{ session('error') }}
     </div>
     @endif
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
 </div>
 
 <div class="col-md-8 col-md-2 mx-auto">
