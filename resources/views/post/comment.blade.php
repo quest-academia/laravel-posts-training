@@ -19,9 +19,13 @@
                 {{$comment->comment}}<br>
             </span>
             <div class="post_edit text-right">
-
                 <a class="btn btn-primary btn-sm" href="{{route('comment.edit',$comment->id)}}"><i class="far fa-edit"></i>編集
                 </a>
+                <form class="btn btn-sm bg-danger inline-block px-1" action="{{ route('comments.destroy', ['comment' => $comment]) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="&#xf1f8; 削除" class="fas fa-trash bg-danger" style="border: 0px none; color:white;" onclick='return confirm("コメントを削除しますか？");'>
+                </form>
             </div>
         </div>
     </div>
@@ -42,14 +46,6 @@
                 <!-- コメント表示位置 -->
                 {{$comment->comment}}<br>
             </span>
-
-            @if($comment->user->id == Auth::id())
-                <form class="btn btn-sm bg-danger inline-block px-1" action="{{ route('comments.destroy', ['comment' => $comment]) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <input type="submit" value="&#xf1f8; 削除" class="fas fa-trash bg-danger" style="border: 0px none; color:white;" onclick='return confirm("コメントを削除しますか？");'>
-                </form>
-            @endif
         </div>
     </div>
 </div>
