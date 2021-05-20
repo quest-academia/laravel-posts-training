@@ -57,7 +57,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        if (auth()->user()->id != $post->user_id) {
+        if (auth()->user()->id !== $post->user_id) {
             return redirect('/')->with('error', '許可されていない操作です');
         }
 
@@ -76,23 +76,31 @@ class PostsController extends Controller
         ]);
 
         $post = Post::findOrFail($id);
+
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/')->with('error', '許可されていない操作です');
+        }
+
         $post->update([
             'title' => $request->title,
             'message' => $request->message,
         ]);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'コメントを更新しました。');
     }
 
     /**
-     * 投稿更新
+     * 投稿削除
      *
      */
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/')->with('error', '許可されていない操作です');
+        }
+        
         $post->delete();
-
-        return redirect('/');
+        return redirect('/')->with('message', 'コメントを削除しました。');
     }
 }

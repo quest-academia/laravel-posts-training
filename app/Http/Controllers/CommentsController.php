@@ -32,6 +32,10 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
+        if (auth()->user()->id !== $comment->user_id) {
+            return redirect('/')->with('error', '許可されていない操作です');
+        }
+
         return view('post.commentEdit', ['comment' => $comment]);
     }
 
@@ -46,10 +50,15 @@ class CommentsController extends Controller
         ]);
 
         $comment = Comment::findOrFail($id);
+
+        if (auth()->user()->id !== $comment->user_id) {
+            return redirect('/')->with('error', '許可されていない操作です');
+        }
+        
         $comment->comment = $request->comment;
         $comment->save();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'コメントを更新しました。');
     }
 
     /**

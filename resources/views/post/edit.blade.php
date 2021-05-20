@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="panel-body">
+
+    @include('layouts.error_card_list')
+
     <div class="d-flex flex-column align-items-center mt-5">
         <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
             <div class="card">
@@ -26,4 +29,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
