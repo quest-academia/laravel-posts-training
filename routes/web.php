@@ -21,8 +21,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('comments')->group(function () {
         Route::get('/{id}/edit', 'CommentsController@edit')->name('comment.edit');
-        Route::post('/{id}', 'CommentsController@update')->name('comment.update');
         Route::post('/store', 'CommentsController@store')->name('comments.store');
+        Route::post('/{id}', 'CommentsController@update')->name('comment.update');
         Route::delete('/{comment}', 'CommentsController@destroy')->name('comments.destroy');
     });
 });
