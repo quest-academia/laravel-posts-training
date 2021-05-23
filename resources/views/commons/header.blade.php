@@ -10,8 +10,11 @@
 							投稿する
 				</a></li>
 				<li>
-					<a href="" class="nav-link far fa-user fa-lg"></a>
+					
+				<a class="nav-link far fa-user fa-lg" href="{{ route('user.show', ['id' => Auth::id()]) }}">
+                </a>
 				</li>
+		
 			</ul>
 		</div>
 	</nav>

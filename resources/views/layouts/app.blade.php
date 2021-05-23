@@ -19,7 +19,9 @@
     </head>
     <body>
         
-        @include('commons.header')
+        @unless(Request::is(['login','signup']))
+            @include('commons.header')
+        @endunless
         
         <div class="container">
         
