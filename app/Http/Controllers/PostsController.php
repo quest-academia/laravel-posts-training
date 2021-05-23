@@ -64,6 +64,6 @@ class PostsController extends Controller
             $post->delete();
         });
 
-        return redirect()->route('/');
+        return back();
     }
 }
