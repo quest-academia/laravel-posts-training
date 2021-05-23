@@ -9,9 +9,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::orderBy('created_at','desc') -> get();
 
-        return view('posts.index',['posts'=>$posts]);
+        return view('posts.index',['posts' => $posts]);
     }
 
     public function create()
@@ -27,10 +27,10 @@ class PostsController extends Controller
         ]);
         
         $post = new Post();
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->user_id = \Auth::id();
-        $post->save();
+        $post -> title = $request -> title;
+        $post -> body = $request -> body;
+        $post -> user_id = \Auth::id();
+        $post -> save();
         return redirect('/index');
     }
 
@@ -38,7 +38,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($post_id);
         
-        return view('posts.edit',['post'=>$post]);
+        return view('posts.edit',['post' => $post]);
     }
     
     public function update($post_id, Request $request)
@@ -49,10 +49,10 @@ class PostsController extends Controller
         ]);
         
         $post = Post::findOrFail($post_id);
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->user_id = \Auth::id();
-        $post->save();
+        $post -> title = $request -> title;
+        $post -> body = $request -> body;
+        $post -> user_id = \Auth::id();
+        $post -> save();
         return redirect('/index');
     }
 }
