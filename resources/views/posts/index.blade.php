@@ -17,10 +17,10 @@
 			</div>
 			<div class="card-body">
 				<div class="post_edit text-right">
-					<form>
+					{!! Form::open(['route' => ['posts.destroy',$post -> id],'method' => 'delete']) !!}
 					<a href="{{route('posts.edit',['post_id'=>$post->id])}}" class="btn btn-primary btn-sm">編集する</a>
-					<a href="{{route('posts.index')}}" class="btn btn-danger btn-sm">削除する</a>
-					</form>
+					{!! Form::submit('削除する',['class' => 'btn btn-danger btn-sm'])!!}
+					{!! Form::close() !!}
 				</div>
 				<h3 class="h5 title">
 				{{$post->title}}

@@ -9,9 +9,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc') -> get();
+        $posts = Post::orderBy('created_at','desc')->get();
 
-        return view('posts.index',['posts' => $posts]);
+        return view('posts.index',['posts'=>$posts]);
     }
 
     public function create()
@@ -55,5 +55,15 @@ class PostsController extends Controller
         $post -> save();
         return redirect('/index');
     }
-}
 
+    public function destroy($post_id)
+    {
+        $post = Post::findOrFail($post_id);
+
+        \DB::transaction(function() use ($post){
+            $post->delete();
+        });
+
+        return back();
+    }
+}
