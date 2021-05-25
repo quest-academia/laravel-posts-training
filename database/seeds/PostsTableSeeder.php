@@ -29,3 +29,4 @@ class PostsTableSeeder extends Seeder
         ]);
     }
 }
+
