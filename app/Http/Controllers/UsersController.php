@@ -46,7 +46,7 @@ class UsersController extends Controller
         $user->save();
     
         
-        return redirect()->route('user.show',auth()->user()->id);
+        return redirect()->route('user.show',$user->id);
 
     }
 }
