@@ -1,4 +1,6 @@
+
 <header>
+	
 	<nav class="navbar navbar-expand navbar-light bg-light">
 		<a href="/" class="navbar-brand">
 			<i class="fas fa-home fa-2x"></i>
@@ -9,13 +11,18 @@
 					<i class="fas fa-pencil-alt"></i>
 							投稿する
 				</a></li>
+				
+				@if (Auth::check())
 				<li>
-					
-				<a class="nav-link far fa-user fa-lg" href="{{ route('user.show', ['id' => Auth::id()]) }}">
-                </a>
+				<a class="nav-link far fa-user fa-lg" href="{{ route('user.show', ['id'=> Auth::id()]) }}"></a>
 				</li>
+				@else
+				<a class="nav-link far fa-user fa-lg" href="{{ route('login.post') }}"></a>
+				
+				@endif				
 		
 			</ul>
 		</div>
 	</nav>
+	
 </header>
