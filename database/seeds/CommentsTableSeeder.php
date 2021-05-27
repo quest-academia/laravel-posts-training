@@ -13,17 +13,17 @@ class CommentsTableSeeder extends Seeder
     {
         DB::table('comments')->insert([
             'user_id' => '1',
-            'post_id' => '4',
+            'post_id' => '1',
             'body' => 'Hi there.',
         ]);
         DB::table('comments')->insert([
             'user_id' => '2',
-            'post_id' => '7',
+            'post_id' => '2',
             'body' => 'Hi there.',
         ]);
         DB::table('comments')->insert([
             'user_id' => '1',
-            'post_id' => '9',
+            'post_id' => '3',
             'body' => 'Hi there.',
         ]);
     }
