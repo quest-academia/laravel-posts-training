@@ -29,3 +29,4 @@ class CommentsController extends Controller
         return redirect()->route('/', [$savedata['post_id']]);
     }
 }
+
