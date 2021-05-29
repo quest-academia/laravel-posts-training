@@ -7,20 +7,19 @@
 		</a>
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ml-md-auto align-items-center">
-				<li><a href="/create" class="btn btn-info">
-					<i class="fas fa-pencil-alt"></i>
-							投稿する
-				</a></li>
-				
-				@if (Auth::check())
 				<li>
-				<a class="nav-link far fa-user fa-lg" href="{{ route('user.show', ['id'=> Auth::id()]) }}"></a>
+					<a href="/create" class="btn btn-info">
+					<i class="fas fa-pencil-alt"></i>
+					投稿する</a>
 				</li>
-				@else
-				<a class="nav-link far fa-user fa-lg" href="{{ route('login.post') }}"></a>
 				
-				@endif				
-		
+				<li>
+					@if (Auth::check())
+						<a class="nav-link far fa-user fa-lg" href="{{ route('user.show', ['id'=> Auth::id()]) }}"></a>
+					@else
+						<a class="nav-link far fa-user fa-lg" href="{{ route('login.post') }}"></a>
+					@endif
+				</li>
 			</ul>
 		</div>
 	</nav>

@@ -32,5 +32,5 @@ Route::post('/store','PostsController@store')->name('posts.store');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('user/{id}', 'UsersController@show')->name('user.show');
     Route::get('edit/{id}', 'UsersController@getEdit')->name('user.edit');
-    Route::put('edit','UsersController@postEdit')->name('user.postEdit');
+    Route::put('edit/{id}','UsersController@postEdit')->name('user.postEdit');
 });
