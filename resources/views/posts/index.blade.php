@@ -32,12 +32,14 @@
 					<div>
 						<span class="help-block"></span>
 						<div class="container mt-4">
-							<div class="border-top p-1">
-								<span>USER</span>
-								<div class="comments mt-1">
-									<span>comment</span>
+							@foreach($post->comments as $comment)
+								<div class="border-top p-1">
+									<span>{{$comment -> user -> name}}</span>
+									<div class="comments mt-1">
+										<span>{{$comment -> body}}</span>
+									</div>
 								</div>
-							</div>
+							@endforeach
 						</div>
 						<div class="m-4">
 							<input type="text" class="form-control comment-input border-light border mx-auto" placeholder="コメントを入力する">
