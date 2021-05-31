@@ -21,7 +21,7 @@ class UsersController extends Controller
         
         $user = User::findOrFail($id);
         
-            return view('users.show', ['user' => $user] );
+        return view('users.show', ['user' => $user] );
     }
 
     public function getEdit($id)
@@ -30,7 +30,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         
         if ($user->id != Auth::id()) {
-            return redirect('login');
+            return redirect('/');
         }
             return view('users.edit', ['user' => $user] );
     }
@@ -38,7 +38,11 @@ class UsersController extends Controller
     public function postEdit(Request $request, $id)
     {
         
-        $user = User::find($request->id);
+        $user = User::find($id);
+        
+        if ($user->id != Auth::id()) {
+            return redirect('/');
+        }
         
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
