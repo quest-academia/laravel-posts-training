@@ -31,4 +31,6 @@ Route::delete('/destroy/{post_id}','PostsController@destroy')->name('posts.destr
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('user/{id}', 'UsersController@show')->name('user.show');
+    Route::get('edit/{id}', 'UsersController@getEdit')->name('user.edit');
+    Route::put('edit/{id}','UsersController@postEdit')->name('user.postEdit');
 });
