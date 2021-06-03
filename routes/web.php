@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
@@ -29,8 +29,12 @@ Route::get('/edit/{post_id}','PostsController@edit')->name('posts.edit');
 Route::put('/update/{post_id}','PostsController@update')->name('posts.update');
 Route::delete('/destroy/{post_id}','PostsController@destroy')->name('posts.destroy');
 
+//add comment
+Route::get('/comment','CommentsController@store')->name('comments');
+Route::post('/comment','CommentsController@store')->name('comments.store');
+
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('user/{id}', 'UsersController@show')->name('user.show');
-    Route::get('edit/{id}', 'UsersController@getEdit')->name('user.edit');
+    Route::get('user/{id}','UsersController@show')->name('user.show');
+    Route::get('edit/{id}','UsersController@getEdit')->name('user.edit');
     Route::put('edit/{id}','UsersController@postEdit')->name('user.postEdit');
 });
