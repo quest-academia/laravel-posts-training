@@ -24,14 +24,15 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|max:350',
+            'body.*' => 'required|max:5',
+            'post_id' => 'required',
         ];
     }
     
     public function messages()
     {
         return[
-            'body' => 'コメントは必須です',   
+            'body.*' => 'コメントは必須です',   
             
         ];
     }

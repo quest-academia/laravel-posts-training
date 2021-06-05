@@ -30,8 +30,10 @@ Route::put('/update/{post_id}','PostsController@update')->name('posts.update');
 Route::delete('/destroy/{post_id}','PostsController@destroy')->name('posts.destroy');
 
 //add comment
-Route::get('/comment','CommentsController@store')->name('comments');
+Route::group(['middleware' => 'auth'], function() {
+//Route::get('/comment','CommentsController@store')->name('comments');
 Route::post('/comment','CommentsController@store')->name('comments.store');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('user/{id}','UsersController@show')->name('user.show');

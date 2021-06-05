@@ -48,7 +48,7 @@
                             <input name="utf8" type="hidden" value=""/>
                             <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
                             <input value="{{ $post->id }}" type="hidden" name="post_id" />
-                            <input name="body[{{ $post->id }}]" value="{{ old('body') }}" type="text" class="form-control comment-input border-light border mx-auto" placeholder="コメントを入力する">
+                            <input name="body[{{ $post->id }}]" value= "{{ old('body.'.$post->id) }}" type="text" class="form-control comment-input border-light border mx-auto" placeholder="コメントを入力する">
 							<div class="text-right">
 								<input type="submit" class="far fa-comment btn btn-default btn-sm" value="コメント送信">
 							</div>
