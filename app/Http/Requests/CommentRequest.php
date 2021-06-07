@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CommentRequest extends FormRequest
 {
@@ -24,10 +25,14 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body.*' => 'required|max:5',
-            'post_id' => 'required',
+            'body.*' => 'required|max:40',
+            'post_id' => 'required',Rule::exists('comments')->where(function ($query) {
+            $query->where('post_id');
+            }),
         ];
     }
+    
+    // 'exists:comments,post_id'
     
     public function messages()
     {

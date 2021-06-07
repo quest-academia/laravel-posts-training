@@ -14,7 +14,7 @@ public function store(CommentRequest $request, Comment $comment)
 {   
    
     
-    $comment->user_id = $request->user_id;
+    $comment->user_id = Auth::id();
     $comment->post_id = $request->post_id;
     $comment->body = $request->body[$request->post_id];
     

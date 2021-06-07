@@ -2,7 +2,6 @@
 @section('content')
 @foreach($posts as $post)
 <div class="col-md-8 col-md-2 mx-auto">
-</div>
 	<div class="card-wrap">
 		<div class="card mt-3">
 			<div class="card-header align-items-center d-flex">
