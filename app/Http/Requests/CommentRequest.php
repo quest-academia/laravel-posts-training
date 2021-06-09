@@ -26,9 +26,7 @@ class CommentRequest extends FormRequest
     {
         return [
             'body.*' => 'required|max:40',
-            'post_id' => 'required',Rule::exists('comments')->where(function ($query) {
-            $query->where('post_id');
-            }),
+            'post_id' => 'required|exists:posts,id',
         ];
     }
     
@@ -37,8 +35,8 @@ class CommentRequest extends FormRequest
     public function messages()
     {
         return[
-            'body.*' => 'コメントは必須です',   
-            
+            'body.*.required' => 'コメントは必須です',   
+            'body.*.max' => 'コメントは40文字以内で入力してください',    
         ];
     }
 }
