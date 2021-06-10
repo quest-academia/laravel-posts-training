@@ -12,8 +12,10 @@ class PostsController extends Controller
         $posts = Post::orderBy('created_at','desc')->get();
 
         return view('posts.index',['posts'=>$posts]);
+    
+        
     }
-
+    
     public function create()
     {
         return view('posts.create');
@@ -31,6 +33,7 @@ class PostsController extends Controller
         $post -> body = $request -> body;
         $post -> user_id = \Auth::id();
         $post -> save();
+    
         return redirect('/index');
     }
 
