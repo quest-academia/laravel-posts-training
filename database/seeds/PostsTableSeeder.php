@@ -11,25 +11,14 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-	    'title' => 'test1',
-	    'body' => 'testbody1'
-	]);
-	DB::table('posts')->insert([
-            'title' => 'test2',
-            'body' => 'testbody2'
-        ]);
-	DB::table('posts')->insert([
-            'title' => 'test3',
-            'body' => 'testbody3'
-        ]);
-	DB::table('posts')->insert([
-            'title' => 'test4',
-            'body' => 'testbody4'
-        ]);
-	DB::table('posts')->insert([
-            'title' => 'test5',
-            'body' => 'testbody5'
-        ]);	
+        $faker = Faker\Factory::create('ja_JP');
+
+        for($i = 1; $i <= 5;$i++){
+            DB::table('posts')->insert([
+                'title' => 'title'.$i,
+                'body' => $faker->text
+            ]);
+        }
+
     }
 }
