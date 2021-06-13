@@ -3,9 +3,9 @@
 @section('content')
 <div class="container mx-auto mt-5">
     <div class="card">
-        <div class="form-wrap col-xs-6 col-lg-4">
+        <div class="form-wrap col-xs-6 col-lg-4 mx-auto">
             <div class="form-group text-center">
-                <h2 class="logo-img mx-auto">
+                <h2 class="logo-img mx-auto mt-5">
                 新規登録
                 </h2>
             </div>

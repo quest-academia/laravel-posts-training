@@ -22,7 +22,7 @@
 
             
 
-                <div class="container mx-auto">
+                <div class="container">
 
                     @include('commons.error_messages')
 
