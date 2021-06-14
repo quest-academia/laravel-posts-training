@@ -19,4 +19,3 @@ Route::get('/', function () {
 // Authのルーティング
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
