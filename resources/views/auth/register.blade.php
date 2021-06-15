@@ -10,7 +10,7 @@
                 </h2>
             </div>
 
-            <form method="POST" action="{{ route('signup.post') }}">
+            <form method="POST" action="{{ route('register') }}">
             @csrf
                 <div class="form-group">
                     <input class="form-control" placeholder="メールアドレス" autocomplete="email" name="email" value="">
