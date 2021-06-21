@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts() 
+    {
+        // ユーザーは多数の動画を持っている
+        return $this->hasMany(Post::class);
+    }
 }

@@ -11,11 +11,13 @@
 |
 */
 
-// トップページへ
-Route::get('/', function () {
-    return view('auth.register');
-});
+// 投稿一覧ページへ
+Route::get('/', 'PostsController@index');
 
 // Authのルーティング
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// 重複を避けるためのexcept
+Route::resource('posts', 'PostsController', ['except' => ['index']]);
+
