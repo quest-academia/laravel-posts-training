@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    @include('commons.header')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -86,6 +87,7 @@
 
     </div>
 
+    @include('commons.footer')
 
     <!-- JQuery -->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
