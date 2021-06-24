@@ -19,3 +19,17 @@ Route::get('/', function () {
 // Authのルーティング
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ログイン認証を通っている場合のみ、内部のルーティングにアクセス可能
+Route::group(['middleware' => 'auth'], function () {
+    
+    Route::group(['prefix' => 'users'], function(){
+        //ユーザー編集フォームを表示
+        Route::get('/edit', 'UserController@edit');
+        //フォームに入力した情報を更新
+        Route::post('/update','UserController@update')->name('update');
+        //ユーザー更新画面に遷移
+        Route::get('/{id}','UserController@show')->name('details');
+    });
+});
+
