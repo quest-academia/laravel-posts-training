@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreatePostsTable extends Migration
 {
@@ -19,9 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('title', 50);
             $table->string('body');
             $table->timestamps();
-            
-            //usersテーブルとの連携が取れるまでコメントアウト
-            //$table->foreign('user_id')->references('id')->on('users');
+
+            // usersテーブルとの連携
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
