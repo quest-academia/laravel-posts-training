@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
-use App\User;
-use Illuminate\Contracts\View\View;
 
-class UserController extends Controller
+
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -74,7 +73,7 @@ class UserController extends Controller
     {
         //認証しているユーザーを取得
         $user = \Auth::user();
-        
+
         //フォーム画面で入力された値でレコードを更新
         $user->name = $request->name;
         $user->email = $request->email;

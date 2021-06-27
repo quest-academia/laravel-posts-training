@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <!-- エラー表示部分 -->
-            <div class="profile-form-wrap">
+            @include('commons.user_update_error_messages')
+            <div class="profile-form-wrap" style= "border: 1px solid #e6e6e6; padding: 20px; background: #fff;">
                  <form class="edit_user" enctype="multipart/form-data" action="/users/update" accept-charset="UTF-8" method="post">
                     <input name="utf8" type="hidden" value="&#x2713;" />
                     <input type="hidden" name="id" value="{{ Auth::user()->id }}" />

@@ -28,11 +28,11 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['prefix' => 'users'], function(){
         //ユーザー編集フォームを表示
-        Route::get('/edit', 'UserController@edit');
+        Route::get('/edit', 'UsersController@edit');
         //フォームに入力した情報を更新
-        Route::post('/update','UserController@update')->name('update');
+        Route::post('/update','UsersController@update')->name('update');
         //ユーザー更新画面に遷移
-        Route::get('/{id}','UserController@show')->name('details');
+        Route::get('/{id}','UsersController@show')->name('details');
     });
 });
 
