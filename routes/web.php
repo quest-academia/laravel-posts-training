@@ -22,6 +22,6 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     // 重複を避けるためのexcept
     Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
-    Route::delete('posts/{id}', 'PostsController@destory')->name('posts.destroy');
+    Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
 });
