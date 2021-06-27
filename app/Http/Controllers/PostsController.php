@@ -88,7 +88,6 @@ class PostsController extends Controller
     {
         // 受け取ったidをPostモデルから探す
         $post = Post::findOrFail($id);
-        // dd($post);
 
         // ログインユーザ自身の投稿を削除
         if (\Auth::id() == $post->user_id) {
