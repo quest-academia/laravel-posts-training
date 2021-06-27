@@ -80,11 +80,22 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     *@param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        // 受け取ったidをPostモデルから探す
+        $post = Post::findOrFail($id);
+        dd($post);
+
+        // ログインユーザ自身の投稿を削除
+        if (\Auth::id() == $post->user_id) {
+            $post->delete();
+        }
+
+        // 前のURLにリダイレクト
+        return redirect('/');
     }
 }
