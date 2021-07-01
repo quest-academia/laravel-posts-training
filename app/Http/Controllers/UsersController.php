@@ -56,7 +56,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
         //更新フォーム画面へ遷移
         return view('users.edit');
@@ -80,7 +80,7 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         
-        return redirect()->route('details', ['id' => $user->id]);
+        return redirect()->route('show', ['id' => $user->id]);
     }
 
     /**
