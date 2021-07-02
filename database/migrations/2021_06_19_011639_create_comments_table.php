@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCommentsTable extends Migration
 {
@@ -20,11 +20,12 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->timestamps();
 
-            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // usersテーブルに存在するidと一致
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // postテーブルにあるidと一致
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
 
-                
-        
     }
 
     /**

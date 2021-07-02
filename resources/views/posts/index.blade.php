@@ -51,13 +51,35 @@
                             <!-- コメント -->
                             <div id="comment-post-1">
                                 <!-- コメントをここに挿入 -->
+                                <span class="help-block">
+                                </span>
+                                @foreach ($post->comments as $comment)
+                                    <div class="container mt-4">
+                                        <div class="border-top p-1">
+                                            <span>
+                                                <strong>
+                                                    {{-- 後ほどリンク先はユーザ詳細画面にする --}}
+                                                    <a class="no-text-decoration black-color" href="">
+                                                        {{ $comment->user->name }}
+                                                    </a>
+                                                </strong>
+                                            </span>
+                                            <div class="comments mt-1">
+                                                <span>
+                                                    {{ $comment->comment }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
                                 <div class="m-4">
                                     <form class="w-100" action="" method="post">
                                         {{ csrf_field() }}
                                         <input name="utf8" type="hidden" value="" />
                                         <input value="" type="hidden" name="user_id" />
                                         <input value="" type="hidden" name="post_id" />
-                                        <input name="" value=""
+                                        <input name="comment" value=""
                                             class="form-control comment-input border border-light mx-auto"
                                             placeholder="コメントを入力する">
                                         </input>

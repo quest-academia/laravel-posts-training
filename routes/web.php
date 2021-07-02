@@ -24,4 +24,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
     Route::delete('posts/{id}', 'PostsController@destory')->name('posts.destroy');
 
+    // Route::post('/posts/{id}/comments', 'CommentsController@store');
 });

@@ -41,4 +41,5 @@ class User extends Authenticatable
         // ユーザーは多数の投稿を持っている
         return $this->hasMany(Post::class);
     }
+
 }
