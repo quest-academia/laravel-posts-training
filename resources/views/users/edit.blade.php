@@ -7,20 +7,20 @@
             <!-- エラー表示部分 -->
             @include('commons.user_update_error_messages')
             <div class="profile-form-wrap" style= "border: 1px solid #e6e6e6; padding: 20px; background: #fff;">
-                 <form class="edit_user" enctype="multipart/form-data" action="/users/update" accept-charset="UTF-8" method="post">
+                 <form class="edit_user" enctype="multipart/form-data" action="{{ route('users.update', $user->id) }}" accept-charset="UTF-8" method="post">
                  @csrf
                  @method('PUT')
                     <input name="utf8" type="hidden" value="&#x2713;" />
-                    <input type="hidden" name="id" value="{{ Auth::user()->id }}" />
+                    <input type="hidden" name="id" value="{{ $user->id }}" />
                     
                         <div class="form-group">
                             <label for="name">ユーザー名</label>
-                                <input autofocus="autofocus" class="form-control" value="{{ Auth::user()->name }}" name="name" />
+                                <input autofocus="autofocus" class="form-control" value="{{ old('name') ?? $user->name }}" name="name" />
                         </div>
 
                         <div class="form-group">
                             <label for="email">メールアドレス</label>
-                                <input autofocus="autofocus" class="form-control" value="{{ Auth::user()->email }}" name="email" />
+                                <input autofocus="autofocus" class="form-control" value="{{ old('email') ?? $user->email }}" name="email" />
                         </div>
 
                         <div class="form-group">

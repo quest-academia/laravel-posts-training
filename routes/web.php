@@ -18,8 +18,6 @@ Route::get('/', 'PostsController@index');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 //ログイン認証を通っている場合のみ、内部のルーティングにアクセス可能
 Route::group(['middleware' => 'auth'], function () {
     // 重複を避けるためのexcept
@@ -27,12 +25,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
     Route::group(['prefix' => 'users'], function(){
-       
         // ユーザー更新画面に遷移
-        Route::get('/{id}','UsersController@show')->name('show');
+        Route::get('/{id}','UsersController@show')->name('users.show');
         // ユーザー編集フォームを表示
-        Route::get('/{id}/edit', 'UsersController@edit');
+        Route::get('/{id}/edit', 'UsersController@edit')->name('users.edit');
         // フォームに入力した情報で更新
-        Route::put('/{id}','UsersController@update')->name('update');
+        Route::put('/{id}','UsersController@update')->name('users.update');
     });
 });

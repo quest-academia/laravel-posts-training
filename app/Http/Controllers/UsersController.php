@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\User;
 use Illuminate\Http\Request;
 
 
@@ -58,8 +59,13 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $user = User::findOrFail($id);
+        // リクエストで受け取ったIDと認証しているユーザーIDが一致しているかチェック
+        if(\Auth::id() !== $user->id){
+            return redirect('/');
+        }
         //更新フォーム画面へ遷移
-        return view('users.edit');
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -69,18 +75,24 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request)
+    public function update(UpdateUserRequest $request, $id)
     {
+        $requestId = User::findOrFail($id);
         //認証しているユーザーを取得
         $user = \Auth::user();
-
+        // リクエストで受け取ったIDと認証しているユーザーIDが一致しているかチェック
+        if($requestId !== $user->id){
+            // 前の画面に戻る
+            return back();
+        }
         //フォーム画面で入力された値でレコードを更新
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
-        
-        return redirect()->route('show', ['id' => $user->id]);
+    
+        // ユーザー詳細画面に遷移
+        return redirect()->route('users.show', ['id' => $user->id]);
     }
 
     /**
