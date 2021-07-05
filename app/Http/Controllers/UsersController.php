@@ -77,11 +77,11 @@ class UsersController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-        $requestId = User::findOrFail($id);
         //認証しているユーザーを取得
         $user = \Auth::user();
+        // dd($user->id, $id);
         // リクエストで受け取ったIDと認証しているユーザーIDが一致しているかチェック
-        if($requestId !== $user->id){
+        if($id != $user->id){
             // 前の画面に戻る
             return back();
         }
