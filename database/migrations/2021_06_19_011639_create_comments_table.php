@@ -24,10 +24,10 @@ class CreateCommentsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             // postテーブルにあるidと一致
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+
         });
 
     }
-
     /**
      * Reverse the migrations.
      *

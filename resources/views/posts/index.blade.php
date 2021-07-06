@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="jumbotron">
         <h1 class="display-4 text-center">Laravel Post <i class="fas fa-mail-bulk"></i></h1>
     </div>
@@ -11,9 +10,7 @@
         @include('commons.error_messages')
     </div>
 
-
     <div class="col-md-8 col-md-2 mx-auto">
-
         @foreach ($posts as $post)
             <div class="card-wrap">
                 <div class="card mt-3">
@@ -23,7 +20,6 @@
                         </a>
                         <a class="black-color" title="" href="">
                             <strong>
-                                {{-- $postからモデルの紐付けにより名前取得 --}}
                                 {{ $post->user->name }}
                             </strong>
                         </a>
@@ -33,68 +29,44 @@
                             @if (Auth::id() == $post->user_id)
                                 <a class="btn btn-primary btn-sm" href=""><i class="far fa-edit"></i>編集
                                 </a>
-                                <a class="btn btn-danger btn-sm" rel="nofollow"
-                                    href="{{ route('posts.destroy', [$post->id]) }}"><i class=" far fa-trash-alt"></i>削除
+                                <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
                                 </a>
                             @endif
                         </div>
-
                         <h3 class="h5 title">
-                            {{-- titleカラムを取得 --}}
                             {{ $post->title }}
                         </h3>
                         <div class="mb-5">
-                            {{-- bodyカラムを取得 --}}
                             {{ $post->body }}
                         </div>
-                        <section>
+
+                        @foreach ($post->comments as $comment)
                             <!-- コメント -->
                             <div id="comment-post-1">
                                 <!-- コメントをここに挿入 -->
-                                <span class="help-block">
-                                </span>
-                                @foreach ($post->comments as $comment)
-                                    <div class="container mt-4">
-                                        <div class="border-top p-1">
-                                            <span>
-                                                <strong>
-                                                    {{-- 後ほどリンク先はユーザ詳細画面にする --}}
-                                                    <a class="no-text-decoration black-color" href="">
-                                                        {{ $comment->user->name }}
-                                                    </a>
-                                                </strong>
-                                            </span>
-                                            <div class="comments mt-1">
-                                                <span>
-                                                    {{ $comment->comment }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                                <div class="m-4">
-                                    <form class="w-100" action="" method="post">
-                                        {{ csrf_field() }}
-                                        <input name="utf8" type="hidden" value="" />
-                                        <input value="" type="hidden" name="user_id" />
-                                        <input value="" type="hidden" name="post_id" />
-                                        <input name="comment" value=""
-                                            class="form-control comment-input border border-light mx-auto"
-                                            placeholder="コメントを入力する">
-                                        </input>
-                                        <div class="text-right">
-                                            <input type="submit" value="&#xf075;コメント送信"
-                                                class="far fa-comment btn btn-default btn-sm">
-                                            </input>
-                                        </div>
-                                    </form>
+                                @include('comments.comment')
+                        @endforeach
+                        <div class="m-4">
+                            <form class="w-100" action="{{ route('comments.store') }}" method="post">
+                                {{ csrf_field() }}
+                                <input name="utf8" type="hidden" value="" />
+                                <input value="" type="hidden" name="user_id" />
+                                <input value="{{ $post->id }}" type="hidden" name="post_id" />
+                                <input name="comment" value=""
+                                    class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
+                                </input>
+                                <div class="text-right">
+                                    <input type="submit" value="&#xf075;コメント送信"
+                                        class="far fa-comment btn btn-default btn-sm">
+                                    </input>
                                 </div>
-                            </div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        @endforeach
-    @endsection
-</div>
-</section>
+    </div>
+    @endforeach
+    </div>
+@endsection

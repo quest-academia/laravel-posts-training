@@ -11,18 +11,16 @@
 |
  */
 
-// 投稿一覧ページへ
-Route::get('/', 'PostsController@index');
-
 // Authのルーティング
 Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
 
 //ログイン認証を通っている場合のみ、内部のルーティングにアクセス可能
 Route::group(['middleware' => 'auth'], function () {
+    // 投稿一覧ページへ
+    Route::get('/', 'PostsController@index');
     // 重複を避けるためのexcept
     Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
     Route::delete('posts/{id}', 'PostsController@destory')->name('posts.destroy');
 
-    // Route::post('/posts/{id}/comments', 'CommentsController@store');
+    Route::post('/posts/comments', 'CommentsController@store')->name('comments.store');
 });
