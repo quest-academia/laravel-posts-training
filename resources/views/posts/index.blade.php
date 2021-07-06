@@ -30,11 +30,16 @@
                     </div>
                     <div class="card-body">
                         <div class="post_edit text-right">
-                            <a class="btn btn-primary btn-sm" href=""><i class="far fa-edit"></i>編集
-                            </a>
-                            <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
-                            </a>
+                            @if (Auth::id() == $post->user_id)
+                                <a class="btn btn-primary btn-sm" href=""><i class="far fa-edit"></i>編集
+                                </a>
+                                <a class="btn btn-danger btn-sm" rel="nofollow"
+                                    href="{{ route('posts.destroy', ['id' => $post->id]) }}"><i
+                                        class=" far fa-trash-alt"></i>削除
+                                </a>
+                            @endif
                         </div>
+
                         <h3 class="h5 title">
                             {{-- titleカラムを取得 --}}
                             {{ $post->title }}
