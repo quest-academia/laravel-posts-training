@@ -97,7 +97,7 @@ return [
     'numeric'              => ':attribute は数字のみ有効です',
     'present'              => ':attribute が存在しません',
     'regex'                => ':attribute 無効な値です',
-    'required'             => ':attribute は必須です',
+    'required'             => ':attribute は必ず指定してください',
     'required_if'          => ':attribute は :other が :value には必須です',
     'required_unless'      => ':attribute は :other が :values でなければ必須です',
     'required_with'        => ':attribute は :values が入力されている場合は必須です',
@@ -154,6 +154,10 @@ return [
       |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'タイトル',
+        'body' => '本文'
+
+    ],
 
 ];
