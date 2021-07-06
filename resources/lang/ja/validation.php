@@ -42,7 +42,7 @@ return [
     'digits_between'       => ':attribute は :min ～ :max 桁のみ有効です',
     'dimensions'           => ':attribute ルールに合致する画像サイズのみ有効です',
     'distinct'             => ':attribute に重複している値があります',
-    'email'                => ':attribute メールアドレスの書式のみ有効です',
+    'email'                => ':attribute には、有効なメールアドレスを指定してください。',
     'exists'               => ':attribute 無効な値です',
     'file'                 => ':attribute アップロード出来ないファイルです',
     'filled'               => ':attribute 値を入力してください',
@@ -97,7 +97,7 @@ return [
     'numeric'              => ':attribute は数字のみ有効です',
     'present'              => ':attribute が存在しません',
     'regex'                => ':attribute 無効な値です',
-    'required'             => ':attribute は必須です',
+    'required'             => ':attribute は必ず指定してください。',
     'required_if'          => ':attribute は :other が :value には必須です',
     'required_unless'      => ':attribute は :other が :values でなければ必須です',
     'required_with'        => ':attribute は :values が入力されている場合は必須です',
@@ -154,6 +154,10 @@ return [
       |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'ユーザー名',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+    ],
 
 ];

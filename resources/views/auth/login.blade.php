@@ -8,6 +8,7 @@
                     <h2 class="logo-img mx-auto mt-5">
                         ログイン
                     </h2>
+                    @include('commons.error_messages')
                 </div>
                 <form class="new_user" id="new_user" action="{{ route('login') }}" accept-charset="UTF-8" method="post">
                     {{ csrf_field() }}
