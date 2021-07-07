@@ -53,12 +53,11 @@
                                 <input value="" type="hidden" name="user_id" />
                                 <input value="{{ $post->id }}" type="hidden" name="post_id" />
                                 <input name="comment" value=""
-                                    class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
-                                </input>
+                                    class="form-control comment-input border border-light mx-auto"
+                                    placeholder="コメントを入力する" />
                                 <div class="text-right">
                                     <input type="submit" value="&#xf075;コメント送信"
-                                        class="far fa-comment btn btn-default btn-sm">
-                                    </input>
+                                        class="far fa-comment btn btn-default btn-sm" />
                                 </div>
                             </form>
                         </div>
@@ -66,7 +65,6 @@
 
                 </div>
             </div>
-    </div>
-    @endforeach
+        @endforeach
     </div>
 @endsection
