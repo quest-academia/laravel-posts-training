@@ -30,7 +30,9 @@
                                 <a class="btn btn-primary btn-sm" href="/posts/{{ $post->id }}/edit"><i
                                         class="far fa-edit"></i>編集
                                 </a>
-                                <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
+                                <a class="btn btn-danger btn-sm" rel="nofollow"
+                                    href="{{ route('posts.destroy', ['id' => $post->id]) }}"><i
+                                        class=" far fa-trash-alt"></i>削除
                                 </a>
                             @endif
                         </div>
