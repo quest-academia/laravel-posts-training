@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        //投稿新規作成画面に遷移
+        return view('posts.create');
     }
 
     /**
@@ -38,9 +40,16 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        //フォームで入力された値をレコードに追加
+        $posts = new Post;
+        $posts->title = $request->title;
+        $posts->body = $request->body;
+        $posts->user_id = \Auth::id();
+        $posts->save();
+
+        return redirect('/');
     }
 
     /**

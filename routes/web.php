@@ -24,6 +24,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
     Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
+    // 投稿新規作成ページへ
+    Route::get('posts/new', 'PostsController@create')->name('posts.create');
+    // 投稿するボタン押下後の処理をstoreアクションへ指定
+    Route::post('posts/store', 'PostsController@store')->name('posts.store');
+
     Route::group(['prefix' => 'users'], function(){
         // ユーザー更新画面に遷移
         Route::get('/{id}','UsersController@show')->name('users.show');
