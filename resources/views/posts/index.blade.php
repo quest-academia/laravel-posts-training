@@ -27,7 +27,8 @@
                     <div class="card-body">
                         <div class="post_edit text-right">
                             @if (Auth::id() == $post->user_id)
-                                <a class="btn btn-primary btn-sm" href=""><i class="far fa-edit"></i>編集
+                                <a class="btn btn-primary btn-sm" href="/posts/{{ $post->id }}/edit"><i
+                                        class="far fa-edit"></i>編集
                                 </a>
                                 <a class="btn btn-danger btn-sm" rel="nofollow" href=""><i class="far fa-trash-alt"></i>削除
                                 </a>

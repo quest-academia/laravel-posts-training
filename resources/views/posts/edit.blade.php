@@ -10,14 +10,16 @@
                         投稿の編集
                     </div>
                     <div class="card-body">
-                        <form class="upload" id="new_post" enctype="multipart/form-data" action="" accept-charset="UTF-8"
-                            method="POST">
+                        <form class="upload" id="new_post" enctype="multipart/form-data" action="/posts/{{ $post->id }}"
+                            accept-charset="UTF-8" method="POST">
                             {{ csrf_field() }}
                             <div class="md-form">
-                                <input class="form-control" placeholder="タイトル" type="text" name="title" value="" />
+                                <input class="form-control" placeholder="タイトル" type="text" name="title"
+                                    value="{{ old('title') ?? $post->title }}" />
                             </div>
                             <div class="form-group">
-                                <textarea name="body" class="form-control" rows="10" placeholder="本文"></textarea>
+                                <textarea name="body" class="form-control" rows="10"
+                                    placeholder="本文">{{ old('body') ?? $post->body }}</textarea>
                             </div>
                             <div class="text-center">
                                 <input type="submit" name="commit" value="更新する" class="btn btn-primary w-25"

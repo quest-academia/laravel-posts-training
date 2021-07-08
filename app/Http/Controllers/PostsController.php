@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostsUpdateRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -62,7 +63,18 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        // 投稿者以外の編集を規制
+        if (auth()->user()->id != $post->user_id) {
+            return redirect('/');
+        }
+
+        //更新画面へ
+        return view('posts.edit', [
+            'post' => $post,
+        ]);
+
     }
 
     /**
@@ -72,9 +84,22 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostsUpdateRequest $request, $id)
     {
-        //
+        // idで受け取ったものを更新する
+        $post = Post::findOrFail($id);
+
+        // 投稿者以外の編集を規制
+        if (auth()->user()->id != $post->user_id) {
+            return redirect('/');
+        }
+
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/');
+
     }
 
     /**

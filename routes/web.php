@@ -19,7 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
     // 投稿一覧ページへ
     Route::get('/', 'PostsController@index');
     // 重複を避けるためのexcept
-    Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
+    Route::resource('posts', 'PostsController', ['except' => ['index', 'update', 'destroy']]);
+    Route::post('posts/{post}', 'PostsController@update');
     Route::delete('posts/{id}', 'PostsController@destory')->name('posts.destroy');
 
     Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
