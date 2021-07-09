@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePostRequest;
-use App\Post;
+use App\Http\Requests\UpdateUserRequest;
+use App\User;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // 投稿を全件取得
-        $posts = Post::all();
-
-        return view('posts.index', [
-            'posts' => $posts,
-        ]);
+        //
     }
 
     /**
@@ -30,8 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //投稿新規作成画面に遷移
-        return view('posts.create');
+        //
     }
 
     /**
@@ -40,16 +35,9 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePostRequest $request)
+    public function store(Request $request)
     {
-        //フォームで入力された値をレコードに追加
-        $posts = new Post;
-        $posts->title = $request->title;
-        $posts->body = $request->body;
-        $posts->user_id = \Auth::id();
-        $posts->save();
-
-        return redirect('/');
+        //
     }
 
     /**
@@ -71,7 +59,13 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        // リクエストで受け取ったIDと認証しているユーザーIDが一致しているかチェック
+        if(\Auth::id() !== $user->id){
+            return redirect('/');
+        }
+        //更新フォーム画面へ遷移
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -81,29 +75,34 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        //認証しているユーザーを取得
+        $user = \Auth::user();
+        // dd($user->id, $id);
+        // リクエストで受け取ったIDと認証しているユーザーIDが一致しているかチェック
+        if($id != $user->id){
+            // 前の画面に戻る
+            return back();
+        }
+        //フォーム画面で入力された値でレコードを更新
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+    
+        // ユーザー詳細画面に遷移
+        return redirect()->route('users.show', ['id' => $user->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     *@param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        // 受け取ったidをPostモデルから探す
-        $post = Post::findOrFail($id);
-
-        // ログインユーザ自身の投稿を削除
-        if (\Auth::id() == $post->user_id) {
-            $post->delete();
-        }
-
-        // 前のURLにリダイレクト
-        return redirect('/');
+        //
     }
 }
