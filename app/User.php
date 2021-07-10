@@ -1,4 +1,4 @@
-<?php
+use App\User<?php
 
 namespace App;
 
