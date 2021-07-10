@@ -13,4 +13,11 @@ class Post extends Model
         // 投稿は一人のユーザーに属する
         return $this->belongsTo(User::class);
     }
+
+    public function comments()
+    {
+        // 投稿は多数のコメントを持っている
+        return $this->hasMany(Comment::class);
+    }
+
 }

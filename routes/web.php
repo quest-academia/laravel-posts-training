@@ -11,19 +11,19 @@
 |
  */
 
-// 投稿一覧ページへ
-Route::get('/', 'PostsController@index');
-
 // Authのルーティング
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 //ログイン認証を通っている場合のみ、内部のルーティングにアクセス可能
 Route::group(['middleware' => 'auth'], function () {
+    // 投稿一覧ページへ
+    Route::get('/', 'PostsController@index');
     // 重複を避けるためのexcept
     Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
     Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
+    Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
+  
     // 投稿新規作成ページへ
     Route::get('posts/new', 'PostsController@create')->name('posts.create');
     // 投稿するボタン押下後の処理をstoreアクションへ指定
