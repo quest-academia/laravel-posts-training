@@ -62,7 +62,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                 document.getElementById('logout-form').submit();">
+                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -82,7 +82,7 @@
 
     <div class="container">
 
-        {{-- @include('commons.error_messages') --}}
+        <!-- @include('commons.error_messages') -->
 
         @yield('content')
 
