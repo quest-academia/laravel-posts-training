@@ -16,10 +16,5 @@ class PostsTableSeeder extends Seeder
             'title'=> 'a',
             'message'=> 'a'
         ]);
-        DB::table('posts')->insert([
-            'user_id'=>'2',
-            'title'=> 'b',
-            'message'=> 'b'
-        ]);
     }
 }
