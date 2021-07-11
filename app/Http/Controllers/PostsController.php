@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
-use App\Http\Requests\PostsUpdateRequest;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -75,15 +75,12 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
 
         // 投稿者以外の編集を規制
-        if (auth()->user()->id != $post->user_id) {
+        if (Auth::id() != $post->user_id) {
             return redirect('/');
         }
 
         //更新画面へ
-        return view('posts.edit', [
-            'post' => $post,
-        ]);
-
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -93,13 +90,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostsUpdateRequest $request, $id)
+    public function update(CreatePostRequest $request, $id)
     {
         // idで受け取ったものを更新する
         $post = Post::findOrFail($id);
 
         // 投稿者以外の編集を規制
-        if (auth()->user()->id != $post->user_id) {
+        if (Auth::id() != $post->user_id) {
             return redirect('/');
         }
 
@@ -124,7 +121,7 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
 
         // ログインユーザ自身の投稿を削除
-        if (\Auth::id() == $post->user_id) {
+        if (Auth::id() == $post->user_id) {
             $post->delete();
         }
 
