@@ -21,9 +21,9 @@
 </head>
 
 <body>
-    @if(Auth::check())
+    @auth
         @include('commons.header')
-    @endif
+    @endauth
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
