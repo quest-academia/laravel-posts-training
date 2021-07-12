@@ -1,5 +1,4 @@
-use App\User<?php
-
+<?php
 namespace App;
 
 use Illuminate\Notifications\Notifiable;

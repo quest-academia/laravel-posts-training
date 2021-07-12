@@ -26,14 +26,20 @@ class CreateCommentsTable extends Migration
              // コメント送信日時
             $table->timestamps();
             
+            // 2021/07/12 postの投稿者idはpostsテーブルから取得するため不要
             // コメント投稿元の投稿者ID
-            $table->integer('post_user_id')->unsigned()->index();
+            // $table->integer('post_user_id')->unsigned()->index();
             
+            // 2021/07/12 投稿元の「posts」テーブルのidなので「post_comment_id」→「posts_id」に変更
             // コメント投稿元の投稿ID
-            $table->integer('post_comment_id')->unsigned()->index();
+            $table->integer('post_id')->unsigned()->index();
             
+            // 2021/07/12 投稿元の「posts」テーブルのidなので「post_comment_id」→「posts_id」に変更
             // postsテーブルの投稿内容が削除されたら、commentテーブルのコメント内容を削除する
-            // $table->foreign('post_comment_id')->references('id')->on('posts')->onDelete('cascade');
+            // $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            
+            // usersテーブルの投稿内容が削除されたら、commentテーブルのユーザー情報を削除する
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

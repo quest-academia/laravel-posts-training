@@ -10,24 +10,17 @@ class CommentsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        DB::table('comments')->insert([
-            'user_id' => '1',
-            'message' => 'sample1',
-            'post_user_id' => '1',
-            'post_comment_id' => '1'
-        ]);
-        DB::table('comments')->insert([
-            'user_id' => '2',
-            'message' => 'sample2',
-            'post_user_id' => '2',
-            'post_comment_id' => '2'
-        ]);
-        DB::table('comments')->insert([
-            'user_id' => '3',
-            'message' => 'sample3',
-            'post_user_id' => '3',
-            'post_comment_id' => '3'
-        ]);
+    {   
+        // 2021/07/12 forで多くのダミーデータを作成できるよう修正(実務で使用する)
+        for ($i = 1; $i <= 10; $i++) 
+        {
+            DB::table('comments')->insert([
+                'user_id' => $i,
+                'message' => 'sample' . $i,
+                'post_id' => $i,
+                // 2021/07/12 commentsテーブルから「post_comment_id」を削除したため、コメントアウト
+                // 'post_comment_id' => $i
+            ]);
+        }
     }
 }
