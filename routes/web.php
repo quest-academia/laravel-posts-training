@@ -18,23 +18,25 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     // 投稿一覧ページへ
     Route::get('/', 'PostsController@index');
-    // 重複を避けるためのexcept
-    Route::resource('posts', 'PostsController', ['except' => ['index', 'destroy']]);
-    Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
-    Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
-  
     // 投稿新規作成ページへ
     Route::get('posts/new', 'PostsController@create')->name('posts.create');
     // 投稿するボタン押下後の処理をstoreアクションへ指定
     Route::post('posts/store', 'PostsController@store')->name('posts.store');
+    // 重複を避けるためのexcept
+    Route::resource('posts', 'PostsController', ['except' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('postsdelete/{id}/edit', 'PostsController@edit')->name('posts.edit');
+    Route::post('posts/{post}', 'PostsController@update')->name('posts.update');
+    Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
-    Route::group(['prefix' => 'users'], function(){
+    Route::post('/comments/store', 'CommentsController@store')->name('comments.store');
+
+    Route::group(['prefix' => 'users'], function () {
         // ユーザー更新画面に遷移
-        Route::get('/{id}','UsersController@show')->name('users.show');
+        Route::get('/{id}', 'UsersController@show')->name('users.show');
         // ユーザー編集フォームを表示
         Route::get('/{id}/edit', 'UsersController@edit')->name('users.edit');
         // フォームに入力した情報で更新
-        Route::put('/{id}','UsersController@update')->name('users.update');
+        Route::put('/{id}', 'UsersController@update')->name('users.update');
     });
 });
