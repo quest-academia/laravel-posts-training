@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\PostRequest;
 use App\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
@@ -41,7 +40,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePostRequest $request)
+    public function store(PostRequest $request)
     {
         //フォームで入力された値をレコードに追加
         $posts = new Post;
@@ -90,7 +89,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreatePostRequest $request, $id)
+    public function update(PostRequest $request, $id)
     {
         // idで受け取ったものを更新する
         $post = Post::findOrFail($id);

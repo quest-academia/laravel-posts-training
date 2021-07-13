@@ -24,8 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
     // 投稿するボタン押下後の処理をstoreアクションへ指定
     Route::post('posts/store', 'PostsController@store')->name('posts.store');
     // 重複を避けるためのexcept
-    Route::resource('posts', 'PostsController', ['except' => ['index', 'create', 'store', 'update', 'destroy']]);
-    Route::post('posts/{post}', 'PostsController@update');
+    Route::resource('posts', 'PostsController', ['except' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
+    Route::get('postsdelete/{id}/edit', 'PostsController@edit')->name('posts.edit');
+    Route::post('posts/{post}', 'PostsController@update')->name('posts.update');
     Route::get('postsdelete/{id}', 'PostsController@destroy')->name('posts.destroy');
 
     Route::post('/comments/store', 'CommentsController@store')->name('comments.store');

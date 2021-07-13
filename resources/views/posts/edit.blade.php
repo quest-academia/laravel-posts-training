@@ -10,8 +10,8 @@
                         投稿の編集
                     </div>
                     <div class="card-body">
-                        <form class="upload" id="new_post" enctype="multipart/form-data" action="/posts/{{ $post->id }}"
-                            accept-charset="UTF-8" method="POST">
+                        <form class="upload" id="new_post" enctype="multipart/form-data"
+                            action="{{ route('posts.update', $post->id) }}" accept-charset="UTF-8" method="POST">
                             {{ csrf_field() }}
                             <div class="md-form">
                                 <input class="form-control" placeholder="タイトル" type="text" name="title"
