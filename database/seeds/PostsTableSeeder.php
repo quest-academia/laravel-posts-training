@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
 
 class PostsTableSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
          for ($i = 1; $i <= 3; $i++) {
-            Comment::create([
+            Post::create([
                 'user_id' => 1,
                 'title' => 'これはテストタイトル' .$i,
                 'text' => 'これはテスト本文' .$i,
